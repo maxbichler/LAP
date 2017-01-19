@@ -1,6 +1,0 @@
-USE master;
-GO
-
-IF NOT DB_ID('reisebuero') IS NULL ALTER DATABASE reisebuero SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
-IF NOT DB_ID('reisebuero') IS NULL DROP DATABASE reisebuero;
-GO
