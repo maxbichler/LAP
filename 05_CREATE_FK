@@ -1,0 +1,107 @@
+USE  ITIN20LAP
+GO
+
+ALTER TABLE roomfurnishings 
+ADD
+CONSTRAINT fk_roomfurnishings_rooms
+FOREIGN KEY (rooms_id)
+REFERENCES rooms(id)
+GO
+ 
+
+ALTER TABLE roomfurnishings 
+ADD
+CONSTRAINT fk_roomfurnishings_furnishings
+FOREIGN KEY (furnishings_id)
+REFERENCES furnishings(id)
+GO
+
+ALTER TABLE rooms 
+ADD
+CONSTRAINT fk_rooms_floors
+FOREIGN KEY (floors_id)
+REFERENCES floors(id)
+GO
+ 
+
+ALTER TABLE floors 
+ADD
+CONSTRAINT fk_floors_facilities
+FOREIGN KEY (facilities_id)
+REFERENCES facilities(id)
+GO
+ 
+
+ALTER TABLE bookings 
+ADD
+CONSTRAINT fk_bookings_rooms
+FOREIGN KEY (rooms_id)
+REFERENCES rooms(id)
+GO
+ 
+
+ALTER TABLE bookings 
+ADD
+CONSTRAINT fk_bookings_portalusers
+FOREIGN KEY (portalusers_id)
+REFERENCES portalusers(id)
+GO
+ 
+
+ALTER TABLE bookingreversals 
+ADD
+CONSTRAINT fk_bookingreversals_bookings
+FOREIGN KEY (bookings_id)
+REFERENCES bookings(id)
+GO
+
+ALTER TABLE bookingreversals 
+ADD
+CONSTRAINT fk_bookingreversals_portalusers
+FOREIGN KEY (portalusers_id)
+REFERENCES portalusers(id)
+GO
+ 
+
+ALTER TABLE portalusers 
+ADD
+CONSTRAINT fk_portalusers_portalroles
+FOREIGN KEY (portalroles_id)
+REFERENCES portalroles(id)
+GO
+ 
+
+ALTER TABLE contacts 
+ADD
+CONSTRAINT fk_contacts_portalusers
+FOREIGN KEY (portalusers_id)
+REFERENCES portalusers(id)
+GO
+
+ALTER TABLE contacts 
+ADD
+CONSTRAINT fk_contacts_companies
+FOREIGN KEY (companies_id)
+REFERENCES companies(id)
+GO
+
+ALTER TABLE billdetails 
+ADD
+CONSTRAINT fk_billdetails_bills
+FOREIGN KEY (bills_id)
+REFERENCES bills(id)
+GO
+
+ALTER TABLE billdetails 
+ADD
+CONSTRAINT fk_billdetails_bookings
+FOREIGN KEY (bookings_id)
+REFERENCES bookings(id)
+GO
+
+ALTER TABLE bills 
+ADD
+CONSTRAINT fk_bills_portalusers
+FOREIGN KEY (portalusers_id)
+REFERENCES portalusers(id)
+GO
