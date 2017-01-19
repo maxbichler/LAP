@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTestITIN20Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Artikel">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Kategorie" Type="Int32" Nullable="false" />
+    <Property Name="Bezeichnung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Preis" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Kategorie" Relationship="Self.FK_tblArtikel_tblKategorien" FromRole="tblArtikel" ToRole="tblKategorien" />
+  </EntityType>
+  <EntityType Name="Kategorie">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AlleArtikel" Relationship="Self.FK_tblArtikel_tblKategorien" FromRole="tblKategorien" ToRole="tblArtikel" />
+  </EntityType>
+  <Association Name="FK_tblArtikel_tblKategorien">
+    <End Role="tblKategorien" Type="dbTestITIN20Model.Kategorie" Multiplicity="1" />
+    <End Role="tblArtikel" Type="dbTestITIN20Model.Artikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategorien">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblArtikel">
+        <PropertyRef Name="ID_Kategorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbTestITIN20Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AlleArtikel" EntityType="dbTestITIN20Model.Artikel" />
+    <EntitySet Name="AlleKategorien" EntityType="dbTestITIN20Model.Kategorie" />
+    <AssociationSet Name="FK_tblArtikel_tblKategorien" Association="Self.FK_tblArtikel_tblKategorien">
+      <End Role="tblKategorien" EntitySet="AlleKategorien" />
+      <End Role="tblArtikel" EntitySet="AlleArtikel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

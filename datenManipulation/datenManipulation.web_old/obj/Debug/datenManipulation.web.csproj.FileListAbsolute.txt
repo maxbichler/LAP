@@ -1,0 +1,104 @@
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\csc.exe
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CSharp.Core.targets
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\System.Collections.Immutable.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\System.Reflection.Metadata.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\vbc.exe
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\VBCSCompiler.exe
+d:\temp\datenManipulation\datenManipulation.web\bin\roslyn\VBCSCompiler.exe.config
+d:\temp\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.dll.config
+d:\temp\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.pdb
+d:\temp\datenManipulation\datenManipulation.web\bin\Antlr3.Runtime.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\Microsoft.Web.Infrastructure.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\Newtonsoft.Json.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Helpers.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Mvc.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Optimization.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Razor.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Deployment.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Razor.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\WebGrease.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Helpers.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Mvc.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Optimization.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.Razor.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Deployment.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Razor.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\Antlr3.Runtime.pdb
+d:\temp\datenManipulation\datenManipulation.web\bin\Newtonsoft.Json.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.Helpers.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.Mvc.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.Optimization.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.Razor.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.Deployment.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.Razor.resources.dll
+d:\temp\datenManipulation\datenManipulation.web\obj\Debug\datenManipulation.web.csprojResolveAssemblyReference.cache
+d:\temp\datenManipulation\datenManipulation.web\obj\Debug\ASP.NET MVC.dll
+d:\temp\datenManipulation\datenManipulation.web\obj\Debug\ASP.NET MVC.pdb
+d:\temp\datenManipulation\datenManipulation.web\bin\datenManipulation.logic.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\EntityFramework.dll
+d:\temp\datenManipulation\datenManipulation.web\bin\datenManipulation.logic.pdb
+d:\temp\datenManipulation\datenManipulation.web\bin\EntityFramework.xml
+d:\temp\datenManipulation\datenManipulation.web\bin\de\EntityFramework.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\csc.exe
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\vbc.exe
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\VBCSCompiler.exe
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.dll.config
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\ASP.NET MVC.pdb
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Antlr3.Runtime.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\datenManipulation.logic.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Helpers.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Mvc.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Optimization.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Razor.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Razor.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\WebGrease.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\EntityFramework.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\datenManipulation.logic.pdb
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Helpers.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Mvc.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Optimization.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.Razor.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\System.Web.WebPages.Razor.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Antlr3.Runtime.pdb
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\EntityFramework.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.Helpers.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.Mvc.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.Optimization.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.Razor.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\System.Web.WebPages.Razor.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\bin\de\EntityFramework.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\obj\Debug\datenManipulation.web.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\obj\Debug\ASP.NET MVC.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.web\obj\Debug\ASP.NET MVC.pdb

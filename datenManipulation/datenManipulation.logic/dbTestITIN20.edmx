@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbTestITIN20Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblArtikel">
+          <Key>
+            <PropertyRef Name="pkArtikel" />
+          </Key>
+          <Property Name="pkArtikel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkKategorie" Type="int" Nullable="false" />
+          <Property Name="bezeichnung" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="preis" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblKategorien">
+          <Key>
+            <PropertyRef Name="pkKategorie" />
+          </Key>
+          <Property Name="pkKategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bezeichnung" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tblArtikel_tblKategorien">
+          <End Role="tblKategorien" Type="Self.tblKategorien" Multiplicity="1" />
+          <End Role="tblArtikel" Type="Self.tblArtikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblKategorien">
+              <PropertyRef Name="pkKategorie" />
+            </Principal>
+            <Dependent Role="tblArtikel">
+              <PropertyRef Name="fkKategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbTestITIN20ModelStoreContainer">
+          <EntitySet Name="tblArtikel" EntityType="Self.tblArtikel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKategorien" EntityType="Self.tblKategorien" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tblArtikel_tblKategorien" Association="Self.FK_tblArtikel_tblKategorien">
+            <End Role="tblKategorien" EntitySet="tblKategorien" />
+            <End Role="tblArtikel" EntitySet="tblArtikel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbTestITIN20Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artikel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Kategorie" Type="Int32" Nullable="false" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Preis" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Kategorie" Relationship="Self.FK_tblArtikel_tblKategorien" FromRole="tblArtikel" ToRole="tblKategorien" />
+        </EntityType>
+        <EntityType Name="Kategorie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bezeichnung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AlleArtikel" Relationship="Self.FK_tblArtikel_tblKategorien" FromRole="tblKategorien" ToRole="tblArtikel" />
+        </EntityType>
+        <Association Name="FK_tblArtikel_tblKategorien">
+          <End Role="tblKategorien" Type="dbTestITIN20Model.Kategorie" Multiplicity="1" />
+          <End Role="tblArtikel" Type="dbTestITIN20Model.Artikel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblKategorien">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tblArtikel">
+              <PropertyRef Name="ID_Kategorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbTestITIN20Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlleArtikel" EntityType="dbTestITIN20Model.Artikel" />
+          <EntitySet Name="AlleKategorien" EntityType="dbTestITIN20Model.Kategorie" />
+          <AssociationSet Name="FK_tblArtikel_tblKategorien" Association="Self.FK_tblArtikel_tblKategorien">
+            <End Role="tblKategorien" EntitySet="AlleKategorien" />
+            <End Role="tblArtikel" EntitySet="AlleArtikel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbTestITIN20ModelStoreContainer" CdmEntityContainer="dbTestITIN20Entities">
+          <EntitySetMapping Name="AlleArtikel">
+            <EntityTypeMapping TypeName="dbTestITIN20Model.Artikel">
+              <MappingFragment StoreEntitySet="tblArtikel">
+                <ScalarProperty Name="ID" ColumnName="pkArtikel" />
+                <ScalarProperty Name="ID_Kategorie" ColumnName="fkKategorie" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="bezeichnung" />
+                <ScalarProperty Name="Preis" ColumnName="preis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlleKategorien">
+            <EntityTypeMapping TypeName="dbTestITIN20Model.Kategorie">
+              <MappingFragment StoreEntitySet="tblKategorien">
+                <ScalarProperty Name="ID" ColumnName="pkKategorie" />
+                <ScalarProperty Name="Bezeichnung" ColumnName="bezeichnung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

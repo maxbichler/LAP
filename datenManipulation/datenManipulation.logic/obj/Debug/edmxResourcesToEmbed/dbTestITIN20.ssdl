@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbTestITIN20Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblArtikel">
+    <Key>
+      <PropertyRef Name="pkArtikel" />
+    </Key>
+    <Property Name="pkArtikel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fkKategorie" Type="int" Nullable="false" />
+    <Property Name="bezeichnung" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="preis" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblKategorien">
+    <Key>
+      <PropertyRef Name="pkKategorie" />
+    </Key>
+    <Property Name="pkKategorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bezeichnung" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblArtikel_tblKategorien">
+    <End Role="tblKategorien" Type="Self.tblKategorien" Multiplicity="1" />
+    <End Role="tblArtikel" Type="Self.tblArtikel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblKategorien">
+        <PropertyRef Name="pkKategorie" />
+      </Principal>
+      <Dependent Role="tblArtikel">
+        <PropertyRef Name="fkKategorie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbTestITIN20ModelStoreContainer">
+    <EntitySet Name="tblArtikel" EntityType="Self.tblArtikel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblKategorien" EntityType="Self.tblKategorien" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblArtikel_tblKategorien" Association="Self.FK_tblArtikel_tblKategorien">
+      <End Role="tblKategorien" EntitySet="tblKategorien" />
+      <End Role="tblArtikel" EntitySet="tblArtikel" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

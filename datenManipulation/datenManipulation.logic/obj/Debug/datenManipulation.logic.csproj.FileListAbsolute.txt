@@ -1,0 +1,17 @@
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.dll.config
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.dll
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.pdb
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\EntityFramework.dll
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\EntityFramework.xml
+d:\temp\datenManipulation\datenManipulation.logic\bin\Debug\de\EntityFramework.resources.dll
+d:\temp\datenManipulation\datenManipulation.logic\obj\Debug\datenManipulation.logic.csprojResolveAssemblyReference.cache
+d:\temp\datenManipulation\datenManipulation.logic\obj\Debug\datenManipulation.logic.dll
+d:\temp\datenManipulation\datenManipulation.logic\obj\Debug\datenManipulation.logic.pdb
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.dll.config
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\datenManipulation.logic.pdb
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\obj\Debug\datenManipulation.logic.dll
+C:\Users\Admin\Desktop\datenManipulation\datenManipulation.logic\obj\Debug\datenManipulation.logic.pdb

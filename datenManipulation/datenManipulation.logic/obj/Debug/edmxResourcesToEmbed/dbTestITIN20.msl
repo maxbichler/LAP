@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbTestITIN20ModelStoreContainer" CdmEntityContainer="dbTestITIN20Entities">
+    <EntitySetMapping Name="AlleArtikel">
+      <EntityTypeMapping TypeName="dbTestITIN20Model.Artikel">
+        <MappingFragment StoreEntitySet="tblArtikel">
+          <ScalarProperty Name="ID" ColumnName="pkArtikel" />
+          <ScalarProperty Name="ID_Kategorie" ColumnName="fkKategorie" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="bezeichnung" />
+          <ScalarProperty Name="Preis" ColumnName="preis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AlleKategorien">
+      <EntityTypeMapping TypeName="dbTestITIN20Model.Kategorie">
+        <MappingFragment StoreEntitySet="tblKategorien">
+          <ScalarProperty Name="ID" ColumnName="pkKategorie" />
+          <ScalarProperty Name="Bezeichnung" ColumnName="bezeichnung" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
