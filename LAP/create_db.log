@@ -1,0 +1,186 @@
+ECHO ist ausgeschaltet (OFF).
+. 
+"starting database creation 12:10:50,07" 
+. 
+"try dropping database" 
+1> 2> 1> 2> 3> 4> 1> 2> 3> 4> 5> 6>  
+ 
+"try creating database" 
+1> 2> 1> 2> 3> 1> 2> 3>  
+ 
+"try creating tables" 
+1> 2> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 25> 26> 27> 28> 29> 30> 31> 32> 33> 34> 35> 36> 37> 38> 39> 40> 41> 42> 43> 44> 45> 46> 47> 48> 49> 50> 51> 52> 53> 54> 55> 56> 57> 58> 59> 60> 61> 62> 63> 64> 65> 66> 67> 68> 69> 70> 71> 72> 73> 74> 75> 76> 77> 78> 79> 80> 81> 82> 83> 84> 85> 86> 87> 88> 89> 90> 91> 92> 93> 94> 95> 96> 97> 98> 99> 100> 1>  
+ 
+"try creating primary keys" 
+1> 2> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 1> 2>  
+ 
+"try creating foreign keys" 
+1> 2> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7>  
+ 
+"try creating indexes" 
+1> 2> 3>  
+ 
+"try inserting values" 
+1> 2> 1> 2> 3> 4> 5> 6> 7> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 16
+Der Wert NULL kann in die floor_id-Spalte, ITIN20LAP.dbo.rooms-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 17
+Der Wert NULL kann in die floor_id-Spalte, ITIN20LAP.dbo.rooms-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 18
+Der Wert NULL kann in die floor_id-Spalte, ITIN20LAP.dbo.rooms-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 19
+Der Wert NULL kann in die floor_id-Spalte, ITIN20LAP.dbo.rooms-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 20
+Der Wert NULL kann in die floor_id-Spalte, ITIN20LAP.dbo.rooms-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 9
+Der Wert NULL kann in die facility_id-Spalte, ITIN20LAP.dbo.floors-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 10
+Der Wert NULL kann in die facility_id-Spalte, ITIN20LAP.dbo.floors-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 11
+Der Wert NULL kann in die facility_id-Spalte, ITIN20LAP.dbo.floors-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 12
+Der Wert NULL kann in die facility_id-Spalte, ITIN20LAP.dbo.floors-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 13
+Der Wert NULL kann in die facility_id-Spalte, ITIN20LAP.dbo.floors-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> 6> 7> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 9
+Der Wert NULL kann in die booking_id-Spalte,
+ITIN20LAP.dbo.bookingreversals-Tabelle nicht eingefgt werden. Die Spalte
+l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 10
+Der Wert NULL kann in die booking_id-Spalte,
+ITIN20LAP.dbo.bookingreversals-Tabelle nicht eingefgt werden. Die Spalte
+l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 11
+Der Wert NULL kann in die booking_id-Spalte,
+ITIN20LAP.dbo.bookingreversals-Tabelle nicht eingefgt werden. Die Spalte
+l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 12
+Der Wert NULL kann in die booking_id-Spalte,
+ITIN20LAP.dbo.bookingreversals-Tabelle nicht eingefgt werden. Die Spalte
+l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 13
+Der Wert NULL kann in die booking_id-Spalte,
+ITIN20LAP.dbo.bookingreversals-Tabelle nicht eingefgt werden. Die Spalte
+l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 9
+Der Wert NULL kann in die room_id-Spalte, ITIN20LAP.dbo.bookings-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 10
+Der Wert NULL kann in die room_id-Spalte, ITIN20LAP.dbo.bookings-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 11
+Der Wert NULL kann in die room_id-Spalte, ITIN20LAP.dbo.bookings-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 12
+Der Wert NULL kann in die room_id-Spalte, ITIN20LAP.dbo.bookings-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 13
+Der Wert NULL kann in die room_id-Spalte, ITIN20LAP.dbo.bookings-Tabelle nicht
+eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 16
+Der Wert NULL kann in die portaluser_id-Spalte, ITIN20LAP.dbo.bills-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 17
+Der Wert NULL kann in die portaluser_id-Spalte, ITIN20LAP.dbo.bills-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 18
+Der Wert NULL kann in die portaluser_id-Spalte, ITIN20LAP.dbo.bills-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 19
+Der Wert NULL kann in die portaluser_id-Spalte, ITIN20LAP.dbo.bills-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 20
+Der Wert NULL kann in die portaluser_id-Spalte, ITIN20LAP.dbo.bills-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 9
+Der Wert NULL kann in die role_id-Spalte, ITIN20LAP.dbo.portalusers-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 10
+Der Wert NULL kann in die role_id-Spalte, ITIN20LAP.dbo.portalusers-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 11
+Der Wert NULL kann in die role_id-Spalte, ITIN20LAP.dbo.portalusers-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 12
+Der Wert NULL kann in die role_id-Spalte, ITIN20LAP.dbo.portalusers-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+Meldung '515', Ebene '16', Status '2', Server 'ADMIN-PC', Zeile 13
+Der Wert NULL kann in die role_id-Spalte, ITIN20LAP.dbo.portalusers-Tabelle
+nicht eingefgt werden. Die Spalte l„sst NULL-Werte nicht zu. Fehler bei
+INSERT.
+Die Anweisung wurde beendet.
+1> 2> 3> 4> 5> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1>  
+ 
+. 
+"stopping database creation 12:10:51,12" 
+. 
