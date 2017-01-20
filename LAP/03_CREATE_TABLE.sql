@@ -2,90 +2,90 @@ USE  ITIN20LAP
 GO
 
 CREATE TABLE furnishings(
-id INT idENTITY (1,1),
-description VARCHAR(50)
+id INT IDENTITY (1,1) NOT NULL,
+description VARCHAR(50) NULL
 )
 
 CREATE TABLE roomfurnishings(
-id INT idENTITY (1,1),
-room_id INT,
-furnishing_id INT
+id INT IDENTITY (1,1) NOT NULL,
+room_id INT NOT NULL,
+furnishing_id INT NOT NULL
 )
 
 CREATE TABLE rooms(
-id INT idENTITY (1,1),
-floor_id INT,
-description VARCHAR(50)
+id INT IDENTITY (1,1) NOT NULL,
+floor_id INT NOT NULL,
+description VARCHAR(50) NULL
 )
 
 CREATE TABLE floors(
-id INT idENTITY (1,1),
-facility_id INT,
-description VARCHAR(50)
+id INT IDENTITY (1,1) NOT NULL,
+facility_id INT NOT NULL,
+description VARCHAR(50) NULL
 )
 
 CREATE TABLE facilities(
-id INT idENTITY (1,1),
-facilityname VARCHAR(50),
-zip VARCHAR(50),
-city VARCHAR(50),
-street VARCHAR(50),
-number VARCHAR(50)
+id INT IDENTITY (1,1) NOT NULL,
+facilityname VARCHAR(50) NOT NULL,
+zip VARCHAR(50) NOT NULL,
+city VARCHAR(50) NOT NULL,
+street VARCHAR(50) NOT NULL,
+number VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE bookings(
-id INT idENTITY(1,1),
-room_id INT,
-portaluser_id INT,
-date DATETIME
+id INT IDENTITY(1,1) NOT NULL,
+room_id INT NOT NULL,
+portaluser_id INT NOT NULL,
+date DATETIME NOT NULL
 )
 
 CREATE TABLE billdetails(
-id INT idENTITY(1,1),
-bill_id INT,
-booking_id INT
+id INT IDENTITY(1,1) NOT NULL,
+bill_id INT NOT NULL,
+booking_id INT NOT NULL
 )
 
 CREATE TABLE bills(
-id INT idENTITY(1,1),
-date DATETIME,
-portaluser_id INT
+id INT IDENTITY(1,1) NOT NULL,
+date DATETIME NOT NULL,
+portaluser_id INT NOT NULL
 )
 
 CREATE TABLE portalusers(
-id INT idENTITY(1,1),
-role_id INT,
-email VARCHAR(255),
-password VARCHAR(255),
-firstname VARCHAR(50),
-lastname VARCHAR(50)
+id INT IDENTITY(1,1) NOT NULL,
+role_id INT NOT NULL,
+email VARCHAR(255) NOT NULL,
+password VARBINARY(1000) NOT NULL,
+firstname VARCHAR(50) NOT NULL,
+lastname VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE portalroles(
-id INT idENTITY (1,1),
-description	 VARCHAR(50)
+id INT IDENTITY (1,1) NOT NULL,
+description	 VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE contacts(
-id INT idENTITY(1,1),
-portaluser_id INT,
-company_id INT
+id INT IDENTITY(1,1) NOT NULL,
+portaluser_id INT NOT NULL,
+company_id INT NOT NULL
 )
 
 CREATE TABLE companies(
-id INT idENTITY(1,1),
-companyname VARCHAR(50),
-zip VARCHAR(50),
-city VARCHAR(50),
-street VARCHAR(50),
-number VARCHAR(50)
+id INT IDENTITY(1,1) NOT NULL,
+companyname VARCHAR(50) NOT NULL,
+zip VARCHAR(50) NOT NULL,
+city VARCHAR(50) NOT NULL,
+street VARCHAR(50) NOT NULL,
+number VARCHAR(50) NOT NULL
 )
 
 CREATE TABLE bookingreversals(
-id INT IDENTITY(1,1),
-booking_id INT,
-portaluser_id INT,
-reason VARCHAR(50)
+id INT IDENTITY(1,1) NOT NULL,
+booking_id INT NOT NULL,
+portaluser_id INT NOT NULL,
+reason VARCHAR(50) NOT NULL
 );
 
 GO
