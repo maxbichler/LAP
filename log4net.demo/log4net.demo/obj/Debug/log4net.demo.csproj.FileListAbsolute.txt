@@ -1,0 +1,16 @@
+d:\temp\log4net.demo\log4net.demo\bin\Debug\log4net.demo.exe.config
+d:\temp\log4net.demo\log4net.demo\bin\Debug\log4net.demo.exe
+d:\temp\log4net.demo\log4net.demo\bin\Debug\log4net.demo.pdb
+d:\temp\log4net.demo\log4net.demo\bin\Debug\log4net.dll
+d:\temp\log4net.demo\log4net.demo\bin\Debug\log4net.xml
+d:\temp\log4net.demo\log4net.demo\obj\Debug\log4net.demo.csprojResolveAssemblyReference.cache
+d:\temp\log4net.demo\log4net.demo\obj\Debug\log4net.demo.exe
+d:\temp\log4net.demo\log4net.demo\obj\Debug\log4net.demo.pdb
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\bin\Debug\log4net.demo.exe.config
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\obj\Debug\log4net.demo.exe
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\obj\Debug\log4net.demo.pdb
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\bin\Debug\log4net.demo.exe
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\bin\Debug\log4net.demo.pdb
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\bin\Debug\log4net.dll
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\bin\Debug\log4net.xml
+C:\Users\Admin\Desktop\log4net.demo\log4net.demo\obj\Debug\log4net.demo.csprojResolveAssemblyReference.cache
