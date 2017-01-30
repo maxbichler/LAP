@@ -14,12 +14,6 @@ furnishing_id INT NOT NULL
 
 CREATE TABLE rooms(
 id INT IDENTITY (1,1) NOT NULL,
-floor_id INT NOT NULL,
-description VARCHAR(50) NULL
-)
-
-CREATE TABLE floors(
-id INT IDENTITY (1,1) NOT NULL,
 facility_id INT NOT NULL,
 description VARCHAR(50) NULL
 )
@@ -42,8 +36,9 @@ date DATETIME NOT NULL
 
 CREATE TABLE billdetails(
 id INT IDENTITY(1,1) NOT NULL,
-bill_id INT NOT NULL,
-booking_id INT NOT NULL
+booking_id INT NOT NULL,
+date DATETIME NOT NULL,
+bill_id INT NULL
 )
 
 CREATE TABLE bills(
