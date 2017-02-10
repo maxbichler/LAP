@@ -1,42 +1,101 @@
 ﻿<!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - innovation4austria</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+    <div class="container">
+        <div class="right">
+            <a href="#openModal">Login</a>
+        </div>
+        <div id="openModal" class="modalDialog">
+            <div>
+                <a href="#close" title="Close" class="close">X</a>
+                @*<h2>Login</h2>*@
+                <br />
+                <div class="center row">
+                    <div>
+                        <div class="col-lg-offset-4 col-lg-4">
+                            <b class="left">Email</b><br />
+                            <input id="email" type="text" /><br />
+                        </div>
+                        <div class="col-lg-offset-4 col-lg-4">
+                            <b class="left">Passwort</b><br />
+                            <input id="passwort" type="password"/>
+                        </div>
+                        
+                        @*Email
+                        <input id="email" type="text" />*@
+                    </div>
+                    @*<p>
+                        Passwort
+                        <input id="passwort" type="password" />
+                    </p>*@
+
+                    <br />
+
+                    <input id="okButton" type="button" value="Login" />
+                </div>
             </div>
         </div>
+        <div class="site-header">
+            <div class="menu">
+                <div class="navbar">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="fw-icon-th-list"></i>
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Über uns</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">AGB</a></li>
+                            <li><a href="#">Kontakt</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    @RenderBody()
+
+    <div class="container">
+        <div class="copy-rights">
+            Copyright(c) innovation4austria 2017
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        //$('#myCarousel').carousel({
+        //    interval: 1800
+        //});
+    </script>
+
 </body>
 </html>
