@@ -15,6 +15,6 @@ namespace innovation4austria.web.Models
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [StringLength(24, ErrorMessage = "8-16 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]
-        public string Passwort { get; set; }
+        public string Password { get; set; }
     }
 }

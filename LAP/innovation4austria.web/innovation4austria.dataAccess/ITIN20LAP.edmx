@@ -1,0 +1,900 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ITIN20LAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="billdetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bill_id" Type="int" Nullable="false" />
+          <Property Name="booking_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="portaluser_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bookingreversals">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="booking_id" Type="int" Nullable="false" />
+          <Property Name="portaluser_id" Type="int" Nullable="false" />
+          <Property Name="reason" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bookings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="portaluser_id" Type="int" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="companies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="companyname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="contacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="portaluser_id" Type="int" Nullable="false" />
+          <Property Name="company_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="facilities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facilityname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="zip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="number" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="furnishings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Während der Generierung sind Fehler aufgetreten:
+Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel definiert. Der Schlüssel wurde abgeleitet, und die Definition wurde als schreibgeschützte Tabelle/Sicht erstellt.-->
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Thread" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Logger" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Exception" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="portalroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="portalusers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
+          <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="roomfurnishings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_id" Type="int" Nullable="false" />
+          <Property Name="furnishing_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rooms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facility_id" Type="int" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="fk_billdetails_bills">
+          <End Role="bills" Type="Self.bills" Multiplicity="1" />
+          <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billdetails">
+              <PropertyRef Name="bill_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_billdetails_bookings">
+          <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
+          <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bookings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billdetails">
+              <PropertyRef Name="booking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bills_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bills" Type="Self.bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bills">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookingreversals_bookings">
+          <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
+          <End Role="bookingreversals" Type="Self.bookingreversals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bookings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookingreversals">
+              <PropertyRef Name="booking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookingreversals_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bookingreversals" Type="Self.bookingreversals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookingreversals">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookings_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bookings" Type="Self.bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookings">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookings_rooms">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1" />
+          <End Role="bookings" Type="Self.bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookings">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contacts_companies">
+          <End Role="companies" Type="Self.companies" Multiplicity="1" />
+          <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contacts_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_portalusers_portalroles">
+          <End Role="portalroles" Type="Self.portalroles" Multiplicity="1" />
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="portalusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_roomfurnishings_furnishings">
+          <End Role="furnishings" Type="Self.furnishings" Multiplicity="1" />
+          <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="furnishings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roomfurnishings">
+              <PropertyRef Name="furnishing_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_roomfurnishings_rooms">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1" />
+          <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roomfurnishings">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rooms_facilities">
+          <End Role="facilities" Type="Self.facilities" Multiplicity="1" />
+          <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="facilities">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rooms">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIN20LAPModelStoreContainer">
+          <EntitySet Name="billdetails" EntityType="Self.billdetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bookingreversals" EntityType="Self.bookingreversals" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bookings" EntityType="Self.bookings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contacts" EntityType="Self.contacts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="facilities" EntityType="Self.facilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="furnishings" EntityType="Self.furnishings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="portalroles" EntityType="Self.portalroles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="portalusers" EntityType="Self.portalusers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roomfurnishings" EntityType="Self.roomfurnishings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rooms" EntityType="Self.rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[Log].[Id] AS [Id], 
+[Log].[Date] AS [Date], 
+[Log].[Thread] AS [Thread], 
+[Log].[Level] AS [Level], 
+[Log].[Logger] AS [Logger], 
+[Log].[Message] AS [Message], 
+[Log].[Exception] AS [Exception]
+FROM [dbo].[Log] AS [Log]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_billdetails_bills" Association="Self.fk_billdetails_bills">
+            <End Role="bills" EntitySet="bills" />
+            <End Role="billdetails" EntitySet="billdetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_billdetails_bookings" Association="Self.fk_billdetails_bookings">
+            <End Role="bookings" EntitySet="bookings" />
+            <End Role="billdetails" EntitySet="billdetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bills_portalusers" Association="Self.fk_bills_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bills" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookingreversals_bookings" Association="Self.fk_bookingreversals_bookings">
+            <End Role="bookings" EntitySet="bookings" />
+            <End Role="bookingreversals" EntitySet="bookingreversals" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookingreversals_portalusers" Association="Self.fk_bookingreversals_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bookingreversals" EntitySet="bookingreversals" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookings_portalusers" Association="Self.fk_bookings_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bookings" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookings_rooms" Association="Self.fk_bookings_rooms">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="bookings" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contacts_companies" Association="Self.fk_contacts_companies">
+            <End Role="companies" EntitySet="companies" />
+            <End Role="contacts" EntitySet="contacts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contacts_portalusers" Association="Self.fk_contacts_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="contacts" EntitySet="contacts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_portalusers_portalroles" Association="Self.fk_portalusers_portalroles">
+            <End Role="portalroles" EntitySet="portalroles" />
+            <End Role="portalusers" EntitySet="portalusers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_roomfurnishings_furnishings" Association="Self.fk_roomfurnishings_furnishings">
+            <End Role="furnishings" EntitySet="furnishings" />
+            <End Role="roomfurnishings" EntitySet="roomfurnishings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_roomfurnishings_rooms" Association="Self.fk_roomfurnishings_rooms">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="roomfurnishings" EntitySet="roomfurnishings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rooms_facilities" Association="Self.fk_rooms_facilities">
+            <End Role="facilities" EntitySet="facilities" />
+            <End Role="rooms" EntitySet="rooms" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ITIN20LAPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="billdetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="bill_id" Type="Int32" Nullable="false" />
+          <Property Name="booking_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="bills" Relationship="Self.fk_billdetails_bills" FromRole="billdetails" ToRole="bills" />
+          <NavigationProperty Name="bookings" Relationship="Self.fk_billdetails_bookings" FromRole="billdetails" ToRole="bookings" />
+        </EntityType>
+        <EntityType Name="bills">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="portaluser_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="billdetails" Relationship="Self.fk_billdetails_bills" FromRole="bills" ToRole="billdetails" />
+          <NavigationProperty Name="portalusers" Relationship="Self.fk_bills_portalusers" FromRole="bills" ToRole="portalusers" />
+        </EntityType>
+        <EntityType Name="bookingreversals">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="booking_id" Type="Int32" Nullable="false" />
+          <Property Name="portaluser_id" Type="Int32" Nullable="false" />
+          <Property Name="reason" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bookings" Relationship="Self.fk_bookingreversals_bookings" FromRole="bookingreversals" ToRole="bookings" />
+          <NavigationProperty Name="portalusers" Relationship="Self.fk_bookingreversals_portalusers" FromRole="bookingreversals" ToRole="portalusers" />
+        </EntityType>
+        <EntityType Name="bookings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="portaluser_id" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="billdetails" Relationship="Self.fk_billdetails_bookings" FromRole="bookings" ToRole="billdetails" />
+          <NavigationProperty Name="bookingreversals" Relationship="Self.fk_bookingreversals_bookings" FromRole="bookings" ToRole="bookingreversals" />
+          <NavigationProperty Name="portalusers" Relationship="Self.fk_bookings_portalusers" FromRole="bookings" ToRole="portalusers" />
+          <NavigationProperty Name="rooms" Relationship="Self.fk_bookings_rooms" FromRole="bookings" ToRole="rooms" />
+        </EntityType>
+        <EntityType Name="companies">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_companies" FromRole="companies" ToRole="contacts" />
+        </EntityType>
+        <EntityType Name="contacts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="portaluser_id" Type="Int32" Nullable="false" />
+          <Property Name="company_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="companies" Relationship="Self.fk_contacts_companies" FromRole="contacts" ToRole="companies" />
+          <NavigationProperty Name="portalusers" Relationship="Self.fk_contacts_portalusers" FromRole="contacts" ToRole="portalusers" />
+        </EntityType>
+        <EntityType Name="facilities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facilityname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="rooms" Relationship="Self.fk_rooms_facilities" FromRole="facilities" ToRole="rooms" />
+        </EntityType>
+        <EntityType Name="furnishings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="roomfurnishings" Relationship="Self.fk_roomfurnishings_furnishings" FromRole="furnishings" ToRole="roomfurnishings" />
+        </EntityType>
+        <EntityType Name="portalroles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="portalusers" Relationship="Self.fk_portalusers_portalroles" FromRole="portalroles" ToRole="portalusers" />
+        </EntityType>
+        <EntityType Name="portalusers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="Binary" MaxLength="1000" FixedLength="false" Nullable="false" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="bills" Relationship="Self.fk_bills_portalusers" FromRole="portalusers" ToRole="bills" />
+          <NavigationProperty Name="bookingreversals" Relationship="Self.fk_bookingreversals_portalusers" FromRole="portalusers" ToRole="bookingreversals" />
+          <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_portalusers" FromRole="portalusers" ToRole="bookings" />
+          <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_portalusers" FromRole="portalusers" ToRole="contacts" />
+          <NavigationProperty Name="portalroles" Relationship="Self.fk_portalusers_portalroles" FromRole="portalusers" ToRole="portalroles" />
+        </EntityType>
+        <EntityType Name="roomfurnishings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_id" Type="Int32" Nullable="false" />
+          <Property Name="furnishing_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="furnishings" Relationship="Self.fk_roomfurnishings_furnishings" FromRole="roomfurnishings" ToRole="furnishings" />
+          <NavigationProperty Name="rooms" Relationship="Self.fk_roomfurnishings_rooms" FromRole="roomfurnishings" ToRole="rooms" />
+        </EntityType>
+        <EntityType Name="rooms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facility_id" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_rooms" FromRole="rooms" ToRole="bookings" />
+          <NavigationProperty Name="facilities" Relationship="Self.fk_rooms_facilities" FromRole="rooms" ToRole="facilities" />
+          <NavigationProperty Name="roomfurnishings" Relationship="Self.fk_roomfurnishings_rooms" FromRole="rooms" ToRole="roomfurnishings" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="Thread" />
+            <PropertyRef Name="Level" />
+            <PropertyRef Name="Logger" />
+            <PropertyRef Name="Message" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Thread" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Logger" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Exception" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="fk_billdetails_bills">
+          <End Role="bills" Type="Self.bills" Multiplicity="1" />
+          <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bills">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billdetails">
+              <PropertyRef Name="bill_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_billdetails_bookings">
+          <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
+          <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bookings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="billdetails">
+              <PropertyRef Name="booking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bills_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bills" Type="Self.bills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bills">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookingreversals_bookings">
+          <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
+          <End Role="bookingreversals" Type="Self.bookingreversals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bookings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookingreversals">
+              <PropertyRef Name="booking_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookingreversals_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bookingreversals" Type="Self.bookingreversals" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookingreversals">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookings_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="bookings" Type="Self.bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookings">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bookings_rooms">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1" />
+          <End Role="bookings" Type="Self.bookings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="bookings">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contacts_companies">
+          <End Role="companies" Type="Self.companies" Multiplicity="1" />
+          <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contacts_portalusers">
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+          <End Role="contacts" Type="Self.contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalusers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="contacts">
+              <PropertyRef Name="portaluser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_rooms_facilities">
+          <End Role="facilities" Type="Self.facilities" Multiplicity="1" />
+          <End Role="rooms" Type="Self.rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="facilities">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="rooms">
+              <PropertyRef Name="facility_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_roomfurnishings_furnishings">
+          <End Role="furnishings" Type="Self.furnishings" Multiplicity="1" />
+          <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="furnishings">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roomfurnishings">
+              <PropertyRef Name="furnishing_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_portalusers_portalroles">
+          <End Role="portalroles" Type="Self.portalroles" Multiplicity="1" />
+          <End Role="portalusers" Type="Self.portalusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="portalroles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="portalusers">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_roomfurnishings_rooms">
+          <End Role="rooms" Type="Self.rooms" Multiplicity="1" />
+          <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rooms">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="roomfurnishings">
+              <PropertyRef Name="room_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ITIN20LAPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="billdetails" EntityType="Self.billdetails" />
+          <EntitySet Name="bills" EntityType="Self.bills" />
+          <EntitySet Name="bookingreversals" EntityType="Self.bookingreversals" />
+          <EntitySet Name="bookings" EntityType="Self.bookings" />
+          <EntitySet Name="companies" EntityType="Self.companies" />
+          <EntitySet Name="contacts" EntityType="Self.contacts" />
+          <EntitySet Name="facilities" EntityType="Self.facilities" />
+          <EntitySet Name="furnishings" EntityType="Self.furnishings" />
+          <EntitySet Name="portalroles" EntityType="Self.portalroles" />
+          <EntitySet Name="portalusers" EntityType="Self.portalusers" />
+          <EntitySet Name="roomfurnishings" EntityType="Self.roomfurnishings" />
+          <EntitySet Name="rooms" EntityType="Self.rooms" />
+          <EntitySet Name="Log" EntityType="Self.Log" />
+          <AssociationSet Name="fk_billdetails_bills" Association="Self.fk_billdetails_bills">
+            <End Role="bills" EntitySet="bills" />
+            <End Role="billdetails" EntitySet="billdetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_billdetails_bookings" Association="Self.fk_billdetails_bookings">
+            <End Role="bookings" EntitySet="bookings" />
+            <End Role="billdetails" EntitySet="billdetails" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bills_portalusers" Association="Self.fk_bills_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bills" EntitySet="bills" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookingreversals_bookings" Association="Self.fk_bookingreversals_bookings">
+            <End Role="bookings" EntitySet="bookings" />
+            <End Role="bookingreversals" EntitySet="bookingreversals" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookingreversals_portalusers" Association="Self.fk_bookingreversals_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bookingreversals" EntitySet="bookingreversals" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookings_portalusers" Association="Self.fk_bookings_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="bookings" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bookings_rooms" Association="Self.fk_bookings_rooms">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="bookings" EntitySet="bookings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contacts_companies" Association="Self.fk_contacts_companies">
+            <End Role="companies" EntitySet="companies" />
+            <End Role="contacts" EntitySet="contacts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contacts_portalusers" Association="Self.fk_contacts_portalusers">
+            <End Role="portalusers" EntitySet="portalusers" />
+            <End Role="contacts" EntitySet="contacts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_rooms_facilities" Association="Self.fk_rooms_facilities">
+            <End Role="facilities" EntitySet="facilities" />
+            <End Role="rooms" EntitySet="rooms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_roomfurnishings_furnishings" Association="Self.fk_roomfurnishings_furnishings">
+            <End Role="furnishings" EntitySet="furnishings" />
+            <End Role="roomfurnishings" EntitySet="roomfurnishings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_portalusers_portalroles" Association="Self.fk_portalusers_portalroles">
+            <End Role="portalroles" EntitySet="portalroles" />
+            <End Role="portalusers" EntitySet="portalusers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_roomfurnishings_rooms" Association="Self.fk_roomfurnishings_rooms">
+            <End Role="rooms" EntitySet="rooms" />
+            <End Role="roomfurnishings" EntitySet="roomfurnishings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ITIN20LAPModelStoreContainer" CdmEntityContainer="ITIN20LAPEntities">
+          <EntitySetMapping Name="billdetails">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.billdetails">
+              <MappingFragment StoreEntitySet="billdetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bills">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.bills">
+              <MappingFragment StoreEntitySet="bills">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bookingreversals">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.bookingreversals">
+              <MappingFragment StoreEntitySet="bookingreversals">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+                <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+                <ScalarProperty Name="reason" ColumnName="reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bookings">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.bookings">
+              <MappingFragment StoreEntitySet="bookings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.companies">
+              <MappingFragment StoreEntitySet="companies">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="companyname" ColumnName="companyname" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contacts">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.contacts">
+              <MappingFragment StoreEntitySet="contacts">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="facilities">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.facilities">
+              <MappingFragment StoreEntitySet="facilities">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="facilityname" ColumnName="facilityname" />
+                <ScalarProperty Name="zip" ColumnName="zip" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="number" ColumnName="number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="furnishings">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.furnishings">
+              <MappingFragment StoreEntitySet="furnishings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="portalroles">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.portalroles">
+              <MappingFragment StoreEntitySet="portalroles">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="portalusers">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.portalusers">
+              <MappingFragment StoreEntitySet="portalusers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roomfurnishings">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.roomfurnishings">
+              <MappingFragment StoreEntitySet="roomfurnishings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="room_id" ColumnName="room_id" />
+                <ScalarProperty Name="furnishing_id" ColumnName="furnishing_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rooms">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.rooms">
+              <MappingFragment StoreEntitySet="rooms">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="facility_id" ColumnName="facility_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="ITIN20LAPModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Thread" ColumnName="Thread" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Logger" ColumnName="Logger" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Exception" ColumnName="Exception" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
