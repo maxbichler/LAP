@@ -6,9 +6,11 @@ Author URI: http://www.os-templates.com/
 Licence: Free to use under our free template licence terms
 Licence URI: http://www.os-templates.com/template-terms
 -->
+@Styles.Render("~/Content/css")
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Photomatic</title>
+    @*<title>Photomatic</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
     <script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
@@ -17,34 +19,36 @@ Licence URI: http://www.os-templates.com/template-terms
     <script type="text/javascript" src="layout/scripts/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
     <script type="text/javascript">
     </script>
-    <!-- End FancyBox -->
+    <!-- End FancyBox -->*@
 </head>
 <body id="top">
     <div class="wrapper col1">
         <div id="header">
             <div class="fl_left">
-                <h1><a href="index.html">Photomatic</a></h1>
-                <p>Free Website Template</p>
+                <h1><a href="index.html">Innovation4Austria</a></h1>
             </div>
             <div id="topnav">
                 <ul>
                     <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="pages/style-demo.html">Style Demo</a></li>
-                    <li><a href="pages/full-width.html">Full Width</a></li>
-                    <li><a href="#">Link Text</a></li>
-                    <li class="last"><a href="#">A Long Link Text</a></li>
+                    <li><a href="pages/style-demo.html">About</a></li>
+                    <li><a href="pages/full-width.html">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="/User/Login">Login</a></li>
                 </ul>
             </div>
             <br class="clear" />
         </div>
     </div>
-@RenderBody();
+@RenderBody()
     <div class="wrapper col5">
         <div id="footer">
-            <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
-            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+            <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Innovation4Austria</a></p>
             <br class="clear" />
         </div>
     </div>
+    @RenderSection("Scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>
