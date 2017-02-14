@@ -149,7 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,12 +157,28 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\forms.css" />
+    <Content Include="Content\homepage.css" />
+    <Content Include="Content\layout.css" />
+    <Content Include="Content\navi.css" />
+    <Content Include="Content\tables.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="img\banner-image.jpg" />
+    <Content Include="img\body-bg.jpg" />
+    <Content Include="img\caption-bg.jpg" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\img1.png" />
+    <Content Include="img\img2.png" />
+    <Content Include="img\img3.png" />
+    <Content Include="img\img4.png" />
+    <Content Include="img\img5.png" />
+    <Content Include="img\img6.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="js\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -182,6 +198,15 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="styles\forms.css" />
+    <Content Include="styles\homepage.css" />
+    <Content Include="styles\images\index.html" />
+    <Content Include="styles\images\turquoise_file.gif" />
+    <Content Include="styles\images\white_file.gif" />
+    <Content Include="styles\index.html" />
+    <Content Include="styles\layout.css" />
+    <Content Include="styles\navi.css" />
+    <Content Include="styles\tables.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -196,10 +221,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
+    <Folder Include="css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -208,6 +234,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\innovation4austria.dataAccess\innovation4austria.dataAccess.csproj">
+      <Project>{0ea70880-a31c-4f88-95de-29b49f310560}</Project>
+      <Name>innovation4austria.dataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\innovation4austria.logic\innovation4austria.logic.csproj">
+      <Project>{a72c0117-cff2-44d2-a3d9-d49bfc710802}</Project>
+      <Name>innovation4austria.logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,11 @@
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\innovation4austria.logic.dll.config
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\innovation4austria.logic.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\innovation4austria.logic.pdb
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\EntityFramework.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\innovation4austria.dataAccess.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\innovation4austria.dataAccess.pdb
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\EntityFramework.xml
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\obj\Debug\innovation4austria.logic.csprojResolveAssemblyReference.cache
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\obj\Debug\innovation4austria.logic.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.logic\obj\Debug\innovation4austria.logic.pdb

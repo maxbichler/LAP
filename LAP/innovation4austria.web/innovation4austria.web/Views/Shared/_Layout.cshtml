@@ -1,101 +1,50 @@
-﻿<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Template Name: Photomatic
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css">
-    <link rel="stylesheet" href="css/custom-styles.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/component.css">
-    <link rel="stylesheet" href="css/font-awesome-ie7.css">
-
-    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-</head>
-<body>
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
-
-    <div class="container">
-        <div class="right">
-            <a href="#openModal">Login</a>
-        </div>
-        <div id="openModal" class="modalDialog">
-            <div>
-                <a href="#close" title="Close" class="close">X</a>
-                @*<h2>Login</h2>*@
-                <br />
-                <div class="center row">
-                    <div>
-                        <div class="col-lg-offset-4 col-lg-4">
-                            <b class="left">Email</b><br />
-                            <input id="email" type="text" /><br />
-                        </div>
-                        <div class="col-lg-offset-4 col-lg-4">
-                            <b class="left">Passwort</b><br />
-                            <input id="passwort" type="password"/>
-                        </div>
-                        
-                        @*Email
-                        <input id="email" type="text" />*@
-                    </div>
-                    @*<p>
-                        Passwort
-                        <input id="passwort" type="password" />
-                    </p>*@
-
-                    <br />
-
-                    <input id="okButton" type="button" value="Login" />
-                </div>
-            </div>
-        </div>
-        <div class="site-header">
-            <div class="menu">
-                <div class="navbar">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <i class="fw-icon-th-list"></i>
-                    </a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#">Über uns</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">AGB</a></li>
-                            <li><a href="#">Kontakt</a></li>
-                        </ul>
-                    </div><!--/.nav-collapse -->
-                </div>
-            </div>
-        </div>
-
-    </div>
-    @RenderBody()
-
-    <div class="container">
-        <div class="copy-rights">
-            Copyright(c) innovation4austria 2017
-        </div>
-    </div>
-
-    <script src="js/jquery-1.9.1.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script>
-        //$('#myCarousel').carousel({
-        //    interval: 1800
-        //});
+    <title>Photomatic</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
+    <!-- FancyBox -->
+    <link rel="stylesheet" href="layout/scripts/fancybox-2.1.5/jquery.fancybox.css" type="text/css" />
+    <script type="text/javascript" src="layout/scripts/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript">
     </script>
-
+    <!-- End FancyBox -->
+</head>
+<body id="top">
+    <div class="wrapper col1">
+        <div id="header">
+            <div class="fl_left">
+                <h1><a href="index.html">Photomatic</a></h1>
+                <p>Free Website Template</p>
+            </div>
+            <div id="topnav">
+                <ul>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="pages/style-demo.html">Style Demo</a></li>
+                    <li><a href="pages/full-width.html">Full Width</a></li>
+                    <li><a href="#">Link Text</a></li>
+                    <li class="last"><a href="#">A Long Link Text</a></li>
+                </ul>
+            </div>
+            <br class="clear" />
+        </div>
+    </div>
+@RenderBody();
+    <div class="wrapper col5">
+        <div id="footer">
+            <p class="fl_left">Copyright &copy; 2014 - All Rights Reserved - <a href="#">Domain Name</a></p>
+            <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+            <br class="clear" />
+        </div>
+    </div>
 </body>
 </html>

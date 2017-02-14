@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ITIN20LAPModelStoreContainer" CdmEntityContainer="ITIN20LAPEntities">
+    <EntitySetMapping Name="billdetails">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.billdetails">
+        <MappingFragment StoreEntitySet="billdetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="bill_id" ColumnName="bill_id" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bills">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.bills">
+        <MappingFragment StoreEntitySet="bills">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookingreversals">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.bookingreversals">
+        <MappingFragment StoreEntitySet="bookingreversals">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+          <ScalarProperty Name="reason" ColumnName="reason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bookings">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.bookings">
+        <MappingFragment StoreEntitySet="bookings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="companies">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.companies">
+        <MappingFragment StoreEntitySet="companies">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="companyname" ColumnName="companyname" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="number" ColumnName="number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.contacts">
+        <MappingFragment StoreEntitySet="contacts">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="facilities">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.facilities">
+        <MappingFragment StoreEntitySet="facilities">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="facilityname" ColumnName="facilityname" />
+          <ScalarProperty Name="zip" ColumnName="zip" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="number" ColumnName="number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="furnishings">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.furnishings">
+        <MappingFragment StoreEntitySet="furnishings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="portalroles">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.portalroles">
+        <MappingFragment StoreEntitySet="portalroles">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="portalusers">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.portalusers">
+        <MappingFragment StoreEntitySet="portalusers">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="role_id" ColumnName="role_id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roomfurnishings">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.roomfurnishings">
+        <MappingFragment StoreEntitySet="roomfurnishings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
+          <ScalarProperty Name="furnishing_id" ColumnName="furnishing_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rooms">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.rooms">
+        <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="facility_id" ColumnName="facility_id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="ITIN20LAPModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Thread" ColumnName="Thread" />
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="Logger" ColumnName="Logger" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

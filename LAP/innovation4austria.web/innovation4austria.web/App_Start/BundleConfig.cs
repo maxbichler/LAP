@@ -25,7 +25,12 @@ namespace innovation4austria.web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bootstrap-responsive.css",
+                      "~/Content/custom-styles.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/component.css",
+                      "~/Content/font-awesome-ie7.css"));
         }
     }
 }
