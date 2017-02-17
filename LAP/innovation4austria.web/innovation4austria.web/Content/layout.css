@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*
 Template Name: Photomatic
 Author: <a href="http://www.os-templates.com/">OS Templates</a>
@@ -44,7 +44,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 .col2{padding:20px 0;}
 .col3{}
 .col4{}
-.col5, .col5 a{color:#333; background-color:#000;}
+.col5, .col5 a{color:lightgray; background-color:#000;}
 
 /* ----------------------------------------------Generalise------------------------------------- */
 

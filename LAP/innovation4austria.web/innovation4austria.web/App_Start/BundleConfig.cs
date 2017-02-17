@@ -24,8 +24,11 @@ namespace innovation4austria.web
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/forms.css",
+                      "~/Content/homepage.css",
+                      "~/Content/layout.css",
+                      "~/Content/navi.css",
+                      "~/Content/tables.css"));
         }
     }
 }
