@@ -1,54 +1,82 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!--
-Template Name: Photomatic
-Author: <a href="http://www.os-templates.com/">OS Templates</a>
-Author URI: http://www.os-templates.com/
-Licence: Free to use under our free template licence terms
-Licence URI: http://www.os-templates.com/template-terms
--->
-@Styles.Render("~/Content/css")
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <head>
-    @*<title>Photomatic</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <link rel="stylesheet" href="layout/styles/layout.css" type="text/css" />
-    <script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-    <!-- FancyBox -->
-    <link rel="stylesheet" href="layout/scripts/fancybox-2.1.5/jquery.fancybox.css" type="text/css" />
-    <script type="text/javascript" src="layout/scripts/fancybox-2.1.5/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript">
-    </script>
-    <!-- End FancyBox -->*@
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/custom-styles.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/component.css">
+    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+
+    <script src="js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body id="top">
-    <div class="wrapper col1">
-        <div id="header">
-            <div class="fl_left">
-                <h1><a href="index.html">Innovation4Austria</a></h1>
+<body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+    <div class="container">
+        
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn">Login</button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Logintext</p>
             </div>
-            <div id="topnav">
-                <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="pages/style-demo.html">About</a></li>
-                    <li><a href="pages/full-width.html">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="/User/Login">Login</a></li>
-                </ul>
+
+        </div>
+        <div class="site-header">
+            <div class="menu">
+                <div class="navbar">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <i class="fw-icon-th-list"></i>
+                    </a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#">Über uns</a></li>
+                            <li><a href="#">Services</a></li>
+                            <li><a href="#">AGB</a></li>
+                            <li><a href="#">Kontakt</a></li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
             </div>
-            <br class="clear" />
         </div>
     </div>
-@RenderBody()
-    <div class="wrapper col5">
-        <div id="footer">
-            <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Innovation4Austria</a></p>
-            <br class="clear" />
+
+    @RenderBody()
+
+    <div class="container">
+        <div class="copy-rights">
+            Copyright(c) innovation4austria 2017
         </div>
     </div>
-    @RenderSection("Scripts", required: false)
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        //$('#myCarousel').carousel({
+        //    interval: 1800
+        //});
+    </script>
+
 </body>
 </html>

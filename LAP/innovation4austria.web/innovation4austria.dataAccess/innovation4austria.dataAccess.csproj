@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0EA70880-A31C-4F88-95DE-29B49F310560}</ProjectGuid>
+    <ProjectGuid>0ea70880-a31c-4f88-95de-29b49f310560</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>innovation4austria.dataAccess</RootNamespace>
@@ -30,107 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System"/>
+    
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    
+    
+    <Reference Include="Microsoft.CSharp"/>
+    
+    <Reference Include="System.Data"/>
+    
+    <Reference Include="System.Net.Http"/>
+    
+    <Reference Include="System.Xml"/>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="billdetails.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bills.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bookingreversals.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bookings.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="companies.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="contacts.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="facilities.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="furnishings.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20LAP.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20LAP.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ITIN20LAP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Log.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="portalroles.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="portalusers.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="roomfurnishings.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="rooms.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="ITIN20LAP.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ITIN20LAP.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="ITIN20LAP.edmx.diagram">
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ITIN20LAP.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-      <LastGenOutput>ITIN20LAP.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ITIN20LAP.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ITIN20LAP.edmx</DependentUpon>
-      <LastGenOutput>ITIN20LAP.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -140,4 +57,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-</Project>
+
+ </Project>
