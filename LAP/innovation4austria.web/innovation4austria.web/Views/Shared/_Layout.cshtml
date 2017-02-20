@@ -23,7 +23,11 @@ Licence URI: http://www.os-templates.com/template-terms
                     <li><a href="~/home/about">About</a></li>
                     <li><a href="~/home/services">Services</a></li>
                     <li><a href="~/home/contact">Contact</a></li>
-                    <li><a href="~/User/Login">Login</a></li>
+                    <li><a href="~/user/login">Login</a></li>
+@if (Request.IsAuthenticated)
+{
+                    <li><a href="~/user/logout">Logout</a></li>
+}
                 </ul>
             </div>
             <br class="clear" />

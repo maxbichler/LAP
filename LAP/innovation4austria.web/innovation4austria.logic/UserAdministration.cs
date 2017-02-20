@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using innovation4austria.dataAccess;
+using System.Diagnostics;
 
 namespace innovation4austria.logic
 {
@@ -36,5 +37,29 @@ namespace innovation4austria.logic
 
             return isValid;
         }
+
+        /// <summary>
+        /// Überprüft ob Anmeldedaten ok sind
+        /// </summary>
+        /// <param name="email">Die vergebene Email-Adresse</param>
+        /// <param name="passwort">Das vergebene Passwort</param>
+        /// <returns>true oder false</returns>
+        public static bool Login(string email, string password)
+        {
+            return Helper.CheckMailAndPass(email, password);
+        }
+
+
+        //public bool IsAuthenticated
+        //{
+
+        //    get
+        //    {
+        //        ITIN20LAPEntities context = new ITIN20LAPEntities();
+        //        return  != null &&
+        //               context.User.Identity != null &&
+        //               context.User.Identity.IsAuthenticated;
+        //    }
+        //}
     }
 }

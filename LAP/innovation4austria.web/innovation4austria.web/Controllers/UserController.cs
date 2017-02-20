@@ -36,7 +36,7 @@ namespace innovation4austria.web.Controllers
             {
                 if (UserAdministration.CheckLogin(user.Email, user.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(user.Email, user.RememberMe);
+                    FormsAuthentication.SetAuthCookie(user.Email, true);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -46,10 +46,51 @@ namespace innovation4austria.web.Controllers
             }
             return View(user);
         }
-        public ActionResult Logout()
+
+
+        /// <summary>
+        /// Login-Seite, zu der mittels Formular die Logindaten
+        /// eines Benutzer geschickt werden.
+        /// </summary>
+        /// <param name="lm">Das LoginModel, das Benutzername enthält</param>
+        /// <returns></returns>
+        //[HttpPost]
+        //public ActionResult Login(LoginModel lm)
+        //{
+
+        //    if (UserAdministration.Login(lm.Email, lm.Password))
+        //    {
+        //        if (lm.RememberMe)
+        //        {
+        //            FormsAuthentication.SetAuthCookie(lm.Email, true);
+        //        }
+        //        else
+        //        {
+        //           
+        //            FormsAuthentication.SetAuthCookie(lm.Email, false);
+        //        }
+        //    }
+
+        //    return RedirectToAction("Index", "Home");
+        //}
+
+        public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Home");
+
+            return RedirectToAction("Login", "User");
         }
+
+        //private ActionResult RedirectToLocal(string returnUrl)
+        //{
+        //    if (Url.IsLocalUrl(returnUrl))
+        //    {
+        //        return Redirect(returnUrl);
+        //    }
+        //    else
+        //    {
+        //        return RedirectToAction("Home", "Index");
+        //    }
+        //}
     }
 }
