@@ -22,11 +22,11 @@ PRIMARY KEY (id)
 GO
  
 
-ALTER TABLE floors 
-ADD
-CONSTRAINT pk_floors
-PRIMARY KEY (id)
-GO
+--ALTER TABLE floors 
+--ADD
+--CONSTRAINT pk_floors
+--PRIMARY KEY (id)
+--GO
  
 
 ALTER TABLE facilities 

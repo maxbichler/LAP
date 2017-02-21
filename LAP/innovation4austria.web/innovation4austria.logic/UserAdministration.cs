@@ -49,17 +49,25 @@ namespace innovation4austria.logic
             return Helper.CheckMailAndPass(email, password);
         }
 
+        public static portalusers GetUser(string email)
+        {
 
-        //public bool IsAuthenticated
-        //{
+            portalusers user = null;
 
-        //    get
-        //    {
-        //        ITIN20LAPEntities context = new ITIN20LAPEntities();
-        //        return  != null &&
-        //               context.User.Identity != null &&
-        //               context.User.Identity.IsAuthenticated;
-        //    }
-        //}
+            using (var context = new ITIN20LAPEntities())
+            {
+                try
+                {
+                    user = context.portalusers.Where(x => x.email == email).FirstOrDefault();
+
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+
+            return user;
+        }
     }
 }

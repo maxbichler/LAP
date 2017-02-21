@@ -1,4 +1,5 @@
-﻿using innovation4austria.logic;
+﻿using innovation4austria.dataAccess;
+using innovation4austria.logic;
 using innovation4austria.web.Models;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace innovation4austria.web.Controllers
             {
                 if (UserAdministration.CheckLogin(user.Email, user.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(user.Email, true);
+                    FormsAuthentication.SetAuthCookie(user.Email, user.RememberMe);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -48,32 +49,6 @@ namespace innovation4austria.web.Controllers
         }
 
 
-        /// <summary>
-        /// Login-Seite, zu der mittels Formular die Logindaten
-        /// eines Benutzer geschickt werden.
-        /// </summary>
-        /// <param name="lm">Das LoginModel, das Benutzername enthält</param>
-        /// <returns></returns>
-        //[HttpPost]
-        //public ActionResult Login(LoginModel lm)
-        //{
-
-        //    if (UserAdministration.Login(lm.Email, lm.Password))
-        //    {
-        //        if (lm.RememberMe)
-        //        {
-        //            FormsAuthentication.SetAuthCookie(lm.Email, true);
-        //        }
-        //        else
-        //        {
-        //           
-        //            FormsAuthentication.SetAuthCookie(lm.Email, false);
-        //        }
-        //    }
-
-        //    return RedirectToAction("Index", "Home");
-        //}
-
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
@@ -81,16 +56,20 @@ namespace innovation4austria.web.Controllers
             return RedirectToAction("Login", "User");
         }
 
-        //private ActionResult RedirectToLocal(string returnUrl)
-        //{
-        //    if (Url.IsLocalUrl(returnUrl))
-        //    {
-        //        return Redirect(returnUrl);
-        //    }
-        //    else
-        //    {
-        //        return RedirectToAction("Home", "Index");
-        //    }
-        //}
+        [HttpGet]
+        [Authorize]
+        public new ActionResult Profile(LoginModel email)
+        {
+
+            portalusers currentUser = UserAdministration.GetUser(User.Identity.Name);
+            ProfileDataModel dataModel = AutoMapperConfig.CommonMapper.Map<ProfileDataModel>(currentUser);
+            ProfileModel model = new ProfileModel()
+            {
+                ProfileData = dataModel,
+                ProfilePassword = new ProfilePasswordModel()
+            };
+
+            return View("Profile", model);
+        }
     }
 }

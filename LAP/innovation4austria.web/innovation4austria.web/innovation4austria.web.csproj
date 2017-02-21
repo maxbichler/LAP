@@ -154,6 +154,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\ProfileDataModel.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\ProfilePasswordModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -217,6 +220,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\User\_ProfileData.cshtml" />
+    <Content Include="Views\User\_ProfilePasswort.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -230,6 +236,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\innovation4austria.authentification\innovation4austria.authentification.csproj">
+      <Project>{1d9923d0-d847-4765-908b-dbac91c8334c}</Project>
+      <Name>innovation4austria.authentification</Name>
+    </ProjectReference>
     <ProjectReference Include="..\innovation4austria.dataAccess\innovation4austria.dataAccess.csproj">
       <Project>{0ea70880-a31c-4f88-95de-29b49f310560}</Project>
       <Name>innovation4austria.dataAccess</Name>

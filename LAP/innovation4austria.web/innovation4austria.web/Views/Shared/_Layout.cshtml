@@ -23,17 +23,22 @@ Licence URI: http://www.os-templates.com/template-terms
                     <li><a href="~/home/about">About</a></li>
                     <li><a href="~/home/services">Services</a></li>
                     <li><a href="~/home/contact">Contact</a></li>
-                    <li><a href="~/user/login">Login</a></li>
-@if (Request.IsAuthenticated)
-{
-                    <li><a href="~/user/logout">Logout</a></li>
-}
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="~/user/login">Login</a></li>
+                    }
+                    
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a href="~/user/profile">@HttpContext.Current.User.Identity.Name</a></li>
+                        <li><a href="~/user/logout">Logout</a></li>
+                    }
                 </ul>
             </div>
             <br class="clear" />
         </div>
     </div>
-@RenderBody()
+    @RenderBody()
     <div class="wrapper col5">
         <div id="footer">
             <p class="fl_left">Copyright &copy; 2017 - All Rights Reserved - <a href="#">Innovation4Austria</a></p>

@@ -1,0 +1,23 @@
+﻿@model innovation4austria.web.Models.ProfileModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Profil verwalten</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-5">
+            @Html.Partial("_ProfileData", Model.ProfileData)
+        </div>
+        <div class="col-md-offset-1 col-md-5">
+            @Html.Partial("_ProfilePassword", Model.ProfilePassword)
+        </div>
+    </div>
+</div>
