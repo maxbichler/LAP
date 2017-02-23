@@ -58,17 +58,17 @@ namespace innovation4austria.web.Controllers
 
         [HttpGet]
         [Authorize]
-        public new ActionResult Profile(LoginModel email)
+        public new ActionResult Profile()
         {
 
             portalusers currentUser = UserAdministration.GetUser(User.Identity.Name);
-            ProfileDataModel dataModel = AutoMapperConfig.CommonMapper.Map<ProfileDataModel>(currentUser);
             ProfileModel model = new ProfileModel()
             {
-                ProfileData = dataModel,
+                
+                ProfileData = new ProfileDataModel(),
                 ProfilePassword = new ProfilePasswordModel()
             };
-
+            
             return View("Profile", model);
         }
     }

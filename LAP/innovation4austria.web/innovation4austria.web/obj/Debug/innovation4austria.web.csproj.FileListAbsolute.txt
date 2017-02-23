@@ -208,7 +208,6 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.WebPages.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.WebPages.Razor.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\WebGrease.dll
-C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\EntityFramework.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\innovation4austria.dataAccess.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\innovation4austria.logic.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Microsoft.AI.DependencyCollector.xml
@@ -226,8 +225,6 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.WebPages.Razor.xml
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Antlr3.Runtime.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Newtonsoft.Json.xml
-C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\EntityFramework.xml
-C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\de\EntityFramework.resources.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.pdb
