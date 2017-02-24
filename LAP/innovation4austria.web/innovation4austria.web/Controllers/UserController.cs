@@ -1,12 +1,15 @@
 ﻿using innovation4austria.dataAccess;
 using innovation4austria.logic;
+using innovation4austria.web.AppCode;
 using innovation4austria.web.Models;
+using innovation4austria.web.App_GlobalResources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using static innovation4austria.logic.UserAdministration;
 
 namespace innovation4austria.web.Controllers
 {
@@ -64,12 +67,46 @@ namespace innovation4austria.web.Controllers
             portalusers currentUser = UserAdministration.GetUser(User.Identity.Name);
             ProfileModel model = new ProfileModel()
             {
-                
-                ProfileData = new ProfileDataModel(),
+
+                ProfileData = new ProfileDataModel()
+                {
+                    Email = currentUser.email,
+                    Firstname = currentUser.firstname,
+                    Lastname = currentUser.lastname
+                },
                 ProfilePassword = new ProfilePasswordModel()
             };
-            
+
             return View("Profile", model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfileData(ProfileDataModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                DataResult result = UserAdministration.SaveProfile(User.Identity.Name, model.Firstname, model.Lastname);
+                if (result == DataResult.success)
+                {
+
+                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
+                }
+            }
+            return RedirectToAction("Profile");
+        }
+
+        [HttpPost]
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveProfilePassword(ProfilePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return RedirectToAction("Profile");
         }
     }
 }

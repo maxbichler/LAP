@@ -290,3 +290,4 @@ C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\
 C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\innovation4austria.authentification.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\innovation4austria.authentification.pdb
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\de\EntityFramework.resources.dll

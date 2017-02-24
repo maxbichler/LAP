@@ -4,6 +4,7 @@
     <EntitySetMapping Name="billdetails">
       <EntityTypeMapping TypeName="ITIN20LAPModel.billdetails">
         <MappingFragment StoreEntitySet="billdetails">
+          <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="bill_id" ColumnName="bill_id" />
           <ScalarProperty Name="booking_id" ColumnName="booking_id" />
@@ -91,6 +92,7 @@
     <EntitySetMapping Name="portalusers">
       <EntityTypeMapping TypeName="ITIN20LAPModel.portalusers">
         <MappingFragment StoreEntitySet="portalusers">
+          <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="role_id" ColumnName="role_id" />
           <ScalarProperty Name="email" ColumnName="email" />

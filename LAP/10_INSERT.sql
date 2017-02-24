@@ -66,11 +66,11 @@ INSERT INTO companies(companyname,zip,city,street,number) VALUES('Westwood','114
 INSERT INTO companies(companyname,zip,city,street,number) VALUES('Notch','1340','Wien','Rennbahnweg','13');
 GO
 
-INSERT INTO portalusers(role_id,email,password,firstname,lastname) VALUES(1,'dzallinger@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Daniel','Zallinger');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname) VALUES(1,'mbichler@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Max','Bichler');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname) VALUES(1,'edruckner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Erwin','Druckner');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname) VALUES(1,'wwagi@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Wagner','Wagi');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname) VALUES(1,'bbückowich@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Bückowich');
+INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'dzallinger@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Daniel','Zallinger', 'true');
+INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'mbichler@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Max','Bichler', 'true');
+INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'edruckner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Erwin','Druckner', 'false');
+INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'pwagner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Phillip','Wagner', 'false');
+INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
 INSERT INTO bookings(room_id,portaluser_id,date) VALUES(1,1,'2016-01-09');

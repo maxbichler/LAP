@@ -1,4 +1,4 @@
-﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\bichmaxi\Source\Repos\LAP\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\ITIN20LAP.edmx' aktiviert. 
+﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\ITIN20LAP.edmx' aktiviert. 
 // Um die Generierung von Legacycode zu aktivieren, ändern Sie den Wert der Designer-Eigenschaft 'Code Generation Strategy'
 // in 'Legacy ObjectContext'. Diese Eigenschaft wird im Eigenschaftenfenster angezeigt, wenn das Modell
 // im Designer geöffnet ist.

@@ -9,6 +9,7 @@
     <Property Name="booking_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="bills" Relationship="Self.fk_billdetails_bills" FromRole="billdetails" ToRole="bills" />
     <NavigationProperty Name="bookings" Relationship="Self.fk_billdetails_bookings" FromRole="billdetails" ToRole="bookings" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="bills">
     <Key>
@@ -109,6 +110,7 @@
     <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_portalusers" FromRole="portalusers" ToRole="bookings" />
     <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_portalusers" FromRole="portalusers" ToRole="contacts" />
     <NavigationProperty Name="portalroles" Relationship="Self.fk_portalusers_portalroles" FromRole="portalusers" ToRole="portalroles" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="roomfurnishings">
     <Key>

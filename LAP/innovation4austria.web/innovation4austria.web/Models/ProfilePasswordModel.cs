@@ -8,16 +8,19 @@ namespace innovation4austria.web.Models
 {
     public class ProfilePasswordModel
     {
+        [Display(Name = "Altes Passwort")]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [StringLength(24, ErrorMessage = "8-24 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]
         public string OldPassword { get; set; }
 
+        [Display(Name = "Neues Passwort")]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [StringLength(24, ErrorMessage = "8-24 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]
         public string NewPassword { get; set; }
 
+        [Display(Name = "Passwort wiederholen")]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [StringLength(24, ErrorMessage = "8-24 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]

@@ -38,7 +38,7 @@ CREATE TABLE billdetails(
 id INT IDENTITY(1,1) NOT NULL,
 booking_id INT NOT NULL,
 date DATETIME NOT NULL,
-bill_id INT NULL
+bill_id INT NOT NULL
 )
 
 CREATE TABLE bills(
@@ -53,7 +53,8 @@ role_id INT NOT NULL,
 email VARCHAR(255) NOT NULL,
 password VARBINARY(1000) NOT NULL,
 firstname VARCHAR(50) NOT NULL,
-lastname VARCHAR(50) NOT NULL
+lastname VARCHAR(50) NOT NULL,
+active BIT NOT NULL
 )
 
 CREATE TABLE portalroles(

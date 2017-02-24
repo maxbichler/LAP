@@ -10,6 +10,19 @@ namespace innovation4austria.logic
 {
     public class UserAdministration
     {
+        public enum DataResult
+        {
+            success,
+            fail,
+        } 
+
+        public enum PassResult
+        {
+            success,
+            fail,
+        }
+
+
         /// <summary>
         /// Liefert alle portalusers aus der DB
         /// </summary>
@@ -68,6 +81,67 @@ namespace innovation4austria.logic
             }
 
             return user;
+        }
+        public static DataResult SaveProfile(string email, string firstname, string lastname)
+        {
+            DataResult res = DataResult.fail;
+
+            using (var context = new ITIN20LAPEntities())
+            {
+                try
+                {
+                    var currentUser = context.portalusers.Where(x => x.email == email).FirstOrDefault();
+
+                    if (currentUser != null)
+                    {
+                        if (currentUser.active)
+                        {
+                            currentUser.firstname = firstname;
+                            currentUser.lastname = lastname;
+                            context.SaveChanges();
+                            res = DataResult.success;
+                        }
+                        
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+            return res;
+        }
+        public static PassResult ChangePassword(string email, string oldPassword, string newPassword)
+        {
+            PassResult res = PassResult.fail;
+
+                using (var context = new ITIN20LAPEntities())
+                {
+                    try
+                    {
+                        var currentUser = context.portalusers.Where(x => x.email == email).FirstOrDefault();
+
+                        if (currentUser == null || !currentUser.active || !currentUser.password.SequenceEqual(Helper.ComputeHash(oldPassword)) 
+                        || !currentUser.password.SequenceEqual(Helper.ComputeHash(oldPassword)))
+                        {
+                            res = PassResult.fail;
+                        }
+                        else
+                        {
+                            currentUser.password = Helper.ComputeHash(newPassword);
+                            context.SaveChanges();
+
+                            res = PassResult.success;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                          throw;
+                    }
+                }
+            
+            return res;
         }
     }
 }

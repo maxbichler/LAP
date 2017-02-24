@@ -20,7 +20,7 @@
             @Html.LabelFor(x => x.Email)
         </div>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Email, new { disabled = "disabled", @class = "form-control" })
+            @Html.TextBoxFor(x => x.Email, new { placeholder = Model.Email , disabled = "disabled", @class = "form-control" })
         </div>
     </div>
     <div class="row">
@@ -28,7 +28,7 @@
             @Html.LabelFor(x => x.Firstname)
         </div>
         <div class="col-sm-10">
-            @Html.TextBoxFor(x => x.Firstname, new { placeholder = "Vorname", @class = "form-control" })
+            @Html.TextBoxFor(x => x.Firstname, new { placeholder = Model.Firstname, @class = "form-control" })
             @Html.ValidationMessageFor(x => x.Firstname)
         </div>
     </div>
