@@ -2,7 +2,6 @@
 using innovation4austria.logic;
 using innovation4austria.web.AppCode;
 using innovation4austria.web.Models;
-using innovation4austria.web.App_GlobalResources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,9 +29,7 @@ namespace innovation4austria.web.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
-
         [HttpPost]
         public ActionResult Login(LoginModel user)
         {
@@ -51,11 +48,9 @@ namespace innovation4austria.web.Controllers
             return View(user);
         }
 
-
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-
             return RedirectToAction("Login", "User");
         }
 
@@ -63,11 +58,9 @@ namespace innovation4austria.web.Controllers
         [Authorize]
         public new ActionResult Profile()
         {
-
             portalusers currentUser = UserAdministration.GetUser(User.Identity.Name);
             ProfileModel model = new ProfileModel()
             {
-
                 ProfileData = new ProfileDataModel()
                 {
                     Email = currentUser.email,
@@ -76,7 +69,6 @@ namespace innovation4austria.web.Controllers
                 },
                 ProfilePassword = new ProfilePasswordModel()
             };
-
             return View("Profile", model);
         }
 
@@ -90,9 +82,16 @@ namespace innovation4austria.web.Controllers
                 DataResult result = UserAdministration.SaveProfile(User.Identity.Name, model.Firstname, model.Lastname);
                 if (result == DataResult.success)
                 {
-
-                    TempData[Constants.Messages.SUCCESS] = ValidationMessages.SaveSuccess;
+                    TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
                 }
+                else
+                {
+                        TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = Constants.Messages.ProfileDataInvalid;
             }
             return RedirectToAction("Profile");
         }
@@ -104,7 +103,18 @@ namespace innovation4austria.web.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                if (UserAdministration.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword) == PassResult.success)
+                {
+                    TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = Constants.Messages.ProfilePassInvalid;
             }
             return RedirectToAction("Profile");
         }
