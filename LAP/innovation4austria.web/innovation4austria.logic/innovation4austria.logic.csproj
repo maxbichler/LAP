@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyAdministration.cs" />
+    <Compile Include="RoleAdministration.cs" />
     <Compile Include="UserAdministration.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

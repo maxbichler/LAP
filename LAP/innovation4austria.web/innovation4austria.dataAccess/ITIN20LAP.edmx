@@ -102,6 +102,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="portalusers">
           <Key>
@@ -109,6 +110,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="company_id" Type="int" Nullable="false" />
           <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
           <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />
@@ -408,6 +410,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_companies" FromRole="companies" ToRole="contacts" />
+          <NavigationProperty Name="portalusers" Relationship="ITIN20LAPModel.fk_portalusers_comüpanies" FromRole="companies" ToRole="portalusers" />
         </EntityType>
         <EntityType Name="contacts">
           <Key>
@@ -446,6 +449,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="portalusers" Relationship="Self.fk_portalusers_portalroles" FromRole="portalroles" ToRole="portalusers" />
+          <Property Name="active" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="portalusers">
           <Key>
@@ -463,6 +467,8 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_portalusers" FromRole="portalusers" ToRole="contacts" />
           <NavigationProperty Name="portalroles" Relationship="Self.fk_portalusers_portalroles" FromRole="portalusers" ToRole="portalroles" />
           <Property Name="active" Type="Boolean" Nullable="false" />
+          <Property Name="company_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="companies" Relationship="ITIN20LAPModel.fk_portalusers_comüpanies" FromRole="portalusers" ToRole="companies" />
         </EntityType>
         <EntityType Name="roomfurnishings">
           <Key>
@@ -724,7 +730,23 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
             <End Role="rooms" EntitySet="rooms" />
             <End Role="roomfurnishings" EntitySet="roomfurnishings" />
           </AssociationSet>
+          <AssociationSet Name="fk_portalusers_comüpanies" Association="ITIN20LAPModel.fk_portalusers_comüpanies">
+            <End Role="companies" EntitySet="companies" />
+            <End Role="portalusers" EntitySet="portalusers" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="fk_portalusers_comüpanies">
+          <End Type="ITIN20LAPModel.companies" Role="companies" Multiplicity="1" />
+          <End Type="ITIN20LAPModel.portalusers" Role="portalusers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companies">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="portalusers">
+              <PropertyRef Name="company_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -814,6 +836,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="portalroles">
             <EntityTypeMapping TypeName="ITIN20LAPModel.portalroles">
               <MappingFragment StoreEntitySet="portalroles">
+                <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="description" ColumnName="description" />
               </MappingFragment>
@@ -822,6 +845,7 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="portalusers">
             <EntityTypeMapping TypeName="ITIN20LAPModel.portalusers">
               <MappingFragment StoreEntitySet="portalusers">
+                <ScalarProperty Name="company_id" ColumnName="company_id" />
                 <ScalarProperty Name="active" ColumnName="active" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="role_id" ColumnName="role_id" />

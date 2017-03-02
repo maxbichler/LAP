@@ -46,6 +46,8 @@ public partial class portalusers
 
     public bool active { get; set; }
 
+    public int company_id { get; set; }
+
 
 
     public virtual ICollection<bills> bills { get; set; }
@@ -57,6 +59,8 @@ public partial class portalusers
     public virtual ICollection<contacts> contacts { get; set; }
 
     public virtual portalroles portalroles { get; set; }
+
+    public virtual companies companies { get; set; }
 
 }
 

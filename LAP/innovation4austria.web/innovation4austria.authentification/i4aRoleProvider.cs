@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using innovation4austria.logic;
+using innovation4austria.dataAccess;
 
 namespace innovation4austria.authentification
 {
@@ -47,9 +50,16 @@ namespace innovation4austria.authentification
             throw new NotImplementedException();
         }
 
-        public override string[] GetRolesForUser(string username)
+        public override string[] GetRolesForUser(string email)
         {
-            throw new NotImplementedException();
+            portalroles userRoles = RoleAdministration.GetUserRole(email);
+
+            if(userRoles != null)
+            {
+                return new string[] { userRoles.description };
+            }
+
+            return null;
         }
 
         public override string[] GetUsersInRole(string roleName)

@@ -21,8 +21,6 @@ namespace innovation4austria.logic
             success,
             fail,
         }
-
-
         /// <summary>
         /// Liefert alle portalusers aus der DB
         /// </summary>
@@ -33,11 +31,9 @@ namespace innovation4austria.logic
             List<portalusers> userList = context.portalusers.ToList();
             return userList;
         }
-
         public static bool CheckLogin(string email, string password)
         {
             bool isValid = false;
-
             using (var context = new ITIN20LAPEntities())
             {
                 var currentUser = context.portalusers.Where(x => x.email == email).FirstOrDefault();
@@ -47,10 +43,8 @@ namespace innovation4austria.logic
                     isValid = true;
                 }
             }
-
             return isValid;
         }
-
         /// <summary>
         /// Überprüft ob Anmeldedaten ok sind
         /// </summary>
@@ -61,10 +55,8 @@ namespace innovation4austria.logic
         {
             return Helper.CheckMailAndPass(email, password);
         }
-
         public static portalusers GetUser(string email)
         {
-
             portalusers user = null;
 
             using (var context = new ITIN20LAPEntities())
@@ -72,26 +64,22 @@ namespace innovation4austria.logic
                 try
                 {
                     user = context.portalusers.Where(x => x.email == email).FirstOrDefault();
-
                 }
                 catch (Exception ex)
                 {
                     throw;
                 }
             }
-
             return user;
         }
         public static DataResult SaveProfile(string email, string firstname, string lastname)
         {
             DataResult res = DataResult.fail;
-
             using (var context = new ITIN20LAPEntities())
             {
                 try
                 {
                     var currentUser = context.portalusers.Where(x => x.email == email).FirstOrDefault();
-
                     if (currentUser != null)
                     {
                         if (currentUser.active)
@@ -100,13 +88,11 @@ namespace innovation4austria.logic
                             currentUser.lastname = lastname;
                             context.SaveChanges();
                             res = DataResult.success;
-                        }
-                        
+                        }    
                     }
                 }
                 catch (Exception ex)
                 {
-
                     throw;
                 }
             }
@@ -115,13 +101,11 @@ namespace innovation4austria.logic
         public static PassResult ChangePassword(string email, string oldPassword, string newPassword)
         {
             PassResult res = PassResult.fail;
-
                 using (var context = new ITIN20LAPEntities())
                 {
                     try
                     {
                         var currentUser = context.portalusers.Where(x => x.email == email).FirstOrDefault();
-
                         if (currentUser == null || !currentUser.active || !currentUser.password.SequenceEqual(Helper.ComputeHash(oldPassword)) 
                         || !currentUser.password.SequenceEqual(Helper.ComputeHash(oldPassword)))
                         {
@@ -131,7 +115,6 @@ namespace innovation4austria.logic
                         {
                             currentUser.password = Helper.ComputeHash(newPassword);
                             context.SaveChanges();
-
                             res = PassResult.success;
                         }
                     }
@@ -140,8 +123,30 @@ namespace innovation4austria.logic
                           throw;
                     }
                 }
-            
             return res;
+        }
+        public static List<portalusers> GetCompanyUsers(int companyId)
+        {
+            List<portalusers> companyUsers = null;
+
+            using (var context = new ITIN20LAPEntities())
+            {
+                try
+                {
+                    var company = context.companies.FirstOrDefault(x => x.id == companyId);
+
+                    if (company != null)
+                        companyUsers = company.portalusers.ToList();
+                    else
+                        throw new ArgumentException("Invalid companyId", nameof(companyId));
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+            return companyUsers;
         }
     }
 }
+

@@ -54,9 +54,9 @@ INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,4);
 INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,5);
 GO
 
-INSERT INTO portalroles(description) VALUES('Admin');
-INSERT INTO portalroles(description) VALUES('User');
-INSERT INTO portalroles(description) VALUES('Mitarbeiter');
+INSERT INTO portalroles(description,active) VALUES('Admin', 'true');
+INSERT INTO portalroles(description,active) VALUES('User', 'true');
+INSERT INTO portalroles(description,active) VALUES('Mitarbeiter', 'false');
 GO
 
 INSERT INTO companies(companyname,zip,city,street,number) VALUES('Microsoft','1120','Wien','Am Europl.','3');
@@ -66,11 +66,11 @@ INSERT INTO companies(companyname,zip,city,street,number) VALUES('Westwood','114
 INSERT INTO companies(companyname,zip,city,street,number) VALUES('Notch','1340','Wien','Rennbahnweg','13');
 GO
 
-INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'dzallinger@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Daniel','Zallinger', 'true');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'mbichler@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Max','Bichler', 'true');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'edruckner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Erwin','Druckner', 'false');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'pwagner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Phillip','Wagner', 'false');
-INSERT INTO portalusers(role_id,email,password,firstname,lastname, active) VALUES(1,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
+INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(2,1,'dzallinger@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Daniel','Zallinger', 'true');
+INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(1,2,'mbichler@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Max','Bichler', 'true');
+INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(2,3,'edruckner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Erwin','Druckner', 'false');
+INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,4,'pwagner@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Phillip','Wagner', 'false');
+INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,5,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
 INSERT INTO bookings(room_id,portaluser_id,date) VALUES(1,1,'2016-01-09');

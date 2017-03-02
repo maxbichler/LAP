@@ -97,6 +97,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="portalusers">
     <Key>
@@ -104,6 +105,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="role_id" Type="int" Nullable="false" />
+    <Property Name="company_id" Type="int" Nullable="false" />
     <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="password" Type="varbinary" MaxLength="1000" Nullable="false" />
     <Property Name="firstname" Type="varchar" MaxLength="50" Nullable="false" />

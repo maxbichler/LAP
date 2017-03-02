@@ -84,6 +84,7 @@
     <EntitySetMapping Name="portalroles">
       <EntityTypeMapping TypeName="ITIN20LAPModel.portalroles">
         <MappingFragment StoreEntitySet="portalroles">
+          <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
@@ -92,6 +93,7 @@
     <EntitySetMapping Name="portalusers">
       <EntityTypeMapping TypeName="ITIN20LAPModel.portalusers">
         <MappingFragment StoreEntitySet="portalusers">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
           <ScalarProperty Name="active" ColumnName="active" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="role_id" ColumnName="role_id" />

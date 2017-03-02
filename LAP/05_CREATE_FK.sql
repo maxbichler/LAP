@@ -69,6 +69,13 @@ CONSTRAINT fk_portalusers_portalroles
 FOREIGN KEY (role_id)
 REFERENCES portalroles(id)
 GO
+
+ALTER TABLE portalusers 
+ADD
+CONSTRAINT fk_portalusers_comüpanies
+FOREIGN KEY (company_id)
+REFERENCES companies(id)
+GO
  
 
 ALTER TABLE contacts 

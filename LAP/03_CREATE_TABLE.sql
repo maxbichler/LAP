@@ -50,6 +50,7 @@ portaluser_id INT NOT NULL
 CREATE TABLE portalusers(
 id INT IDENTITY(1,1) NOT NULL,
 role_id INT NOT NULL,
+company_id INT NOT NULL,
 email VARCHAR(255) NOT NULL,
 password VARBINARY(1000) NOT NULL,
 firstname VARCHAR(50) NOT NULL,
@@ -59,7 +60,8 @@ active BIT NOT NULL
 
 CREATE TABLE portalroles(
 id INT IDENTITY (1,1) NOT NULL,
-description	 VARCHAR(50) NOT NULL
+description	 VARCHAR(50) NOT NULL,
+active BIT NOT NULL
 )
 
 CREATE TABLE contacts(

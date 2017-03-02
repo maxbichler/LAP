@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\innovation4austria.dataAccess\innovation4austria.dataAccess.csproj">
+      <Project>{0ea70880-a31c-4f88-95de-29b49f310560}</Project>
+      <Name>innovation4austria.dataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\innovation4austria.logic\innovation4austria.logic.csproj">
       <Project>{A72C0117-CFF2-44D2-A3D9-D49BFC710802}</Project>
       <Name>innovation4austria.logic</Name>

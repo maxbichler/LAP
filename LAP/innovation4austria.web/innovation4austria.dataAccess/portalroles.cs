@@ -30,6 +30,8 @@ public partial class portalroles
 
     public string description { get; set; }
 
+    public bool active { get; set; }
+
 
 
     public virtual ICollection<portalusers> portalusers { get; set; }

@@ -23,6 +23,8 @@ public partial class companies
 
         this.contacts = new HashSet<contacts>();
 
+        this.portalusers = new HashSet<portalusers>();
+
     }
 
 
@@ -41,6 +43,8 @@ public partial class companies
 
 
     public virtual ICollection<contacts> contacts { get; set; }
+
+    public virtual ICollection<portalusers> portalusers { get; set; }
 
 }
 

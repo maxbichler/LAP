@@ -7,6 +7,7 @@ using innovation4austria.dataAccess;
 using innovation4austria.logic;
 using innovation4austria.web;
 using innovation4austria.web.Models;
+using System.Xml.Linq;
 
 namespace innovation4austria.web.Controllers
 {
@@ -31,6 +32,40 @@ namespace innovation4austria.web.Controllers
                     City = company.city
                 });
             }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Detail(int id)
+        {
+            // lade Daten aus logic
+            companies company = CompanyAdministration.GetCompany(id);
+            List<portalusers> companyUsers = UserAdministration.GetCompanyUsers(id);
+
+            CompanyDetailModel model = new CompanyDetailModel();
+
+            model.Company = new CompanyModel()
+            {
+                ID = company.id,
+                CompanyName = company.companyname,
+                Zip = company.zip,
+                Street = company.street,
+                City = company.city
+            };
+
+            model.CompanyUsers = new List<ProfileDataModel>();
+            foreach (var companyUser in companyUsers)
+            {
+                model.CompanyUsers.Add(new ProfileDataModel()
+                {
+                    ID = companyUser.id,
+                    Firstname = companyUser.firstname,
+                    Lastname = companyUser.lastname,
+                    Active = companyUser.active,
+                    Email = companyUser.email
+                });
+            }
+
             return View(model);
         }
     }

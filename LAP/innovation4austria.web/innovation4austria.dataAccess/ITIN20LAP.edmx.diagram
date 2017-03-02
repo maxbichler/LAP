@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a838d5d2bc994b778307a76ecf8c5d3d" Name="Diagram1">
-        <EntityTypeShape EntityType="ITIN20LAPModel.billdetails" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.billdetails" Width="1.5" PointX="10.125" PointY="5.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.bills" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.bookingreversals" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.bookings" Width="1.5" PointX="5.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.bookingreversals" Width="1.5" PointX="6.625" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.bookings" Width="1.5" PointX="5.875" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.companies" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.contacts" Width="1.5" PointX="8.25" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.contacts" Width="1.5" PointX="10.125" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.facilities" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.furnishings" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalroles" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalusers" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishings" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishings" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.rooms" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ITIN20LAPModel.fk_billdetails_bills" ManuallyRouted="false" />
@@ -31,6 +31,7 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_furnishings" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_portalusers_portalroles" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="ITIN20LAPModel.fk_portalusers_comüpanies" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

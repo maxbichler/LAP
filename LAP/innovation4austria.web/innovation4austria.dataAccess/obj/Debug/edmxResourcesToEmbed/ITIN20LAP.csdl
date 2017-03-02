@@ -56,6 +56,7 @@
     <Property Name="street" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_companies" FromRole="companies" ToRole="contacts" />
+    <NavigationProperty Name="portalusers" Relationship="ITIN20LAPModel.fk_portalusers_comüpanies" FromRole="companies" ToRole="portalusers" />
   </EntityType>
   <EntityType Name="contacts">
     <Key>
@@ -94,6 +95,7 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="portalusers" Relationship="Self.fk_portalusers_portalroles" FromRole="portalroles" ToRole="portalusers" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="portalusers">
     <Key>
@@ -111,6 +113,8 @@
     <NavigationProperty Name="contacts" Relationship="Self.fk_contacts_portalusers" FromRole="portalusers" ToRole="contacts" />
     <NavigationProperty Name="portalroles" Relationship="Self.fk_portalusers_portalroles" FromRole="portalusers" ToRole="portalroles" />
     <Property Name="active" Type="Boolean" Nullable="false" />
+    <Property Name="company_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="companies" Relationship="ITIN20LAPModel.fk_portalusers_comüpanies" FromRole="portalusers" ToRole="companies" />
   </EntityType>
   <EntityType Name="roomfurnishings">
     <Key>
@@ -372,5 +376,21 @@
       <End Role="rooms" EntitySet="rooms" />
       <End Role="roomfurnishings" EntitySet="roomfurnishings" />
     </AssociationSet>
+    <AssociationSet Name="fk_portalusers_comüpanies" Association="ITIN20LAPModel.fk_portalusers_comüpanies">
+      <End Role="companies" EntitySet="companies" />
+      <End Role="portalusers" EntitySet="portalusers" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="fk_portalusers_comüpanies">
+    <End Type="ITIN20LAPModel.companies" Role="companies" Multiplicity="1" />
+    <End Type="ITIN20LAPModel.portalusers" Role="portalusers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="companies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="portalusers">
+        <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -3,12 +3,16 @@
 @{
     ViewBag.Title = "Index";
 }
+
+@if (User.IsInRole("admin"))
+{
+    <p>
+        adsasdg
+    </p>
+}
 <div class="container">
     <h2>Index</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <table class="table">
         <tr>
             <th>
