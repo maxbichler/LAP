@@ -56,6 +56,44 @@ namespace innovation4austria.logic
                 return company;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="companyId"></param>
+        /// <returns></returns>
+        public static bool IsUserInCompany(string email, int companyId)
+        {
+            if (string.IsNullOrEmpty(email))
+                throw new ArgumentException("Invalid email", nameof(email));
+            if (companyId <= 0)
+                throw new ArgumentException("Invalid id", nameof(companyId));
+            else
+            {
+                bool success = false;
+
+                try
+                {
+                    using (var context = new ITIN20LAPEntities())
+                    {
+                        foreach (var item in context.companies)
+                        {
+                            if (item.id == companyId)
+                            {
+                                success = item.portalusers.Any(x => x.email == email); 
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+                return success;
+            }
+
+        }
 
         public static bool SaveCompanyData(int companyId, string companyName, string street, string number, string zip, string city)
         {

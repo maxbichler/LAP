@@ -16,22 +16,44 @@ namespace innovation4austria.web.Controllers
         // GET: Company
         [HttpGet]
         public ActionResult Index()
-        {      
-           List<companies> allCompanies = CompanyAdministration.GetCompanies();
-           List<CompanyModel> model = new List<CompanyModel>();
+        {
+            List<companies> allCompanies = CompanyAdministration.GetCompanies();
+            List<CompanyModel> model = new List<CompanyModel>();
 
-            foreach (var company in allCompanies)
+            if (User.IsInRole("admin"))
             {
-                model.Add(new CompanyModel()
+                foreach (var company in allCompanies)
                 {
-                    ID = company.id,
-                    CompanyName = company.companyname,
-                    Number = company.number,
-                    Street = company.street,
-                    Zip = company.zip,
-                    City = company.city
-                });
+                    model.Add(new CompanyModel()
+                    {
+                        ID = company.id,
+                        CompanyName = company.companyname,
+                        Number = company.number,
+                        Street = company.street,
+                        Zip = company.zip,
+                        City = company.city
+                    });
+                }
             }
+            else if (User.IsInRole("User"))
+            {
+                foreach (var company in allCompanies)
+                {
+                    if (CompanyAdministration.IsUserInCompany(User.Identity.Name, company.id))
+                    {
+                        model.Add(new CompanyModel()
+                        {
+                            ID = company.id,
+                            CompanyName = company.companyname,
+                            Number = company.number,
+                            Street = company.street,
+                            Zip = company.zip,
+                            City = company.city
+                        });
+                    }
+                }
+            }
+
             return View(model);
         }
 
