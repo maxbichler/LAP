@@ -1,0 +1,36 @@
+﻿@model innovation4austria.web.Models.CompanyDetailModel
+
+@{
+    ViewBag.Title = "innovation4austria - Firma verwalten";
+}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Profil verwalten</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-offset-1 col-sm-5 col-xs-12">
+        @Html.Partial("_Detail", Model.Company)
+    </div>
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+        @Html.ActionLink("Zurück zur Übersicht", "Index", "Company")
+    </div>
+    <div class="col-sm-offset-1 col-sm-5 col-xs-12">
+        @Html.Partial("_Employees", Model.CompanyUsers)
+    </div>
+    <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+        @Html.ActionLink("Neuer Mitarbeiter", "CreateEmployee", "Company", new { id = Model.Company.ID }, null)
+    </div>
+</div>
+<div class="row hidden-xs">
+    <div class="col-sm-offset-1 col-sm-5 text-center">
+        @Html.ActionLink("Zurück zur Übersicht", "Index", "Company")
+    </div>
+    <div class="col-sm-offset-1 col-sm-5 text-center">
+        @Html.ActionLink("Neuer Mitarbeiter", "CreateEmployee", "Company", new { id = Model.Company.ID }, null)
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -158,6 +158,9 @@
     </Compile>
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\EmployeDataModel.cs" />
+    <Compile Include="Models\EmployeModel.cs" />
+    <Compile Include="Models\EmployePasswordModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
@@ -234,6 +237,8 @@
     <Content Include="Views\User\_ProfilePassword.cshtml" />
     <Content Include="Views\User\Profile.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\_Detail.cshtml" />
+    <Content Include="Views\Company\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

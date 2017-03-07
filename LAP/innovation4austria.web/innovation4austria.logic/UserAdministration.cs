@@ -55,6 +55,7 @@ namespace innovation4austria.logic
         {
             return Helper.CheckMailAndPass(email, password);
         }
+
         public static portalusers GetUser(string email)
         {
             portalusers user = null;
@@ -72,6 +73,25 @@ namespace innovation4austria.logic
             }
             return user;
         }
+
+        public static portalusers GetEmploye (int id)
+        {
+            portalusers user = null;
+
+            using (var context = new ITIN20LAPEntities())
+            {
+                try
+                {
+                    user = context.portalusers.Where(x => x.id == id).FirstOrDefault();
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+            return user;
+        }
+
         public static DataResult SaveProfile(string email, string firstname, string lastname)
         {
             DataResult res = DataResult.fail;

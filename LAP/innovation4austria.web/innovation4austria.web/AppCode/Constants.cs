@@ -16,6 +16,7 @@ namespace innovation4austria.web.AppCode
             public const string SaveError = "Fehler beim Speichern Ihrer Änderungen!";
             public const string ProfileDataInvalid = "Ungültige Daten beim Ändern Ihres Profils!";
             public const string ProfilePassInvalid = "Ungültige Daten beim Ändern Ihres Passworts!";
+            public const string CompanyDataInvalid = "Firmen Daten ungültig!";
         }
 
         public class Roles

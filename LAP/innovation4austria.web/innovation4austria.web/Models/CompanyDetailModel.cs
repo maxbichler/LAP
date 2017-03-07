@@ -9,6 +9,6 @@ namespace innovation4austria.web.Models
     {
         public CompanyModel Company { get; set; }
 
-        public List<ProfileDataModel> CompanyUsers { get; set; }
+        public List<ProfileDataModel> Portalusers { get; set; }
     }
 }

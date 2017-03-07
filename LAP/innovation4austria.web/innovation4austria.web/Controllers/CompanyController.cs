@@ -8,6 +8,7 @@ using innovation4austria.logic;
 using innovation4austria.web;
 using innovation4austria.web.Models;
 using System.Xml.Linq;
+using innovation4austria.web.AppCode;
 
 namespace innovation4austria.web.Controllers
 {
@@ -75,10 +76,10 @@ namespace innovation4austria.web.Controllers
                 City = company.city
             };
 
-            model.CompanyUsers = new List<ProfileDataModel>();
+            model.Portalusers = new List<ProfileDataModel>();
             foreach (var companyUser in companyUsers)
             {
-                model.CompanyUsers.Add(new ProfileDataModel()
+                model.Portalusers.Add(new ProfileDataModel()
                 {
                     ID = companyUser.id,
                     Firstname = companyUser.firstname,
@@ -87,6 +88,55 @@ namespace innovation4austria.web.Controllers
                     Email = companyUser.email
                 });
             }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SaveDetail(CompanyModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CompanyAdministration.SaveCompanyData(model.ID, model.CompanyName, model.Street, model.Number, model.Zip, model.City))
+                {
+                    TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = Constants.Messages.CompanyDataInvalid;
+            }
+
+            return RedirectToAction("Detail", new { id = model.ID });
+        }
+
+        [HttpGet]
+        public ActionResult Employee(int id = 0)
+        {
+            if (id <= 0)
+                return HttpNotFound("Invalid Employee ID");
+
+            // Daten von der Datenbank
+            portalusers employe = UserAdministration.GetEmploye(id);
+            EmployeModel model = new EmployeModel();
+
+            // ummappen von der applikation auf die Datenbank
+            model.EmployeData = new EmployeDataModel()
+            {
+                ID_Company = employe.company_id,
+                Email = employe.email,
+                Firstname = employe.firstname,
+                Lastname = employe.lastname,
+                Active = employe.active
+            };
+
+
+        
 
             return View(model);
         }
