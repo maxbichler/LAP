@@ -1,0 +1,28 @@
+﻿@model innovation4austria.web.Models.EmployeModel
+
+@{
+    ViewBag.Title = "Employe";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Firmen-Mitarbeiter verwalten</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-xs-12">
+        @Html.Partial("_SaveEmployeData", Model.EmployeData)
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        @Html.Partial("_SaveEmployePassword", new innovation4austria.web.Models.EmployePasswordModel())
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        @Html.ActionLink("Zurück zur Firma", "Detail", "Company", new { id = Model.EmployeData.ID_Company }, null)
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

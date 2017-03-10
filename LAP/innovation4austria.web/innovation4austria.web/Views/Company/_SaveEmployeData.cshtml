@@ -1,0 +1,40 @@
+﻿@model innovation4austria.web.Models.EmployeDataModel
+@using (Html.BeginForm("SaveEmployeData", "Company", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.ID)
+    <div class="row">
+        <h3 class="col-xs-12">Mitarbeiter Daten</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 col-xs-3">
+            @Html.LabelFor(x => x.Email)
+        </div>
+        <div class="col-sm-10 col-xs-9">
+            @Html.TextBoxFor(x => x.Email, new { disabled = "disabled", @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 col-xs-3">
+            @Html.LabelFor(x => x.Firstname)
+        </div>
+        <div class="col-sm-10 col-xs-9">
+            @Html.TextBoxFor(x => x.Firstname, new { placeholder = "Vorname", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Firstname)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 col-xs-3">
+            @Html.LabelFor(x => x.Lastname)
+        </div>
+        <div class="col-sm-10 col-xs-9">
+            @Html.TextBoxFor(x => x.Lastname, new { placeholder = "Nachname", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Lastname)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
+        </div>
+    </div>
+}

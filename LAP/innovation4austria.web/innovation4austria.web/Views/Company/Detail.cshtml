@@ -17,10 +17,10 @@
             @Html.ActionLink("Zurück zur Übersicht", "Index", "Company")
         </div>
         <div class="col-sm-offset-1 col-sm-5 col-xs-12">
-            @Html.Partial("_Employees", Model.Portalusers)
+            @Html.Partial("_Employe", Model.Portalusers)
         </div>
         <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-            @Html.ActionLink("Neuer Mitarbeiter", "CreateEmployee", "Company", new { id = Model.Company.ID }, null)
+            @Html.ActionLink("Neuer Mitarbeiter", "CreateEmploye", "Company", new { id = Model.Company.ID }, null)
         </div>
     </div>
     <div class="row hidden-xs">
@@ -28,7 +28,7 @@
             @Html.ActionLink("Zurück zur Übersicht", "Index", "Company")
         </div>
         <div class="col-sm-offset-1 col-sm-5 text-center">
-            @Html.ActionLink("Neuer Mitarbeiter", "CreateEmployee", "Company", new { id = Model.Company.ID }, null)
+            @Html.ActionLink("Neuer Mitarbeiter", "CreateEmploye", "Company", new { id = Model.Company.ID }, null)
         </div>
     </div>
 </div>
