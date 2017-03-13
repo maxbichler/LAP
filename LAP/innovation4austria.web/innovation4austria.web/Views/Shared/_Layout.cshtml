@@ -31,6 +31,7 @@ Licence URI: http://www.os-templates.com/template-terms
                     
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li><a href="~/room/index">Räume</a></li>
                         <li><a href="~/company/index">Firmen</a></li>
                         <li><a href="~/user/profile">@HttpContext.Current.User.Identity.Name</a></li>
                         <li><a href="~/user/logout">Logout</a></li>

@@ -8,18 +8,18 @@ INSERT INTO furnishings(description) VALUES('Computer');
 INSERT INTO furnishings(description) VALUES('Kasten');
 GO
 
-INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('crowd-o-moto','1110','Wien','Volkstheater','17');
-INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('pc-web','4020','Linz','Wienerstrasse','22');
-INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('bundesrechenzentrum','5020','Salzburg','Hinterholz','8');
-INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('bbrz-Vorarlberg','6700','Bregenz','Mariahilfsstrasse','2');
-INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('bbrz-Schärding','4975','Schärding','Linzerstrasse','1');
+INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Raum 1','1110','Wien','Simmeringer Hauptstrasse','123');
+INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Raum 2','1110','Wien','Simmeringer Hauptstrasse','123');
+INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Raum 3','1110','Wien','Simmeringer Hauptstrasse','123');
+INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Raum 4','1110','Wien','Simmeringer Hauptstrasse','123');
+INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Raum 5','1110','Wien','Simmeringer Hauptstrasse','123');
 Go
 
-INSERT INTO rooms(facility_id,description) VALUES(1,'EntwicklerBüro');
-INSERT INTO rooms(facility_id,description) VALUES(2,'ServerRaum');
-INSERT INTO rooms(facility_id,description) VALUES(3,'TechnikerBüro');
-INSERT INTO rooms(facility_id,description) VALUES(4,'LagerRaum');
-INSERT INTO rooms(facility_id,description) VALUES(5,'Büro');
+INSERT INTO rooms(facility_id,description) VALUES(1,'Seminar');
+INSERT INTO rooms(facility_id,description) VALUES(2,'Schulung');
+INSERT INTO rooms(facility_id,description) VALUES(3,'Seminar Premium');
+INSERT INTO rooms(facility_id,description) VALUES(4,'Schulung Premium');
+INSERT INTO rooms(facility_id,description) VALUES(5,'Besprechungsraum');
 GO
 
 --1 Roomfurnishings id 1-5 per 5 rooms
@@ -101,9 +101,9 @@ INSERT INTO contacts(portaluser_id,company_id) VALUES(4,4);
 INSERT INTO contacts(portaluser_id,company_id) VALUES(5,5);
 GO
 
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(1,1,'Langweilig');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(2,2,'Nicht Gut');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(3,3,'Dum');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(4,4,'zu wenige Seiten');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(5,5,'Zu viele seiten');
+INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(1,1,'Fehlbuchung');
+INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(2,2,'Systemfehler');
+INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(3,3,'User verschulden Fehlbuchung');
+INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(4,4,'Mitarbeiter verschulden Fehlbuchung');
+INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(5,5,'Insert Reason');
 GO

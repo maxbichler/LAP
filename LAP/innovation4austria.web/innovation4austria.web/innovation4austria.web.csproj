@@ -152,6 +152,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RoomController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -159,13 +160,18 @@
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\CreateEmployeModel.cs" />
+    <Compile Include="Models\CreateRoomModel.cs" />
     <Compile Include="Models\EmployeDataModel.cs" />
     <Compile Include="Models\EmployeModel.cs" />
     <Compile Include="Models\EmployePasswordModel.cs" />
+    <Compile Include="Models\FacilityModel.cs" />
+    <Compile Include="Models\FurnishingModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ProfilePasswordModel.cs" />
+    <Compile Include="Models\RoomFilterModel.cs" />
+    <Compile Include="Models\RoomModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -250,6 +256,8 @@
     <Content Include="Views\Company\_Employe.cshtml" />
     <Content Include="Views\Company\CreateEmploye.cshtml" />
     <Content Include="Views\Company\Employe.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\RoomDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
