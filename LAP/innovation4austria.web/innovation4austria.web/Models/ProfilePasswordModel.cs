@@ -22,6 +22,7 @@ namespace innovation4austria.web.Models
 
         [Display(Name = "Passwort wiederholen")]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
+        [Compare("NewPassword", ErrorMessage = "Passwörter stimmen nicht überein!")]
         [StringLength(24, ErrorMessage = "8-24 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]
         public string NewPassword2 { get; set; }

@@ -10,9 +10,12 @@ namespace innovation4austria.web.Models
     public class LoginModel
     {
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
-        [DataType(DataType.EmailAddress)]
+        [StringLength(50)]
+        [Display(Name = "Email")]
+        [EmailAddress(ErrorMessage = "Der Eingegebene Wert ist keine Email Adresse")]
         public string Email { get; set; }
 
+        [Display(Name = "Passwort")]
         [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [StringLength(24, ErrorMessage = "8-24 Zeichen", MinimumLength = 8)]
         [DataType(DataType.Password)]

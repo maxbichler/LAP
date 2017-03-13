@@ -16,10 +16,12 @@ namespace innovation4austria.web.Models
         [Editable(false)]
         public string Email { get; set; }
 
+        [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [Display(Name = "Vorname")]
         [StringLength(50)]
         public string Firstname { get; set; }
 
+        [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
         [Display(Name = "Nachname")]
         [StringLength(50)]
         public string Lastname { get; set; }
