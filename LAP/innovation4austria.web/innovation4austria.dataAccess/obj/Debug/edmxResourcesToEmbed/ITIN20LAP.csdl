@@ -86,7 +86,8 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="roomfurnishings" Relationship="Self.fk_roomfurnishings_furnishings" FromRole="furnishings" ToRole="roomfurnishings" />
+    <Property Name="room_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="rooms" Relationship="ITIN20LAPModel.fk_furnishings_rooms" FromRole="furnishings" ToRole="rooms" />
   </EntityType>
   <EntityType Name="portalroles">
     <Key>
@@ -116,26 +117,17 @@
     <Property Name="company_id" Type="Int32" Nullable="false" />
     <NavigationProperty Name="companies" Relationship="ITIN20LAPModel.fk_portalusers_comüpanies" FromRole="portalusers" ToRole="companies" />
   </EntityType>
-  <EntityType Name="roomfurnishings">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="room_id" Type="Int32" Nullable="false" />
-    <Property Name="furnishing_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="furnishings" Relationship="Self.fk_roomfurnishings_furnishings" FromRole="roomfurnishings" ToRole="furnishings" />
-    <NavigationProperty Name="rooms" Relationship="Self.fk_roomfurnishings_rooms" FromRole="roomfurnishings" ToRole="rooms" />
-  </EntityType>
   <EntityType Name="rooms">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="facility_id" Type="Int32" Nullable="false" />
-    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_rooms" FromRole="rooms" ToRole="bookings" />
     <NavigationProperty Name="facilities" Relationship="Self.fk_rooms_facilities" FromRole="rooms" ToRole="facilities" />
-    <NavigationProperty Name="roomfurnishings" Relationship="Self.fk_roomfurnishings_rooms" FromRole="rooms" ToRole="roomfurnishings" />
+    <Property Name="price" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
+    <NavigationProperty Name="furnishings" Relationship="ITIN20LAPModel.fk_furnishings_rooms" FromRole="rooms" ToRole="furnishings" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
@@ -274,18 +266,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_roomfurnishings_furnishings">
-    <End Role="furnishings" Type="Self.furnishings" Multiplicity="1" />
-    <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="furnishings">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="roomfurnishings">
-        <PropertyRef Name="furnishing_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_portalusers_portalroles">
     <End Role="portalroles" Type="Self.portalroles" Multiplicity="1" />
     <End Role="portalusers" Type="Self.portalusers" Multiplicity="*" />
@@ -295,18 +275,6 @@
       </Principal>
       <Dependent Role="portalusers">
         <PropertyRef Name="role_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_roomfurnishings_rooms">
-    <End Role="rooms" Type="Self.rooms" Multiplicity="1" />
-    <End Role="roomfurnishings" Type="Self.roomfurnishings" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="rooms">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="roomfurnishings">
-        <PropertyRef Name="room_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -321,7 +289,6 @@
     <EntitySet Name="furnishings" EntityType="Self.furnishings" />
     <EntitySet Name="portalroles" EntityType="Self.portalroles" />
     <EntitySet Name="portalusers" EntityType="Self.portalusers" />
-    <EntitySet Name="roomfurnishings" EntityType="Self.roomfurnishings" />
     <EntitySet Name="rooms" EntityType="Self.rooms" />
     <EntitySet Name="Log" EntityType="Self.Log" />
     <AssociationSet Name="fk_billdetails_bills" Association="Self.fk_billdetails_bills">
@@ -364,21 +331,17 @@
       <End Role="facilities" EntitySet="facilities" />
       <End Role="rooms" EntitySet="rooms" />
     </AssociationSet>
-    <AssociationSet Name="fk_roomfurnishings_furnishings" Association="Self.fk_roomfurnishings_furnishings">
-      <End Role="furnishings" EntitySet="furnishings" />
-      <End Role="roomfurnishings" EntitySet="roomfurnishings" />
-    </AssociationSet>
     <AssociationSet Name="fk_portalusers_portalroles" Association="Self.fk_portalusers_portalroles">
       <End Role="portalroles" EntitySet="portalroles" />
       <End Role="portalusers" EntitySet="portalusers" />
     </AssociationSet>
-    <AssociationSet Name="fk_roomfurnishings_rooms" Association="Self.fk_roomfurnishings_rooms">
-      <End Role="rooms" EntitySet="rooms" />
-      <End Role="roomfurnishings" EntitySet="roomfurnishings" />
-    </AssociationSet>
     <AssociationSet Name="fk_portalusers_comüpanies" Association="ITIN20LAPModel.fk_portalusers_comüpanies">
       <End Role="companies" EntitySet="companies" />
       <End Role="portalusers" EntitySet="portalusers" />
+    </AssociationSet>
+    <AssociationSet Name="fk_furnishings_rooms" Association="ITIN20LAPModel.fk_furnishings_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="furnishings" EntitySet="furnishings" />
     </AssociationSet>
   </EntityContainer>
   <Association Name="fk_portalusers_comüpanies">
@@ -390,6 +353,18 @@
       </Principal>
       <Dependent Role="portalusers">
         <PropertyRef Name="company_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_furnishings_rooms">
+    <End Type="ITIN20LAPModel.rooms" Role="rooms" Multiplicity="1" />
+    <End Type="ITIN20LAPModel.furnishings" Role="furnishings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rooms">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="furnishings">
+        <PropertyRef Name="room_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

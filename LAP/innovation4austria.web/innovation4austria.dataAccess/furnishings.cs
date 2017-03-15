@@ -18,21 +18,15 @@ using System;
 public partial class furnishings
 {
 
-    public furnishings()
-    {
-
-        this.roomfurnishings = new HashSet<roomfurnishings>();
-
-    }
-
-
     public int id { get; set; }
 
     public string description { get; set; }
 
+    public int room_id { get; set; }
 
 
-    public virtual ICollection<roomfurnishings> roomfurnishings { get; set; }
+
+    public virtual rooms rooms { get; set; }
 
 }
 

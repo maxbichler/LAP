@@ -257,6 +257,7 @@
     <Content Include="Views\Company\CreateEmploye.cshtml" />
     <Content Include="Views\Company\Employe.cshtml" />
     <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Room\CreateRoom.cshtml" />
     <Content Include="Views\Room\RoomDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>

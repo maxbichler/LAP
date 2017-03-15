@@ -5,10 +5,6 @@
 }
 <div class="container">
     <h2>Alle Räume</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <table class="table">
         <tr>
             <th>
@@ -30,7 +26,8 @@
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "roomdetail", new { id = item.ID }) |
+                    @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.ID })|
+                    <a href="@Url.Action("roomdetail", "room", new { id = item.ID })">Bearbeiten</a>|
                     @Html.ActionLink("Delete", "Delete", new { id = item.ID })
                 </td>
             </tr>

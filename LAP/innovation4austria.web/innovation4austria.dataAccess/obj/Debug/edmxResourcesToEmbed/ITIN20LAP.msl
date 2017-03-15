@@ -76,6 +76,7 @@
     <EntitySetMapping Name="furnishings">
       <EntityTypeMapping TypeName="ITIN20LAPModel.furnishings">
         <MappingFragment StoreEntitySet="furnishings">
+          <ScalarProperty Name="room_id" ColumnName="room_id" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="description" ColumnName="description" />
         </MappingFragment>
@@ -104,18 +105,10 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="roomfurnishings">
-      <EntityTypeMapping TypeName="ITIN20LAPModel.roomfurnishings">
-        <MappingFragment StoreEntitySet="roomfurnishings">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="room_id" ColumnName="room_id" />
-          <ScalarProperty Name="furnishing_id" ColumnName="furnishing_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="rooms">
       <EntityTypeMapping TypeName="ITIN20LAPModel.rooms">
         <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="facility_id" ColumnName="facility_id" />
           <ScalarProperty Name="description" ColumnName="description" />

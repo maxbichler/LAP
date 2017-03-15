@@ -23,7 +23,7 @@ public partial class rooms
 
         this.bookings = new HashSet<bookings>();
 
-        this.roomfurnishings = new HashSet<roomfurnishings>();
+        this.furnishings = new HashSet<furnishings>();
 
     }
 
@@ -34,13 +34,15 @@ public partial class rooms
 
     public string description { get; set; }
 
+    public decimal price { get; set; }
+
 
 
     public virtual ICollection<bookings> bookings { get; set; }
 
     public virtual facilities facilities { get; set; }
 
-    public virtual ICollection<roomfurnishings> roomfurnishings { get; set; }
+    public virtual ICollection<furnishings> furnishings { get; set; }
 
 }
 

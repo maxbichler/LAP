@@ -1,57 +1,31 @@
-﻿@model IEnumerable<innovation4austria.web.Models.FacilityModel>
+﻿@model innovation4austria.web.Models.FurnishingModel
 
 @{
     ViewBag.Title = "RoomDetail";
 }
+<div class="container">
+    <h2>RoomDetail</h2>
 
-<h2>RoomDetail</h2>
+    <div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FacilityName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Zip)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Street)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Number)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FacilityName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zip)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Street)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Number)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
-
-</table>
+        <h4>FurnishingModel</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-2">
+                @Html.LabelFor(x => x.Description)
+            </div>
+            <div class="col-md-3">
+                @Html.TextBoxFor(x => x.Description, new { placeholder = "Ausstattung", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.Description)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
+            </div>
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

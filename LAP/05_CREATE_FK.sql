@@ -1,20 +1,13 @@
 USE  ITIN20LAP
 GO
 
-ALTER TABLE roomfurnishings 
+ALTER TABLE furnishings 
 ADD
-CONSTRAINT fk_roomfurnishings_rooms
+CONSTRAINT fk_furnishings_rooms
 FOREIGN KEY (room_id)
 REFERENCES rooms(id)
 GO
  
-
-ALTER TABLE roomfurnishings 
-ADD
-CONSTRAINT fk_roomfurnishings_furnishings
-FOREIGN KEY (furnishing_id)
-REFERENCES furnishings(id)
-GO
 
 --ALTER TABLE rooms 
 --ADD

@@ -3,19 +3,15 @@ GO
 
 CREATE TABLE furnishings(
 id INT IDENTITY (1,1) NOT NULL,
-description VARCHAR(50) NULL
-)
-
-CREATE TABLE roomfurnishings(
-id INT IDENTITY (1,1) NOT NULL,
 room_id INT NOT NULL,
-furnishing_id INT NOT NULL
+description VARCHAR(50) NULL
 )
 
 CREATE TABLE rooms(
 id INT IDENTITY (1,1) NOT NULL,
 facility_id INT NOT NULL,
-description VARCHAR(50) NULL
+description VARCHAR(50) NOT NULL,
+price DECIMAL(6,2) NOT NULL
 )
 
 CREATE TABLE facilities(

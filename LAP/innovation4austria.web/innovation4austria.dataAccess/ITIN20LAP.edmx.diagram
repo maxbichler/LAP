@@ -12,10 +12,9 @@
         <EntityTypeShape EntityType="ITIN20LAPModel.companies" Width="1.5" PointX="6" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.contacts" Width="1.5" PointX="10.125" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.facilities" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.furnishings" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.furnishings" Width="1.5" PointX="13.5" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalroles" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalusers" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishings" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.rooms" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="ITIN20LAPModel.fk_billdetails_bills" ManuallyRouted="false" />
@@ -28,10 +27,9 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_contacts_companies" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_contacts_portalusers" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_rooms_facilities" ManuallyRouted="false" />
-        <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_furnishings" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_portalusers_portalroles" ManuallyRouted="false" />
-        <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_rooms" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_portalusers_comüpanies" />
+        <AssociationConnector Association="ITIN20LAPModel.fk_furnishings_rooms" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

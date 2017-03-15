@@ -52,8 +52,6 @@ public partial class ITIN20LAPEntities : DbContext
 
     public DbSet<portalusers> portalusers { get; set; }
 
-    public DbSet<roomfurnishings> roomfurnishings { get; set; }
-
     public DbSet<rooms> rooms { get; set; }
 
     public DbSet<Log> Log { get; set; }

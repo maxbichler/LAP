@@ -34,55 +34,63 @@ namespace innovation4austria.web.Controllers
             }
             return View(model);
         }
-
-        public ActionResult RoomDetail()
+        [HttpGet]
+        public ActionResult RoomDetail(int id)
         {
-            List<facilities> allFacilities = RoomAdministration.GetFacilities();
-            List<FacilityModel> model = new List<FacilityModel>();
+            List<furnishings> allFurnishings = RoomAdministration.GetFurnishings();
+            FurnishingModel model = new FurnishingModel();
 
             if (User.IsInRole("admin"))
             {
-                foreach (var facility in allFacilities)
+                foreach (var furnishing in allFurnishings)
                 {
-                    model.Add(new FacilityModel()
+                    if (id == furnishing.room_id)
                     {
-                        ID = facility.id,
-                        FacilityName = facility.facilityname,
-                        City = facility.city,
-                        Street = facility.street,
-                        Zip = facility.zip,
-                        Number = facility.number
-                    });
+                        id = furnishing.room_id;
+                        model.Description = furnishing.description;
+                    }
                 }
             }
             return View(model);
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult CreateRoom(CreateRoomModel model)
-        //{
-        //    ActionResult result = View(model);
+        [HttpGet]
+        public ActionResult CreateRoom(int id)
+        {
 
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (RoomAdministration.CreateRoom(model.))
-        //        {
-        //            TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
-        //            result = RedirectToAction("Detail", new { id = model.CompanyID });
-        //        }
-        //        else
-        //        {
-        //            TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+            CreateRoomModel model = new CreateRoomModel()
+            {
+                ID = id
+            };
 
-        //        }
-        //    }
-        //    else
-        //    {
-        //        TempData[Constants.Messages.WARNING] = Constants.Messages.CreateEmployeInvalid;
-        //    }
+            return View(model);
+        }
 
-        //    return result;
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateRoom(CreateRoomModel model)
+        {
+            ActionResult result = View(model);
+
+            if (ModelState.IsValid)
+            {
+                if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description))
+                {
+                    TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
+                    result = RedirectToAction("Detail", new { id = model.ID });
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = Constants.Messages.CreateEmployeInvalid;
+            }
+
+            return result;
+        }
     }
 }
