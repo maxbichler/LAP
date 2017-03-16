@@ -50,7 +50,7 @@ namespace innovation4austria.logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allRooms = context.rooms.ToList();
+                    allRooms = context.rooms.Include("facilities").Include("bookings").Include("furnishings").ToList();
                 }
             }
             catch (Exception ex)
@@ -73,6 +73,31 @@ namespace innovation4austria.logic
                         description = description
                     };
                     context.rooms.Add(room);
+                    context.SaveChanges();
+                    created = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return created;
+        }
+
+        public static bool CreateFurnishing(int id, string description)
+        {
+            bool created = false;
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    furnishings furnishing = new furnishings()
+                    {
+                        room_id = id,
+                        description = description
+                    };
+                    context.furnishings.Add(furnishing);
                     context.SaveChanges();
                     created = true;
                 }

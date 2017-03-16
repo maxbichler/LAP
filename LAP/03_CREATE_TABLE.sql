@@ -3,8 +3,13 @@ GO
 
 CREATE TABLE furnishings(
 id INT IDENTITY (1,1) NOT NULL,
-room_id INT NOT NULL,
 description VARCHAR(50) NULL
+)
+
+CREATE TABLE roomfurnishings(
+id INT IDENTITY (1,1) NOT NULL,
+room_id INT NOT NULL,
+furnishing_id INT NOT NULL
 )
 
 CREATE TABLE rooms(

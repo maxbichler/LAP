@@ -11,6 +11,8 @@ namespace innovation4austria.web.Models
 
         public int Facility_ID { get; set; }
 
+        public string Facility_Name { get; set; }
+
         public string Description { get; set; }
     }
 }

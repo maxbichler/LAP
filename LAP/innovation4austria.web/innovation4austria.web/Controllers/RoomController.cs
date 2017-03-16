@@ -24,11 +24,12 @@ namespace innovation4austria.web.Controllers
             {
                 foreach (var room in allRooms)
                 {
-                    model.Add(new RoomModel()
+                     model.Add(new RoomModel()
                     {
                         ID = room.id,
                         Facility_ID = room.facility_id,
-                        Description = room.description
+                        Description = room.description,
+                        Facility_Name = room.facilities.facilityname
                     });
                 }
             }
@@ -38,7 +39,7 @@ namespace innovation4austria.web.Controllers
         public ActionResult RoomDetail(int id)
         {
             List<furnishings> allFurnishings = RoomAdministration.GetFurnishings();
-            FurnishingModel model = new FurnishingModel();
+            List<FurnishingModel> model = new List<FurnishingModel>();
 
             if (User.IsInRole("admin"))
             {
@@ -46,8 +47,7 @@ namespace innovation4austria.web.Controllers
                 {
                     if (id == furnishing.room_id)
                     {
-                        id = furnishing.room_id;
-                        model.Description = furnishing.description;
+                        model.Add(new FurnishingModel() { Description = furnishing.description, ID = furnishing.id, Room_ID = id });
                     }
                 }
             }
@@ -77,7 +77,45 @@ namespace innovation4austria.web.Controllers
                 if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description))
                 {
                     TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
-                    result = RedirectToAction("Detail", new { id = model.ID });
+                    result = RedirectToAction("Index", new { id = model.ID });
+                }
+                else
+                {
+                    TempData[Constants.Messages.ERROR] = Constants.Messages.SaveError;
+
+                }
+            }
+            else
+            {
+                TempData[Constants.Messages.WARNING] = Constants.Messages.CreateEmployeInvalid;
+            }
+
+            return result;
+        }
+        [HttpGet]
+        public ActionResult CreateFurnishing(int id)
+        {
+
+            CreateFurnishingModel model = new CreateFurnishingModel()
+            {
+                Room_ID = id
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateFurnishing(CreateFurnishingModel model)
+        {
+            ActionResult result = View(model);
+
+            if (ModelState.IsValid)
+            {
+                if (RoomAdministration.CreateFurnishing(model.Room_ID, model.Description))
+                {
+                    TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
+                    result = RedirectToAction("RoomDetail", new { id = model.Room_ID });
                 }
                 else
                 {

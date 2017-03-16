@@ -70,12 +70,6 @@ PRIMARY KEY (id)
 GO
  
 
-ALTER TABLE contacts 
-ADD
-CONSTRAINT pk_contacts
-PRIMARY KEY (id)
-GO
-
 ALTER TABLE companies 
 ADD
 CONSTRAINT pk_companies
@@ -87,4 +81,3 @@ ADD
 CONSTRAINT pk_bookingreversals
 PRIMARY KEY (id)
 GO
- 

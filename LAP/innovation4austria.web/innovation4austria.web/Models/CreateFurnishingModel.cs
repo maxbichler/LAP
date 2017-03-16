@@ -6,7 +6,7 @@ using System.Web;
 
 namespace innovation4austria.web.Models
 {
-    public class FurnishingModel
+    public class CreateFurnishingModel
     {
         public int ID { get; set; }
 

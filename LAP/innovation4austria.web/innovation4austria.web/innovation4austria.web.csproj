@@ -160,6 +160,7 @@
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\CreateEmployeModel.cs" />
+    <Compile Include="Models\CreateFurnishingModel.cs" />
     <Compile Include="Models\CreateRoomModel.cs" />
     <Compile Include="Models\EmployeDataModel.cs" />
     <Compile Include="Models\EmployeModel.cs" />
@@ -259,6 +260,7 @@
     <Content Include="Views\Room\Index.cshtml" />
     <Content Include="Views\Room\CreateRoom.cshtml" />
     <Content Include="Views\Room\RoomDetail.cshtml" />
+    <Content Include="Views\Room\CreateFurnishing.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

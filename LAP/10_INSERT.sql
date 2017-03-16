@@ -1,11 +1,12 @@
-﻿USE ITIN20LAP;
+﻿
+USE ITIN20LAP;
 GO
 
-INSERT INTO furnishings(description, room_id) VALUES('Stuhl', 1);
-INSERT INTO furnishings(description, room_id) VALUES('Tisch', 2);
-INSERT INTO furnishings(description, room_id) VALUES('Monitor', 3);
-INSERT INTO furnishings(description, room_id) VALUES('Computer', 4);
-INSERT INTO furnishings(description, room_id) VALUES('Kasten', 5);
+INSERT INTO furnishings(description) VALUES('Stuhl');
+INSERT INTO furnishings(description) VALUES('Tisch');
+INSERT INTO furnishings(description) VALUES('Monitor');
+INSERT INTO furnishings(description) VALUES('Computer');
+INSERT INTO furnishings(description) VALUES('Kasten');
 GO
 
 INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Milleniumtower','1110','Wien','Simmeringer Hauptstrasse','123');
@@ -23,36 +24,36 @@ INSERT INTO rooms(facility_id,description, price) VALUES(5,'Besprechungsraum', 5
 GO
 
 --1 Roomfurnishings id 1-5 per 5 rooms
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,1);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,2);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,3);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,4);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,5);
-----2
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,1);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,2);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,3);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,4);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,5);
-----3
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,1);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,2);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,3);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,4);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,5);
-----4
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,1);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,2);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,3);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,4);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,5);
-----5
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,1);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,2);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,3);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,4);
---INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,5);
---GO
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,1);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,2);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,3);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,4);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,5);
+--2
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,1);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,2);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,3);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,4);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,5);
+--3
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,1);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,2);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,3);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,4);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(3,5);
+--4
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,1);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,2);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,3);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,4);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(4,5);
+--5
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,1);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,2);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,3);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,4);
+INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(5,5);
+GO
 
 INSERT INTO portalroles(description,active) VALUES('Admin', 'true');
 INSERT INTO portalroles(description,active) VALUES('User', 'true');
