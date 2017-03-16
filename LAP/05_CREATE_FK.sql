@@ -25,12 +25,12 @@ GO
 --GO
  
 
---ALTER TABLE floors 
---ADD
---CONSTRAINT fk_floors_facilities
---FOREIGN KEY (facility_id)
---REFERENCES facilities(id)
---GO
+ALTER TABLE rooms 
+ADD
+CONSTRAINT fk_rooms_facilities
+FOREIGN KEY (facility_id)
+REFERENCES facilities(id)
+GO
  
 
 ALTER TABLE bookings 

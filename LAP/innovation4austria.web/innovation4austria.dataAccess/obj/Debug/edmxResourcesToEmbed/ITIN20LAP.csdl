@@ -86,8 +86,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="room_id" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="rooms" Relationship="ITIN20LAPModel.fk_furnishings_rooms" FromRole="furnishings" ToRole="rooms" />
+    <NavigationProperty Name="roomfurnishings" Relationship="ITIN20LAPModel.fk_roomfurnishings_furnishings" FromRole="furnishings" ToRole="roomfurnishings" />
   </EntityType>
   <EntityType Name="portalroles">
     <Key>
@@ -127,7 +126,7 @@
     <NavigationProperty Name="bookings" Relationship="Self.fk_bookings_rooms" FromRole="rooms" ToRole="bookings" />
     <NavigationProperty Name="facilities" Relationship="Self.fk_rooms_facilities" FromRole="rooms" ToRole="facilities" />
     <Property Name="price" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
-    <NavigationProperty Name="furnishings" Relationship="ITIN20LAPModel.fk_furnishings_rooms" FromRole="rooms" ToRole="furnishings" />
+    <NavigationProperty Name="roomfurnishings" Relationship="ITIN20LAPModel.fk_roomfurnishings_rooms" FromRole="rooms" ToRole="roomfurnishings" />
   </EntityType>
   <EntityType Name="Log">
     <Key>
@@ -339,10 +338,16 @@
       <End Role="companies" EntitySet="companies" />
       <End Role="portalusers" EntitySet="portalusers" />
     </AssociationSet>
-    <AssociationSet Name="fk_furnishings_rooms" Association="ITIN20LAPModel.fk_furnishings_rooms">
-      <End Role="rooms" EntitySet="rooms" />
+    <EntitySet Name="roomfurnishings" EntityType="ITIN20LAPModel.roomfurnishings" />
+    <AssociationSet Name="fk_roomfurnishings_furnishings" Association="ITIN20LAPModel.fk_roomfurnishings_furnishings">
       <End Role="furnishings" EntitySet="furnishings" />
+      <End Role="roomfurnishings" EntitySet="roomfurnishings" />
     </AssociationSet>
+    <AssociationSet Name="fk_roomfurnishings_rooms" Association="ITIN20LAPModel.fk_roomfurnishings_rooms">
+      <End Role="rooms" EntitySet="rooms" />
+      <End Role="roomfurnishings" EntitySet="roomfurnishings" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="ITIN20LAPModel.sysdiagrams" />
   </EntityContainer>
   <Association Name="fk_portalusers_comüpanies">
     <End Type="ITIN20LAPModel.companies" Role="companies" Multiplicity="1" />
@@ -356,16 +361,48 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_furnishings_rooms">
+  <EntityType Name="roomfurnishings">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="room_id" Type="Int32" Nullable="false" />
+    <Property Name="furnishing_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="furnishings" Relationship="ITIN20LAPModel.fk_roomfurnishings_furnishings" FromRole="roomfurnishings" ToRole="furnishings" />
+    <NavigationProperty Name="rooms" Relationship="ITIN20LAPModel.fk_roomfurnishings_rooms" FromRole="roomfurnishings" ToRole="rooms" />
+  </EntityType>
+  <Association Name="fk_roomfurnishings_furnishings">
+    <End Type="ITIN20LAPModel.furnishings" Role="furnishings" Multiplicity="1" />
+    <End Type="ITIN20LAPModel.roomfurnishings" Role="roomfurnishings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="furnishings">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="roomfurnishings">
+        <PropertyRef Name="furnishing_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_roomfurnishings_rooms">
     <End Type="ITIN20LAPModel.rooms" Role="rooms" Multiplicity="1" />
-    <End Type="ITIN20LAPModel.furnishings" Role="furnishings" Multiplicity="*" />
+    <End Type="ITIN20LAPModel.roomfurnishings" Role="roomfurnishings" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="rooms">
         <PropertyRef Name="id" />
       </Principal>
-      <Dependent Role="furnishings">
+      <Dependent Role="roomfurnishings">
         <PropertyRef Name="room_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>

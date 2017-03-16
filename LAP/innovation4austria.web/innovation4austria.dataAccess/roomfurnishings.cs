@@ -15,24 +15,20 @@ namespace innovation4austria.dataAccess
 using System;
     using System.Collections.Generic;
     
-public partial class furnishings
+public partial class roomfurnishings
 {
-
-    public furnishings()
-    {
-
-        this.roomfurnishings = new HashSet<roomfurnishings>();
-
-    }
-
 
     public int id { get; set; }
 
-    public string description { get; set; }
+    public int room_id { get; set; }
+
+    public int furnishing_id { get; set; }
 
 
 
-    public virtual ICollection<roomfurnishings> roomfurnishings { get; set; }
+    public virtual furnishings furnishings { get; set; }
+
+    public virtual rooms rooms { get; set; }
 
 }
 

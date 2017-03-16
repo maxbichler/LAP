@@ -15,24 +15,18 @@ namespace innovation4austria.dataAccess
 using System;
     using System.Collections.Generic;
     
-public partial class furnishings
+public partial class sysdiagrams
 {
 
-    public furnishings()
-    {
+    public string name { get; set; }
 
-        this.roomfurnishings = new HashSet<roomfurnishings>();
+    public int principal_id { get; set; }
 
-    }
+    public int diagram_id { get; set; }
 
+    public Nullable<int> version { get; set; }
 
-    public int id { get; set; }
-
-    public string description { get; set; }
-
-
-
-    public virtual ICollection<roomfurnishings> roomfurnishings { get; set; }
+    public byte[] definition { get; set; }
 
 }
 

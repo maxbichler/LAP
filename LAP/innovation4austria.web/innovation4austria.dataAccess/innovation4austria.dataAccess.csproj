@@ -97,7 +97,13 @@
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="roomfurnishings.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
     <Compile Include="rooms.cs">
+      <DependentUpon>ITIN20LAP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
   </ItemGroup>

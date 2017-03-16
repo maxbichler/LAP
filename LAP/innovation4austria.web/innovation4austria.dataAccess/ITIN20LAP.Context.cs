@@ -56,6 +56,10 @@ public partial class ITIN20LAPEntities : DbContext
 
     public DbSet<Log> Log { get; set; }
 
+    public DbSet<roomfurnishings> roomfurnishings { get; set; }
+
+    public DbSet<sysdiagrams> sysdiagrams { get; set; }
+
 }
 
 }
