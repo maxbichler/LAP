@@ -103,9 +103,6 @@
     <Compile Include="rooms.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>ITIN20LAP.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ITIN20LAP.edmx">

@@ -131,16 +131,6 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <Association Name="fk_billdetails_bills">
     <End Role="bills" Type="Self.bills" Multiplicity="1" />
     <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
@@ -321,7 +311,6 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <EntitySet Name="portalusers" EntityType="Self.portalusers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="roomfurnishings" EntityType="Self.roomfurnishings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="rooms" EntityType="Self.rooms" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="contacts" EntityType="Self.contacts" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [contacts].[id] AS [id], 

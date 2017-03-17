@@ -45,7 +45,7 @@ namespace innovation4austria.web.Controllers
             {
                 foreach (var furnishing in allFurnishings)
                 {
-                    if (id == furnishing.room_id)
+                    if (id == furnishing.roomfurnishings.Where(x => x.furnishing_id == furnishing.id).Select(x => x.room_id).FirstOrDefault())
                     {
                         model.Add(new FurnishingModel() { Description = furnishing.description, ID = furnishing.id, Room_ID = id });
                     }

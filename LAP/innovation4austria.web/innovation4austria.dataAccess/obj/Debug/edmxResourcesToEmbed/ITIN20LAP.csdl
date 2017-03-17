@@ -347,7 +347,6 @@
       <End Role="rooms" EntitySet="rooms" />
       <End Role="roomfurnishings" EntitySet="roomfurnishings" />
     </AssociationSet>
-    <EntitySet Name="sysdiagrams" EntityType="ITIN20LAPModel.sysdiagrams" />
   </EntityContainer>
   <Association Name="fk_portalusers_comüpanies">
     <End Type="ITIN20LAPModel.companies" Role="companies" Multiplicity="1" />
@@ -395,14 +394,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
 </Schema>

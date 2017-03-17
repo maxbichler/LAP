@@ -26,9 +26,9 @@ GO
 --1 Roomfurnishings id 1-5 per 5 rooms
 INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,1);
 INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,2);
-INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,3);
-INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,4);
-INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,5);
+--INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,3);
+--INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,4);
+--INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(1,5);
 --2
 INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,1);
 INSERT INTO roomfurnishings(room_id,furnishing_id) VALUES(2,2);

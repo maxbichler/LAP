@@ -1,6 +1,6 @@
 ECHO ist ausgeschaltet (OFF).
 . 
-"starting database creation 15:20:07,14" 
+"starting database creation 12:21:02,57" 
 . 
 "try dropping database" 
 1> 2> 1> 2> 3> 4> Fr nicht gekennzeichnete Transaktionen wird ein Rollback ausgefhrt. Bereits
@@ -13,16 +13,13 @@ abgeschlossen (gesch„tzt): 100%.
 1> 2> 1> 2> 3> 1> 2> 3>  
  
 "try creating tables" 
-1> 2> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 25> 26> 27> 28> 29> 30> 31> 32> 33> 34> 35> 36> 37> 38> 39> 40> 41> 42> 43> 44> 45> 46> 47> 48> 49> 50> 51> 52> 53> 54> 55> 56> 57> 58> 59> 60> 61> 62> 63> 64> 65> 66> 67> 68> 69> 70> 71> 72> 73> 74> 75> 76> 77> 78> 79> 80> 81> 82> 83> 84> 85> 86> 87> 88> 89> 90> 91> 92> 93> 94> 1>  
+1> 2> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 25> 26> 27> 28> 29> 30> 31> 32> 33> 34> 35> 36> 37> 38> 39> 40> 41> 42> 43> 44> 45> 46> 47> 48> 49> 50> 51> 52> 53> 54> 55> 56> 57> 58> 59> 60> 61> 62> 63> 64> 65> 66> 67> 68> 69> 70> 71> 72> 73> 74> 75> 76> 77> 78> 79> 80> 81> 82> 83> 84> 85> 86> 87> 88> 89> 90> 91> 92> 93> 94> 95> 96> 97> 98> 99> 1>  
  
 "try creating primary keys" 
-1> 2> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> Meldung '4902', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 3
-Das roomfurnishings-Objekt wurde nicht gefunden, weil es nicht vorhanden ist
-oder Sie nicht ber die entsprechenden Berechtigungen verfgen.
-1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1>  
+1> 2> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 1>  
  
 "try creating foreign keys" 
-1> 2> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043E51', Zeile 4
+1> 2> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043E51', Zeile 4
 Falsche Syntax in der N„he von 'ü'.
 1> 2> 3> 4> 5> 6> 7> 8> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7> 1> 2> 3> 4> 5> 6> 7>  
  
@@ -32,31 +29,6 @@ Falsche Syntax in der N„he von 'ü'.
 "try inserting values" 
 1> 2> 3> Meldung '102', Ebene '15', Status '1', Server 'PC901B0E043E51', Zeile 1
 Falsche Syntax in der N„he von 'ï'.
-1> 2> 3> 4> 5> 6> 7> Meldung '547', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 2
-Die INSERT-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschr„nkung
-'fk_furnishings_rooms'. Der Konflikt trat in der ITIN20LAP-Datenbank, Tabelle
-'dbo.rooms', column 'id' auf.
-Die Anweisung wurde beendet.
-Meldung '547', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 3
-Die INSERT-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschr„nkung
-'fk_furnishings_rooms'. Der Konflikt trat in der ITIN20LAP-Datenbank, Tabelle
-'dbo.rooms', column 'id' auf.
-Die Anweisung wurde beendet.
-Meldung '547', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 4
-Die INSERT-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschr„nkung
-'fk_furnishings_rooms'. Der Konflikt trat in der ITIN20LAP-Datenbank, Tabelle
-'dbo.rooms', column 'id' auf.
-Die Anweisung wurde beendet.
-Meldung '547', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 5
-Die INSERT-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschr„nkung
-'fk_furnishings_rooms'. Der Konflikt trat in der ITIN20LAP-Datenbank, Tabelle
-'dbo.rooms', column 'id' auf.
-Die Anweisung wurde beendet.
-Meldung '547', Ebene '16', Status '1', Server 'PC901B0E043E51', Zeile 6
-Die INSERT-Anweisung steht in Konflikt mit der FOREIGN KEY-Einschr„nkung
-'fk_furnishings_rooms'. Der Konflikt trat in der ITIN20LAP-Datenbank, Tabelle
-'dbo.rooms', column 'id' auf.
-Die Anweisung wurde beendet.
 1> 2> 3> 4> 5> 6> 7> (1 Zeile betroffen)
 (1 Zeile betroffen)
 (1 Zeile betroffen)
@@ -67,7 +39,34 @@ Die Anweisung wurde beendet.
 (1 Zeile betroffen)
 (1 Zeile betroffen)
 (1 Zeile betroffen)
-1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 25> 26> 27> 28> 29> 30> 31> 32> 33> 34> 35> 36> 37> (1 Zeile betroffen)
+1> 2> 3> 4> 5> 6> 7> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1> 2> 3> 4> 5> 6> 7> 8> 9> 10> 11> 12> 13> 14> 15> 16> 17> 18> 19> 20> 21> 22> 23> 24> 25> 26> 27> 28> 29> 30> 31> 32> (1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+(1 Zeile betroffen)
+1> 2> 3> 4> 5> (1 Zeile betroffen)
 (1 Zeile betroffen)
 (1 Zeile betroffen)
 1> 2> 3> 4> 5> 6> 7> (1 Zeile betroffen)
@@ -108,5 +107,5 @@ Die Anweisung wurde beendet.
 1>  
  
 . 
-"stopping database creation 15:20:11,36" 
+"stopping database creation 12:21:06,89" 
 . 

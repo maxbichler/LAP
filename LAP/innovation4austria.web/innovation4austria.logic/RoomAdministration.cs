@@ -16,7 +16,7 @@ namespace innovation4austria.logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allFurnishings = context.furnishings.ToList();
+                    allFurnishings = context.furnishings.Include("roomfurnishings").ToList();
                 }
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace innovation4austria.logic
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    allRooms = context.rooms.Include("facilities").Include("bookings").Include("furnishings").ToList();
+                    allRooms = context.rooms.Include("facilities").Include("bookings").Include("roomfurnishings").ToList();
                 }
             }
             catch (Exception ex)
@@ -85,20 +85,54 @@ namespace innovation4austria.logic
             return created;
         }
 
-        public static bool CreateFurnishing(int id, string description)
+        //public static bool CreateFurnishing(int id, string description)
+        //{
+        //    bool created = false;
+        //    try
+        //    {
+        //        using (var context = new ITIN20LAPEntities())
+        //        {
+        //            furnishings furnishing = new furnishings()
+        //            {
+        //                room_id = id,
+        //                description = description
+        //            };
+        //            context.furnishings.Add(furnishing);
+        //            context.SaveChanges();
+        //            created = true;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw;
+        //    }
+
+        //    return created;
+        //}
+
+        public static bool CreateFurnishing(int roomId, string description)
         {
             bool created = false;
             try
             {
                 using (var context = new ITIN20LAPEntities())
                 {
-                    furnishings furnishing = new furnishings()
-                    {
-                        room_id = id,
-                        description = description
-                    };
-                    context.furnishings.Add(furnishing);
+                    furnishings f = new furnishings();
+                    f.description = description;
+
+                    context.furnishings.Add(f);
                     context.SaveChanges();
+
+                    roomfurnishings rf = new roomfurnishings();
+                    rf.furnishing_id = context.furnishings
+                        .Where(x => x.description == description)
+                        .Select(x => x.id)
+                        .FirstOrDefault();
+                    rf.room_id = roomId;
+
+                    context.roomfurnishings.Add(rf);
+                    context.SaveChanges();
+
                     created = true;
                 }
             }

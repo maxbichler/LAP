@@ -32,7 +32,6 @@
         <EntityTypeShape EntityType="ITIN20LAPModel.roomfurnishings" Width="1.5" PointX="8.75" PointY="9.875" />
         <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_furnishings" />
         <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_rooms" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.sysdiagrams" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
