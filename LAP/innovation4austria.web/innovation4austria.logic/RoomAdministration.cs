@@ -9,6 +9,25 @@ namespace innovation4austria.logic
 {
     public class RoomAdministration
     {
+        public static List<furnishings> GetFurnishingsByRoomId(int id)
+        {
+            List<furnishings> allFurnishings = new List<furnishings>();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    allFurnishings = context.furnishings.Include("roomfurnishings").Where(x => x.roomfurnishings.Any(y => y.room_id == id)).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return allFurnishings;
+        }
+
         public static List<furnishings> GetFurnishings()
         {
             List<furnishings> allFurnishings = null;
@@ -60,7 +79,7 @@ namespace innovation4austria.logic
             return allRooms;
         }
 
-        public static bool CreateRoom(int facility_id, string description)
+        public static bool CreateRoom(int facility_id, string description, decimal price, bool booked)
         {
             bool created = false;
             try
@@ -70,7 +89,9 @@ namespace innovation4austria.logic
                     rooms room = new rooms()
                     {
                         facility_id = facility_id,
-                        description = description
+                        description = description,
+                        booked = booked,
+                        price = price
                     };
                     context.rooms.Add(room);
                     context.SaveChanges();

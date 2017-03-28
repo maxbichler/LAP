@@ -107,6 +107,7 @@
     <EntitySetMapping Name="rooms">
       <EntityTypeMapping TypeName="ITIN20LAPModel.rooms">
         <MappingFragment StoreEntitySet="rooms">
+          <ScalarProperty Name="booked" ColumnName="booked" />
           <ScalarProperty Name="price" ColumnName="price" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="facility_id" ColumnName="facility_id" />

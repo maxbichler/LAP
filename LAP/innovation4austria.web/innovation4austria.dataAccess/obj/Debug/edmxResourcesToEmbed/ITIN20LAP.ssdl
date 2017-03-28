@@ -130,6 +130,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <Property Name="facility_id" Type="int" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
+    <Property Name="booked" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="fk_billdetails_bills">
     <End Role="bills" Type="Self.bills" Multiplicity="1" />
@@ -236,18 +237,6 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
       </Principal>
       <Dependent Role="contacts">
         <PropertyRef Name="portaluser_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_portalusers_comüpanies">
-    <End Role="companies" Type="Self.companies" Multiplicity="1" />
-    <End Role="portalusers" Type="Self.portalusers" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="companies">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="portalusers">
-        <PropertyRef Name="company_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -364,10 +353,6 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
     <AssociationSet Name="fk_contacts_portalusers" Association="Self.fk_contacts_portalusers">
       <End Role="portalusers" EntitySet="portalusers" />
       <End Role="contacts" EntitySet="contacts" />
-    </AssociationSet>
-    <AssociationSet Name="fk_portalusers_comüpanies" Association="Self.fk_portalusers_comüpanies">
-      <End Role="companies" EntitySet="companies" />
-      <End Role="portalusers" EntitySet="portalusers" />
     </AssociationSet>
     <AssociationSet Name="fk_portalusers_portalroles" Association="Self.fk_portalusers_portalroles">
       <End Role="portalroles" EntitySet="portalroles" />

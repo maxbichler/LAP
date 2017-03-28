@@ -24,31 +24,66 @@ namespace innovation4austria.web.Controllers
             {
                 foreach (var room in allRooms)
                 {
-                     model.Add(new RoomModel()
+                    model.Add(new RoomModel()
                     {
                         ID = room.id,
                         Facility_ID = room.facility_id,
                         Description = room.description,
-                        Facility_Name = room.facilities.facilityname
+                        Facility_Name = room.facilities.facilityname,
+                        Booked = room.booked,
+                        Price = room.price
                     });
+                }
+            }
+            else if (User.Identity.IsAuthenticated)
+            {
+                foreach (var room in allRooms)
+                {
+                    model.Add(new RoomModel()
+                    {
+                        ID = room.id,
+                        Facility_ID = room.facility_id,
+                        Description = room.description,
+                        Facility_Name = room.facilities.facilityname,
+                        Price = room.price
+
+                    });
+
                 }
             }
             return View(model);
         }
+
+        public ActionResult Filter(FilterModel fm)
+        {
+            Session["FilterSession"] = fm;
+
+
+            return RedirectToAction("index");
+        }
+
         [HttpGet]
         public ActionResult RoomDetail(int id)
         {
-            List<furnishings> allFurnishings = RoomAdministration.GetFurnishings();
+            List<furnishings> allFurnishings = RoomAdministration.GetFurnishingsByRoomId(id);
             List<FurnishingModel> model = new List<FurnishingModel>();
 
             if (User.IsInRole("admin"))
             {
                 foreach (var furnishing in allFurnishings)
                 {
-                    if (id == furnishing.roomfurnishings.Where(x => x.furnishing_id == furnishing.id).Select(x => x.room_id).FirstOrDefault())
-                    {
-                        model.Add(new FurnishingModel() { Description = furnishing.description, ID = furnishing.id, Room_ID = id });
-                    }
+
+                    model.Add(new FurnishingModel() { Description = furnishing.description, ID = furnishing.id, Room_ID = id });
+
+                }
+            }
+            else if (User.Identity.IsAuthenticated)
+            {
+                foreach (var furnishing in allFurnishings)
+                {
+
+                    model.Add(new FurnishingModel() { Description = furnishing.description, ID = furnishing.id, Room_ID = id });
+
                 }
             }
             return View(model);
@@ -74,7 +109,7 @@ namespace innovation4austria.web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description))
+                if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description, model.Price, model.Booked))
                 {
                     TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
                     result = RedirectToAction("Index", new { id = model.ID });

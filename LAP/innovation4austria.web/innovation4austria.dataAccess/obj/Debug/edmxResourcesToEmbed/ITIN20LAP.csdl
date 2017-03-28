@@ -127,6 +127,7 @@
     <NavigationProperty Name="facilities" Relationship="Self.fk_rooms_facilities" FromRole="rooms" ToRole="facilities" />
     <Property Name="price" Type="Decimal" Nullable="false" Precision="6" Scale="2" />
     <NavigationProperty Name="roomfurnishings" Relationship="ITIN20LAPModel.fk_roomfurnishings_rooms" FromRole="rooms" ToRole="roomfurnishings" />
+    <Property Name="booked" Type="Boolean" Nullable="false" />
   </EntityType>
   <EntityType Name="Log">
     <Key>

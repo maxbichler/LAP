@@ -1,37 +1,94 @@
-﻿@model IEnumerable<innovation4austria.web.Models.RoomModel>
+﻿@model IEnumerable<innovation4austria.web.Models.RoomFilterModel>
 
 @{
     ViewBag.Title = "Index";
 }
-<div class="container">
+
+
+
+@if (User.IsInRole("admin"))
+{
+    <div class="container">
+        <h2>Alle Räume</h2>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room.Facility_Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room.Price)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room.Facility_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room.Price)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.Room.ID })|
+                        @Html.ActionLink("Details", "roomdetail", new { id = item.Room.ID })|
+                        @Html.ActionLink("Löschen", "Delete", new { id = item.Room.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}
+else
+	{
+	      <div class="container">
     <h2>Alle Räume</h2>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Facility_Name)
+                @Html.DisplayNameFor(model => model.Room.Facility_Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Room.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room.Booked)
             </th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
-        {
+            {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Facility_Name)
+                    @Html.DisplayFor(modelItem => item.Room.Facility_Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @Html.DisplayFor(modelItem => item.Room.Description)
                 </td>
                 <td>
-                    @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.ID })|
-                    <a href="@Url.Action("roomdetail", "room", new { id = item.ID })">Bearbeiten</a>|
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @Html.DisplayFor(modelItem => item.Room.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.Booked)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "roomdetail", new { id = item.Room.ID })
                 </td>
             </tr>
         }
 
     </table>
 </div>
+	}

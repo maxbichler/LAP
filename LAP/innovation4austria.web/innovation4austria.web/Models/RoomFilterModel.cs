@@ -8,16 +8,8 @@ namespace innovation4austria.web.Models
 {
     public class RoomFilterModel
     {
-        [Required(AllowEmptyStrings =false, ErrorMessage = "Pflichtfeld")]
-        [DataType(DataType.Date)]
-        [Display(Name = "Startdatum")]
-        public string Start { get; set; }
+        public RoomModel Room { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Pflichtfeld")]
-        [DataType(DataType.Date)]
-        [Display(Name = "Enddatum")]
-        public string End { get; set; }
-
-        public List<FurnishingModel> Facilities { get; set; }
+        public FilterModel Filter { get; set; }
     }
 }

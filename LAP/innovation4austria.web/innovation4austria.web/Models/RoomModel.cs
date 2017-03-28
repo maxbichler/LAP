@@ -14,5 +14,9 @@ namespace innovation4austria.web.Models
         public string Facility_Name { get; set; }
 
         public string Description { get; set; }
+
+        public bool Booked { get; set; }
+
+        public decimal Price { get; set; }
     }
 }

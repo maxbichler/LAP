@@ -6,42 +6,35 @@
 <div class="container">
     <h2>RoomDetail</h2>
 
-
-    @foreach (var furnishing in Model)
+    @if (User.IsInRole("admin"))
     {
-        <div class="row">
-            <div class="col-md-2 hidden-xs hidden-sm">
-                @furnishing.Description
+        foreach (var furnishing in Model)
+        {
+            <div class="row">
+                <div class="col-md-2 hidden-xs hidden-sm">
+                    @furnishing.Description
+                </div>
+                <div class="col-md-2 col-sm-4">
+                    <a href="@Url.Action("CreateFurnishing", "Room", new { id =  furnishing.Room_ID })">Erstellen</a>
+                </div>
             </div>
-            <div class="col-md-2 col-sm-4">
-                <a href="@Url.Action("CreateFurnishing", "Room", new { id =  furnishing.Room_ID })">Erstellen</a>
-            </div>
-        </div>
 
+        }
     }
-            
-
-        @*<div>
-                <h4>FurnishingModel</h4>
-                <hr />
-                <div class="row">
-                    <div class="col-md-2">
-                        @Html.LabelFor(x => x.Description)
-                    </div>
-                    <div class="col-md-3">
-                        @Html.TextBoxFor(x => x.Description, new { placeholder = "Ausstattung", @class = "form-control" })
-                        @Html.ValidationMessageFor(x => x.Description)
-                    </div>
-
-                    @Html.ActionLink("Neue Ausstattung hinzufügen", "createfurnishing", new { id = Model.Room_ID})|
+    else
+    {
+        foreach (var furnishing in Model)
+        {
+            <div class="row">
+                <div class="col-md-2 hidden-xs hidden-sm">
+                    @furnishing.Description
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <button type="submit" class="btn btn-primary btn-lg">Speichern</button>
-                    </div>
-                </div>
-            </div>*@
-        <p>
-            @Html.ActionLink("Zurück", "Index")
-        </p>
-    </div>
+            </div>
+
+        }
+    }
+
+    <p>
+        @Html.ActionLink("Zurück", "Index")
+    </p>
+</div>

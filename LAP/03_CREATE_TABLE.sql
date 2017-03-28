@@ -16,7 +16,8 @@ CREATE TABLE rooms(
 id INT IDENTITY (1,1) NOT NULL,
 facility_id INT NOT NULL,
 description VARCHAR(50) NOT NULL,
-price DECIMAL(6,2) NOT NULL
+price DECIMAL(6,2) NOT NULL,
+booked BIT NOT NULL
 )
 
 CREATE TABLE facilities(

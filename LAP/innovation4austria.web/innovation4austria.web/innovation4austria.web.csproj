@@ -166,6 +166,7 @@
     <Compile Include="Models\EmployeModel.cs" />
     <Compile Include="Models\EmployePasswordModel.cs" />
     <Compile Include="Models\FacilityModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\FurnishingModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
