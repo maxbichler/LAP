@@ -1,4 +1,4 @@
-﻿@model IEnumerable<innovation4austria.web.Models.RoomFilterModel>
+﻿@model innovation4austria.web.Models.RoomFilterModel
 
 @{
     ViewBag.Title = "Index";
@@ -13,33 +13,33 @@
         <table class="table">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Room.Facility_Name)
+                    <label>Geb&auml;ude</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Room.Description)
+                    <label>Beschreibung</label>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Room.Price)
+                    <label>Preis</label>
                 </th>
                 <th></th>
             </tr>
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.Rooms)
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Room.Facility_Name)
+                        @Html.DisplayFor(modelItem => item.Facility_Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Room.Description)
+                        @Html.DisplayFor(modelItem => item.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Room.Price)
+                        @Html.DisplayFor(modelItem => item.Price)
                     </td>
                     <td>
-                        @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.Room.ID })|
-                        @Html.ActionLink("Details", "roomdetail", new { id = item.Room.ID })|
-                        @Html.ActionLink("Löschen", "Delete", new { id = item.Room.ID })
+                        @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.ID })|
+                        @Html.ActionLink("Details", "roomdetail", new { id = item.ID })|
+                        @Html.ActionLink("Löschen", "Delete", new { id = item.ID })
                     </td>
                 </tr>
             }
@@ -50,41 +50,50 @@
 else
 	{
 	      <div class="container">
+
+              <div>
+                  Filter
+                  @using (Html.BeginForm("Filter", "Room", FormMethod.Post))
+                  {
+                      @Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"))
+                  }
+              </div>
+
     <h2>Alle Räume</h2>
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Room.Facility_Name)
+                <label>Geb&auml;ude</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room.Description)
+                <label>Beschreibung</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room.Price)
+                <label>Preis</label>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Room.Booked)
+                <label>Gebucht</label>
             </th>
             <th></th>
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.Rooms)
             {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Room.Facility_Name)
+                    @Html.DisplayFor(modelItem => item.Facility_Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Room.Description)
+                    @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Room.Price)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Room.Booked)
+                    @Html.DisplayFor(modelItem => item.Booked)
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "roomdetail", new { id = item.Room.ID })
+                    @Html.ActionLink("Details", "roomdetail", new { id = item.ID })
                 </td>
             </tr>
         }

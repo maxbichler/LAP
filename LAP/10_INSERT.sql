@@ -221,11 +221,11 @@ INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, ac
 INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,5,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
-INSERT INTO bookings(room_id,portaluser_id,date) VALUES(1,1,'2016-01-09');
-INSERT INTO bookings(room_id,portaluser_id,date) VALUES(2,2,'2016-13-06');
-INSERT INTO bookings(room_id,portaluser_id,date) VALUES(3,3,'2016-20-06');
-INSERT INTO bookings(room_id,portaluser_id,date) VALUES(4,4,'2017-01-01');
-INSERT INTO bookings(room_id,portaluser_id,date) VALUES(5,5,'2017-13-01');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(1,1,'2016-01-09', '2016-30-09');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(2,2,'2016-13-06', '2016-01-7');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(3,3,'2016-20-06', '2016-01-09');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(4,4,'2017-01-01', '2017-01-06');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(5,5,'2017-13-01', '2017-16-01');
 GO
 
 INSERT INTO bills(date,portaluser_id) VALUES('2016-08-09',1);

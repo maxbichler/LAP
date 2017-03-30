@@ -33,10 +33,11 @@
     <EntitySetMapping Name="bookings">
       <EntityTypeMapping TypeName="ITIN20LAPModel.bookings">
         <MappingFragment StoreEntitySet="bookings">
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="room_id" ColumnName="room_id" />
           <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
-          <ScalarProperty Name="date" ColumnName="date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

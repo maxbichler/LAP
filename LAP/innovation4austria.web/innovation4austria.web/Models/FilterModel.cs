@@ -17,8 +17,7 @@ namespace innovation4austria.web.Models
         [Display(Name = "Gebäude")]
         public string Facility { get; set; }
 
-        [Display(Name = "Ausstattung")]
-        public string Furnishing { get; set; }
+        public List<FilterFurnishingModel> Furnishings { get; set; }
 
         [Display(Name = "Preis")]
         public decimal Price { get; set; }

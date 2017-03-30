@@ -38,7 +38,8 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="room_id" Type="int" Nullable="false" />
           <Property Name="portaluser_id" Type="int" Nullable="false" />
-          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="startdate" Type="datetime" Nullable="false" />
+          <Property Name="enddate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="companies">
           <Key>
@@ -421,11 +422,12 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="room_id" Type="Int32" Nullable="false" />
           <Property Name="portaluser_id" Type="Int32" Nullable="false" />
-          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="billdetails" Relationship="Self.fk_billdetails_bookings" FromRole="bookings" ToRole="billdetails" />
           <NavigationProperty Name="bookingreversals" Relationship="Self.fk_bookingreversals_bookings" FromRole="bookings" ToRole="bookingreversals" />
           <NavigationProperty Name="portalusers" Relationship="Self.fk_bookings_portalusers" FromRole="bookings" ToRole="portalusers" />
           <NavigationProperty Name="rooms" Relationship="Self.fk_bookings_rooms" FromRole="bookings" ToRole="rooms" />
+          <Property Name="startdate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="enddate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
         <EntityType Name="companies">
           <Key>
@@ -815,10 +817,11 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
           <EntitySetMapping Name="bookings">
             <EntityTypeMapping TypeName="ITIN20LAPModel.bookings">
               <MappingFragment StoreEntitySet="bookings">
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="room_id" ColumnName="room_id" />
                 <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
-                <ScalarProperty Name="date" ColumnName="date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

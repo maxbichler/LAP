@@ -6,10 +6,11 @@ using System.Web;
 
 namespace innovation4austria.web.Models
 {
-    public class RoomFilterModel
+    public class FilterFurnishingModel
     {
-        public List<RoomModel> Rooms { get; set; }
+        public int Id { get; set; }
 
-        public FilterModel Filter { get; set; }
+        [Display(Name = "Ausstattung")]
+        public string Description { get; set; }
     }
 }

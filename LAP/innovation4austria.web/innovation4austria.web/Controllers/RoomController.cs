@@ -17,8 +17,42 @@ namespace innovation4austria.web.Controllers
         // GET: Room
         public ActionResult Index()
         {
+            RoomFilterModel rfm = new RoomFilterModel();
+            rfm.Filter = new FilterModel();
+            rfm.Rooms = new List<RoomModel>();
+
             List<rooms> allRooms = RoomAdministration.GetRooms();
             List<RoomModel> model = new List<RoomModel>();
+
+            FilterModel fm = (FilterModel)Session["FilterSession"];
+            List<rooms> filteredRooms = new List<rooms>();
+
+            if (fm != null)
+            {
+                // Filterlogik aufrufen
+                if (fm.Price > 0)
+                {
+                    allRooms = allRooms.Where(x => x.price <= fm.Price).ToList();
+                }
+                if (fm.StartDate > DateTime.Now)
+                {
+                    // Testen!!
+                    allRooms = allRooms.Where(x => x.bookings.Any(y => y.startdate >= fm.StartDate)).ToList();
+                }
+                if (fm.EndDate > fm.StartDate || fm.EndDate > DateTime.Now)
+                {
+                    allRooms = allRooms.Where(x => x.bookings.Any(y => y.enddate >= fm.EndDate)).ToList();
+                }
+                if (!string.IsNullOrEmpty(fm.Facility))
+                {
+                    allRooms = allRooms.Where(x => x.facilities.facilityname == fm.Facility).ToList();
+                }
+                if (fm.Furnishings != null || fm.Furnishings.Count > 0)
+                {
+                    // Testen!!
+                    allRooms = allRooms.Where(x => x.roomfurnishings.Any(y => fm.Furnishings.Exists(z => z.Id == y.furnishing_id))).ToList();
+                }
+            }
 
             if (User.IsInRole("admin"))
             {
@@ -51,9 +85,14 @@ namespace innovation4austria.web.Controllers
 
                 }
             }
-            return View(model);
+
+            rfm.Rooms = model;
+            rfm.Filter = fm;
+
+            return View(rfm);
         }
 
+        [HttpPost]
         public ActionResult Filter(FilterModel fm)
         {
             Session["FilterSession"] = fm;

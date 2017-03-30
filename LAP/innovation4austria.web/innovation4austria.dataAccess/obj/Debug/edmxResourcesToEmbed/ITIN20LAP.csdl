@@ -39,11 +39,12 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="room_id" Type="Int32" Nullable="false" />
     <Property Name="portaluser_id" Type="Int32" Nullable="false" />
-    <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="billdetails" Relationship="Self.fk_billdetails_bookings" FromRole="bookings" ToRole="billdetails" />
     <NavigationProperty Name="bookingreversals" Relationship="Self.fk_bookingreversals_bookings" FromRole="bookings" ToRole="bookingreversals" />
     <NavigationProperty Name="portalusers" Relationship="Self.fk_bookings_portalusers" FromRole="bookings" ToRole="portalusers" />
     <NavigationProperty Name="rooms" Relationship="Self.fk_bookings_rooms" FromRole="bookings" ToRole="rooms" />
+    <Property Name="startdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="enddate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="companies">
     <Key>

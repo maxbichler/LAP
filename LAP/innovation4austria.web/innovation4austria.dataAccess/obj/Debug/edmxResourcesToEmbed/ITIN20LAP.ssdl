@@ -33,7 +33,8 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="room_id" Type="int" Nullable="false" />
     <Property Name="portaluser_id" Type="int" Nullable="false" />
-    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="startdate" Type="datetime" Nullable="false" />
+    <Property Name="enddate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="companies">
     <Key>

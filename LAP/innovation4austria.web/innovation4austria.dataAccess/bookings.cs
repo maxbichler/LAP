@@ -34,7 +34,9 @@ public partial class bookings
 
     public int portaluser_id { get; set; }
 
-    public System.DateTime date { get; set; }
+    public System.DateTime startdate { get; set; }
+
+    public System.DateTime enddate { get; set; }
 
 
 
