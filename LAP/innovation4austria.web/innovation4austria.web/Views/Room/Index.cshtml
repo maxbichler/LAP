@@ -53,10 +53,31 @@ else
 
               <div>
                   Filter
+                  <br />
                   @using (Html.BeginForm("Filter", "Room", FormMethod.Post))
                   {
-                      @Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"))
+                      @Html.Label("Start Datum")
+                      @Html.TextBoxFor(x => x.Filter.StartDate)
+
+                      @Html.Label("End Datum")
+                      @Html.TextBoxFor(x => x.Filter.EndDate)
+
+                      @Html.Label("Gebäude")
+                      @Html.TextBoxFor(x => x.Filter.Facility)
+
+
+                      @*@Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"))*@
+
+                      @Html.Label("Preis")
+                      @Html.TextBoxFor(x => x.Filter.Price)  
                   }
+                 <br />
+                  <div class="row">
+                      <div class="col-xs-12 text-center">
+                          <button type="submit" class="btn btn-primary btn-lg">Filtern</button>
+                      </div>
+                  </div>
+
               </div>
 
     <h2>Alle Räume</h2>
