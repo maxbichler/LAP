@@ -34,7 +34,7 @@ INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Seminar Prem
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Seminar Premium', 300, 'false');
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Schulung Premium', 400, 'false');
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Schulung Premium', 400, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Schulung Premium', 400, 'false');
+INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Schulung Premium', 400, 'true');
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Schulung Premium', 400, 'false');
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Schulung Premium', 400, 'false');
 INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Besprechungsraum', 500, 'false');

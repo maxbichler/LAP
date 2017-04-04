@@ -48,77 +48,91 @@
     </div>
 }
 else
-	{
-	      <div class="container">
+{
+    <div class="container">
 
-              <div>
-                  Filter
-                  <br />
-                  @using (Html.BeginForm("Filter", "Room", FormMethod.Post))
-                  {
-                      @Html.Label("Start Datum")
-                      @Html.TextBoxFor(x => x.Filter.StartDate)
-
-                      @Html.Label("End Datum")
-                      @Html.TextBoxFor(x => x.Filter.EndDate)
-
-                      @Html.Label("Gebäude")
-                      @Html.TextBoxFor(x => x.Filter.Facility)
-
-
-                      @*@Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"))*@
-
-                      @Html.Label("Preis")
-                      @Html.TextBoxFor(x => x.Filter.Price)  
-                  }
-                 <br />
-                  <div class="row">
-                      <div class="col-xs-12 text-center">
-                          <button type="submit" class="btn btn-primary btn-lg">Filtern</button>
-                      </div>
-                  </div>
-
-              </div>
-
-    <h2>Alle Räume</h2>
-    <table class="table">
-        <tr>
-            <th>
-                <label>Geb&auml;ude</label>
-            </th>
-            <th>
-                <label>Beschreibung</label>
-            </th>
-            <th>
-                <label>Preis</label>
-            </th>
-            <th>
-                <label>Gebucht</label>
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model.Rooms)
+        <div>
+            Filter
+            <br />
+            @using (Html.BeginForm("Filter", "Room", new AjaxOptions() { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result" }))
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Facility_Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Booked)
-                </td>
-                <td>
-                    @Html.ActionLink("Details", "roomdetail", new { id = item.ID })
-                </td>
-            </tr>
-        }
+                @Html.Label("Start Datum")
+                @*@Html.TextBoxFor(x => x.Filter.StartDate)*@
+                <input type="text" name="startdate" value="@Model.Filter.StartDate.ToShortDateString()" />
 
-    </table>
-</div>
-	}
+                @Html.Label("End Datum")
+                @*@Html.TextBoxFor(x => x.Filter.EndDate)*@
+                <input type="text" name="enddate" value="@Model.Filter.EndDate.ToShortDateString()" />
+
+                @Html.Label("Gebäude")
+                @*@Html.TextBoxFor(x => x.Filter.Facility)*@
+                <input type="text" name="facility" value="@Model.Filter.Facility" />
+
+                @*@Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"), new { @name = "Furnishings" })*@
+
+            {
+                SelectList sl = new SelectList(Model.Filter.Furnishings, "Id", "Description");
+
+                @Html.ListBox("furnishingId", sl)
+            }
+
+            @Html.Label("Preis")
+                @*@Html.TextBoxFor(x => x.Filter.Price)*@
+                <input type="text" name="price" value="@Model.Filter.Price" />
+
+                <br />
+                @*<div class="row">
+                    <div class="col-xs-12 text-center">*@
+                <input type="submit" class="btn btn-primary btn-lg" value="Filtern" />
+                <a href="@Url.Action("Reset", "Room")" class="btn btn-primary btn-lg">Filter zurücksetzen</a>
+                @*</div>
+                    </div>*@
+            }
+
+
+        </div>
+
+        <h2>Alle Räume</h2>
+        <table class="table" id="result">
+            <tr>
+                <th>
+                    <label>Geb&auml;ude</label>
+                </th>
+                <th>
+                    <label>Beschreibung</label>
+                </th>
+                <th>
+                    <label>Preis</label>
+                </th>
+                <th>
+                    <label>Ausstattung</label>
+                </th>
+            </tr>
+
+            @foreach (var item in Model.Rooms)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Facility_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @foreach (var f in item.Furnishings)
+                    {
+                            @Html.DisplayFor(modelItem => f.Description)
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "roomdetail", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}

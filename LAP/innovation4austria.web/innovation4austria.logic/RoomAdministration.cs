@@ -79,6 +79,31 @@ namespace innovation4austria.logic
             return allRooms;
         }
 
+        /// Liefert alle Räume die während start und end NICHT gebucht sind
+        public static List<rooms> GetRooms(DateTime start, DateTime end)
+        {
+            List<rooms> allRooms = null;
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    allRooms = context.rooms.Include("facilities").Include("bookings").Include("roomfurnishings").ToList();
+
+                    var alleGebuchtenRaumIDs = context.billdetails.Where(x => x.date >= start && x.date <= end).Select(x => x.bookings.room_id).ToList();
+
+                    // alle Räume, aber nur die, deren ID NICHT bei den gebuchten Räume dabei ist!!
+                    allRooms = allRooms.Where(x => !alleGebuchtenRaumIDs.Contains(x.id)).ToList();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return allRooms;
+        }
+
         public static bool CreateRoom(int facility_id, string description, decimal price, bool booked)
         {
             bool created = false;

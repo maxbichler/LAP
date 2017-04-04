@@ -16,8 +16,9 @@ namespace innovation4austria.web.Models
         public string Description { get; set; }
 
         public bool Booked { get; set; }
-        public string Gebucht { get; set; }
+        //public string Gebucht { get; set; }
 
+        public List<FurnishingModel> Furnishings { get; set; }
 
         public decimal Price { get; set; }
     }
