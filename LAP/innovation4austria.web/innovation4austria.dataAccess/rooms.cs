@@ -36,8 +36,6 @@ public partial class rooms
 
     public decimal price { get; set; }
 
-    public bool booked { get; set; }
-
 
 
     public virtual ICollection<bookings> bookings { get; set; }

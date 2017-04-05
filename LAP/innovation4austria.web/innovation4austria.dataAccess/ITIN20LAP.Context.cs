@@ -32,8 +32,6 @@ public partial class ITIN20LAPEntities : DbContext
     }
 
 
-    public DbSet<billdetails> billdetails { get; set; }
-
     public DbSet<bills> bills { get; set; }
 
     public DbSet<bookingreversals> bookingreversals { get; set; }
@@ -57,6 +55,8 @@ public partial class ITIN20LAPEntities : DbContext
     public DbSet<Log> Log { get; set; }
 
     public DbSet<roomfurnishings> roomfurnishings { get; set; }
+
+    public DbSet<bookingdetails> bookingdetails { get; set; }
 
 }
 

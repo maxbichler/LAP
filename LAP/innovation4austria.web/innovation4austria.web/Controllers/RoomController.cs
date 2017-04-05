@@ -61,19 +61,19 @@ namespace innovation4austria.web.Controllers
                 
 
 
-                if (fm.StartDate > DateTime.Now)
-                {
-                    // Testen!!
-                    allRooms = allRooms.Where(x => x.bookings.Any(y => y.startdate <= fm.StartDate)).ToList();
-                }
-                if (fm.EndDate > fm.StartDate || fm.EndDate > DateTime.Now)
-                {
+                //if (fm.StartDate > DateTime.Now)
+                //{
+                //    // Testen!!
+                //    allRooms = allRooms.Where(x => x.bookings.Any(y => y.startdate <= fm.StartDate)).ToList();
+                //}
+                //if (fm.EndDate > fm.StartDate || fm.EndDate > DateTime.Now)
+                //{
 
 
-                    allRooms = allRooms.Where(x => x.bookings.Any(y => y.enddate <= fm.EndDate)).ToList();
+                //    allRooms = allRooms.Where(x => x.bookings.Any(y => y.enddate <= fm.EndDate)).ToList();
 
 
-                }
+                //}
 
 
                 if (!string.IsNullOrEmpty(fm.Facility))
@@ -83,7 +83,8 @@ namespace innovation4austria.web.Controllers
                 if (fm.Furnishings != null /*|| fm.Furnishings.Count > 0*/)
                 {
                     // Testen!!
-                    allRooms = allRooms.Where(x => x.roomfurnishings.Any(y => fm.Furnishings.Exists(z => z.Id == y.furnishing_id))).ToList();
+                    //allRooms = allRooms.Where(x => x.roomfurnishings.Any(y => fm.Furnishings.Exists(z => z.Id == y.furnishing_id))).ToList();
+                    allRooms = allRooms.Where(x => fm.Furnishings.All(y => x.roomfurnishings.Any(z => z.furnishing_id == y.Id))).ToList();
                 }
             }
 
@@ -249,7 +250,7 @@ namespace innovation4austria.web.Controllers
 
             if (ModelState.IsValid)
             {
-                if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description, model.Price, model.Booked))
+                if (RoomAdministration.CreateRoom(model.Facility_ID, model.Description, model.Price))
                 {
                     TempData[Constants.Messages.SUCCESS] = Constants.Messages.SaveSuccess;
                     result = RedirectToAction("Index", new { id = model.ID });

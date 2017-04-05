@@ -21,7 +21,7 @@ public partial class bills
     public bills()
     {
 
-        this.billdetails = new HashSet<billdetails>();
+        this.bookingdetails = new HashSet<bookingdetails>();
 
     }
 
@@ -34,9 +34,9 @@ public partial class bills
 
 
 
-    public virtual ICollection<billdetails> billdetails { get; set; }
-
     public virtual portalusers portalusers { get; set; }
+
+    public virtual ICollection<bookingdetails> bookingdetails { get; set; }
 
 }
 

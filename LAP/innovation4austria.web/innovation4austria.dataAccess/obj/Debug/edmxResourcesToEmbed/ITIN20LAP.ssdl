@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ITIN20LAPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="billdetails">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="booking_id" Type="int" Nullable="false" />
-    <Property Name="date" Type="datetime" Nullable="false" />
-    <Property Name="bill_id" Type="int" Nullable="false" />
-  </EntityType>
   <EntityType Name="bills">
     <Key>
       <PropertyRef Name="id" />
@@ -16,6 +7,17 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
     <Property Name="portaluser_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bookingdetails">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="booking_id" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="bill_id" Type="int" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ispaid" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="bookingreversals">
     <Key>
@@ -35,6 +37,7 @@
     <Property Name="portaluser_id" Type="int" Nullable="false" />
     <Property Name="startdate" Type="datetime" Nullable="false" />
     <Property Name="enddate" Type="datetime" Nullable="false" />
+    <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
   </EntityType>
   <EntityType Name="companies">
     <Key>
@@ -131,32 +134,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <Property Name="facility_id" Type="int" Nullable="false" />
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
-    <Property Name="booked" Type="bit" Nullable="false" />
   </EntityType>
-  <Association Name="fk_billdetails_bills">
-    <End Role="bills" Type="Self.bills" Multiplicity="1" />
-    <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="bills">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="billdetails">
-        <PropertyRef Name="bill_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="fk_billdetails_bookings">
-    <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
-    <End Role="billdetails" Type="Self.billdetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="bookings">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="billdetails">
-        <PropertyRef Name="booking_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="fk_bills_portalusers">
     <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
     <End Role="bills" Type="Self.bills" Multiplicity="*" />
@@ -166,6 +144,30 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
       </Principal>
       <Dependent Role="bills">
         <PropertyRef Name="portaluser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_bookingdetails_bills">
+    <End Role="bills" Type="Self.bills" Multiplicity="1" />
+    <End Role="bookingdetails" Type="Self.bookingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bills">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bookingdetails">
+        <PropertyRef Name="bill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_bookingdetails_bookings">
+    <End Role="bookings" Type="Self.bookings" Multiplicity="1" />
+    <End Role="bookingdetails" Type="Self.bookingdetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bookings">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="bookingdetails">
+        <PropertyRef Name="booking_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -290,8 +292,8 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ITIN20LAPModelStoreContainer">
-    <EntitySet Name="billdetails" EntityType="Self.billdetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bills" EntityType="Self.bills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bookingdetails" EntityType="Self.bookingdetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bookingreversals" EntityType="Self.bookingreversals" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="bookings" EntityType="Self.bookings" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="companies" EntityType="Self.companies" Schema="dbo" store:Type="Tables" />
@@ -319,17 +321,17 @@ FROM [dbo].[contacts] AS [contacts]</DefiningQuery>
 [Log].[Exception] AS [Exception]
 FROM [dbo].[Log] AS [Log]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="fk_billdetails_bills" Association="Self.fk_billdetails_bills">
-      <End Role="bills" EntitySet="bills" />
-      <End Role="billdetails" EntitySet="billdetails" />
-    </AssociationSet>
-    <AssociationSet Name="fk_billdetails_bookings" Association="Self.fk_billdetails_bookings">
-      <End Role="bookings" EntitySet="bookings" />
-      <End Role="billdetails" EntitySet="billdetails" />
-    </AssociationSet>
     <AssociationSet Name="fk_bills_portalusers" Association="Self.fk_bills_portalusers">
       <End Role="portalusers" EntitySet="portalusers" />
       <End Role="bills" EntitySet="bills" />
+    </AssociationSet>
+    <AssociationSet Name="fk_bookingdetails_bills" Association="Self.fk_bookingdetails_bills">
+      <End Role="bills" EntitySet="bills" />
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_bookingdetails_bookings" Association="Self.fk_bookingdetails_bookings">
+      <End Role="bookings" EntitySet="bookings" />
+      <End Role="bookingdetails" EntitySet="bookingdetails" />
     </AssociationSet>
     <AssociationSet Name="fk_bookingreversals_bookings" Association="Self.fk_bookingreversals_bookings">
       <End Role="bookings" EntitySet="bookings" />

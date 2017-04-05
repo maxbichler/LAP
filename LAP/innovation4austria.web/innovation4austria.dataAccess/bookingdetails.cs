@@ -15,16 +15,20 @@ namespace innovation4austria.dataAccess
 using System;
     using System.Collections.Generic;
     
-public partial class billdetails
+public partial class bookingdetails
 {
 
     public int id { get; set; }
 
-    public int bill_id { get; set; }
-
     public int booking_id { get; set; }
 
     public System.DateTime date { get; set; }
+
+    public int bill_id { get; set; }
+
+    public decimal price { get; set; }
+
+    public bool ispaid { get; set; }
 
 
 

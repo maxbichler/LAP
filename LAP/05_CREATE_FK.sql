@@ -93,16 +93,16 @@ FOREIGN KEY (company_id)
 REFERENCES companies(id)
 GO
 
-ALTER TABLE billdetails 
+ALTER TABLE bookingdetails 
 ADD
-CONSTRAINT fk_billdetails_bills
+CONSTRAINT fk_bookingdetails_bills
 FOREIGN KEY (bill_id)
 REFERENCES bills(id)
 GO
 
-ALTER TABLE billdetails 
+ALTER TABLE bookingdetails 
 ADD
-CONSTRAINT fk_billdetails_bookings
+CONSTRAINT fk_bookingdetails_bookings
 FOREIGN KEY (booking_id)
 REFERENCES bookings(id)
 GO

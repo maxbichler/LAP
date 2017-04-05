@@ -43,9 +43,9 @@ PRIMARY KEY (id)
 GO
  
 
-ALTER TABLE billdetails 
+ALTER TABLE bookingdetails 
 ADD
-CONSTRAINT pk_billdetails
+CONSTRAINT pk_bookingdetails
 PRIMARY KEY (id)
 GO
  

@@ -21,9 +21,9 @@ public partial class bookings
     public bookings()
     {
 
-        this.billdetails = new HashSet<billdetails>();
-
         this.bookingreversals = new HashSet<bookingreversals>();
+
+        this.bookingdetails = new HashSet<bookingdetails>();
 
     }
 
@@ -38,15 +38,17 @@ public partial class bookings
 
     public System.DateTime enddate { get; set; }
 
+    public decimal price { get; set; }
 
 
-    public virtual ICollection<billdetails> billdetails { get; set; }
 
     public virtual ICollection<bookingreversals> bookingreversals { get; set; }
 
     public virtual portalusers portalusers { get; set; }
 
     public virtual rooms rooms { get; set; }
+
+    public virtual ICollection<bookingdetails> bookingdetails { get; set; }
 
 }
 

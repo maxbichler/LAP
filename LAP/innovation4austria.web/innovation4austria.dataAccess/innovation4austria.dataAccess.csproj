@@ -48,10 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="billdetails.cs">
+    <Compile Include="bills.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
-    <Compile Include="bills.cs">
+    <Compile Include="bookingdetails.cs">
       <DependentUpon>ITIN20LAP.tt</DependentUpon>
     </Compile>
     <Compile Include="bookingreversals.cs">

@@ -16,8 +16,7 @@ CREATE TABLE rooms(
 id INT IDENTITY (1,1) NOT NULL,
 facility_id INT NOT NULL,
 description VARCHAR(50) NOT NULL,
-price DECIMAL(6,2) NOT NULL,
-booked BIT NOT NULL
+price DECIMAL(6,2) NOT NULL
 )
 
 CREATE TABLE facilities(
@@ -35,13 +34,16 @@ room_id INT NOT NULL,
 portaluser_id INT NOT NULL,
 startdate DATETIME NOT NULL,
 enddate DATETIME NOT NULL,
+price decimal NOT NULL
 )
 
-CREATE TABLE billdetails(
+CREATE TABLE bookingdetails(
 id INT IDENTITY(1,1) NOT NULL,
 booking_id INT NOT NULL,
 date DATETIME NOT NULL,
-bill_id INT NOT NULL
+bill_id INT NOT NULL,
+price decimal NOT NULL,
+ispaid BIT NOT NULL
 )
 
 CREATE TABLE bills(

@@ -17,36 +17,36 @@ INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Ottakring','
 INSERT INTO facilities(facilityname,zip,city,street,number) VALUES('Penzing','1110','Wien','Simmeringer Hauptstrasse','123');
 Go
 
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Seminar', 100, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Seminar', 100, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Seminar', 100, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Seminar', 100, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Seminar', 100, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Schulung', 200, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Schulung', 200, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Schulung', 200, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Schulung', 200, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Schulung', 200, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Seminar Premium', 300, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Seminar Premium', 300, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Seminar Premium', 300, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Seminar Premium', 300, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Seminar Premium', 300, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Schulung Premium', 400, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Schulung Premium', 400, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Schulung Premium', 400, 'true');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Schulung Premium', 400, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Schulung Premium', 400, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Besprechungsraum', 500, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Besprechungsraum', 500, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Besprechungsraum', 500, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Besprechungsraum', 500, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Besprechungsraum', 500, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(1,'Besprechungsraum Deluxe', 800, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(2,'Besprechungsraum Deluxe', 800, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(3,'Besprechungsraum Deluxe', 800, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(4,'Besprechungsraum Deluxe', 800, 'false');
-INSERT INTO rooms(facility_id,description, price, booked) VALUES(5,'Besprechungsraum Deluxe', 800, 'false');
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Seminar', 100);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Seminar', 100);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Seminar', 100);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Seminar', 100);
+INSERT INTO rooms(facility_id,description, price )VALUES(5,'Seminar', 100);
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Schulung', 200);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Schulung', 200);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Schulung', 200);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Schulung', 200);
+INSERT INTO rooms(facility_id,description, price) VALUES(5,'Schulung', 200);
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Seminar Premium', 300);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Seminar Premium', 300);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Seminar Premium', 300);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Seminar Premium', 300);
+INSERT INTO rooms(facility_id,description, price) VALUES(5,'Seminar Premium', 300);
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Schulung Premium', 500);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Schulung Premium', 500);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Schulung Premium', 500);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Schulung Premium', 500);
+INSERT INTO rooms(facility_id,description, price) VALUES(5,'Schulung Premium', 500);
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Besprechungsraum', 700);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Besprechungsraum', 700);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Besprechungsraum', 700);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Besprechungsraum', 700);
+INSERT INTO rooms(facility_id,description, price) VALUES(5,'Besprechungsraum', 700);
+INSERT INTO rooms(facility_id,description, price) VALUES(1,'Besprechungsraum Deluxe', 900);
+INSERT INTO rooms(facility_id,description, price) VALUES(2,'Besprechungsraum Deluxe', 900);
+INSERT INTO rooms(facility_id,description, price) VALUES(3,'Besprechungsraum Deluxe', 900);
+INSERT INTO rooms(facility_id,description, price) VALUES(4,'Besprechungsraum Deluxe', 900);
+INSERT INTO rooms(facility_id,description, price) VALUES(5,'Besprechungsraum Deluxe', 900);
 
 
 --Seminar 1 - 5
@@ -221,11 +221,11 @@ INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, ac
 INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,5,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
-INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(1,1,'2016-01-09', '2016-30-09');
-INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(2,2,'2016-13-06', '2016-01-7');
-INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(3,3,'2016-20-06', '2016-01-09');
-INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(4,4,'2017-01-01', '2017-01-06');
-INSERT INTO bookings(room_id,portaluser_id,startdate, enddate) VALUES(5,5,'2017-13-01', '2017-16-01');
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate, price) VALUES(1,1,'2016-01-09', '2016-30-09', 100);
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate, price) VALUES(2,2,'2016-13-06', '2016-01-7', 200);
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate, price) VALUES(3,3,'2016-20-06', '2016-01-09', 300);
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate, price) VALUES(4,4,'2017-01-01', '2017-01-06', 400);
+INSERT INTO bookings(room_id,portaluser_id,startdate, enddate, price) VALUES(5,5,'2017-13-01', '2017-16-01', 500);
 GO
 
 INSERT INTO bills(date,portaluser_id) VALUES('2016-08-09',1);
@@ -235,11 +235,11 @@ INSERT INTO bills(date,portaluser_id) VALUES('2017-08-01',1);
 INSERT INTO bills(date,portaluser_id) VALUES('2017-20-01',1);
 Go
 
-INSERT INTO billdetails(bill_id,date,booking_id) VALUES(1,'2016-08-01',1);
-INSERT INTO billdetails(bill_id,date,booking_id) VALUES(2,'2016-20-06',2);
-INSERT INTO billdetails(bill_id,date,booking_id) VALUES(3,'2016-27-06',3);
-INSERT INTO billdetails(bill_id,date,booking_id) VALUES(4,'2017-08-01',4);
-INSERT INTO billdetails(bill_id,date,booking_id) VALUES(5,'2017-20-01',5);
+INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(1,'2016-08-01',1, 100, 'true');
+INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(2,'2016-20-06',2, 200, 'true');
+INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(3,'2016-27-06',3, 300, 'true');
+INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(4,'2017-08-01',4, 400, 'false');
+INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(5,'2017-20-01',5, 500, 'true');
 GO
 
 INSERT INTO contacts(portaluser_id,company_id) VALUES(1,1);

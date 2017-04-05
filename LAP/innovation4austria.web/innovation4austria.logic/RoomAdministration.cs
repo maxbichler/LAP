@@ -89,7 +89,7 @@ namespace innovation4austria.logic
                 {
                     allRooms = context.rooms.Include("facilities").Include("bookings").Include("roomfurnishings").ToList();
 
-                    var alleGebuchtenRaumIDs = context.billdetails.Where(x => x.date >= start && x.date <= end).Select(x => x.bookings.room_id).ToList();
+                    var alleGebuchtenRaumIDs = context.bookingdetails.Where(x => x.date >= start && x.date <= end).Select(x => x.bookings.room_id).ToList();
 
                     // alle Räume, aber nur die, deren ID NICHT bei den gebuchten Räume dabei ist!!
                     allRooms = allRooms.Where(x => !alleGebuchtenRaumIDs.Contains(x.id)).ToList();
@@ -104,7 +104,7 @@ namespace innovation4austria.logic
             return allRooms;
         }
 
-        public static bool CreateRoom(int facility_id, string description, decimal price, bool booked)
+        public static bool CreateRoom(int facility_id, string description, decimal price)
         {
             bool created = false;
             try
@@ -115,7 +115,6 @@ namespace innovation4austria.logic
                     {
                         facility_id = facility_id,
                         description = description,
-                        booked = booked,
                         price = price
                     };
                     context.rooms.Add(room);
