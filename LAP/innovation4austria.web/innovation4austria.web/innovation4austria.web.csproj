@@ -266,10 +266,10 @@
     <Content Include="Views\Room\CreateRoom.cshtml" />
     <Content Include="Views\Room\RoomDetail.cshtml" />
     <Content Include="Views\Room\CreateFurnishing.cshtml" />
+    <Content Include="Views\Booking\Room.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Booking\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

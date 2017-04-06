@@ -188,5 +188,25 @@ namespace innovation4austria.logic
 
             return created;
         }
+
+        public static rooms GetRoomById(int id)
+        {
+            rooms room = new rooms();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    room = context.rooms.Include("bookings").Include("facilities").Include("roomfurnishings").Where(x => x.id == id).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+            return room;
+        }
     }
 }

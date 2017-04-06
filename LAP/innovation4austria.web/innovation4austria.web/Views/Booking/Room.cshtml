@@ -1,0 +1,45 @@
+﻿@model innovation4austria.web.Models.BookingModel
+
+@{
+    ViewBag.Title = "Room";
+}
+<div class="container">
+    <h2>Buchung</h2>
+    <hr />
+
+
+    <table class="table" id="result">
+        <tr>
+            <th>
+                <label>Raum</label>
+            </th>
+            <th>
+                <label>Start Datum</label>
+            </th>
+            <th>
+                <label>End Datum</label>
+            </th>
+            <th>
+                <label>Anzahl der Tage</label>
+            </th>
+            <th>
+                <label>Preis pro Tag</label>
+            </th>
+            <th>
+                <label>Gesamtpreis</label>
+            </th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.RoomDescription)</td>
+            <td>@Model.StartDate.ToShortDateString()</td>
+            <td>@Model.EndDate.ToShortDateString()</td>
+            <td>@Html.DisplayFor(model => model.DateDif)</td>
+            <td>@Html.DisplayFor(model => model.RoomPrice) &euro;</td>
+            <td>@Html.DisplayFor(model => model.EndPrice) &euro;</td>
+        </tr>
+        <tr>
+            <td>Jetzt buchen</td>
+            <td>Abbrechen</td>
+        </tr>
+    </table>
+</div>

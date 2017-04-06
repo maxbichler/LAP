@@ -128,7 +128,14 @@ else
                         }
                     </td>
                     <td>
-                        @Html.ActionLink("Details", "roomdetail", new { id = item.ID })
+                        @using (Html.BeginForm("Room", "Booking", FormMethod.Get))
+                        {
+                            <input type="hidden" value="@item.ID" name="id" />
+                            <input type="hidden" value="@Model.Filter.StartDate" name="startdate" />
+                            <input type="hidden" value="@Model.Filter.EndDate" name="enddate" />
+
+                            <input type="submit" value="Buchen" />
+                        }
                     </td>
                 </tr>
             }
