@@ -80,7 +80,7 @@ namespace innovation4austria.logic
         }
 
         /// Liefert alle Räume die während start und end NICHT gebucht sind
-        public static List<rooms> GetRooms(DateTime start, DateTime end)
+        public static List<rooms> GetRooms(DateTime startdate, DateTime enddate)
         {
             List<rooms> allRooms = null;
             try
@@ -89,12 +89,10 @@ namespace innovation4austria.logic
                 {
                     allRooms = context.rooms.Include("facilities").Include("bookings").Include("roomfurnishings").ToList();
 
-                    var alleGebuchtenRaumIDs = context.bookingdetails.Where(x => x.date >= start && x.date <= end).Select(x => x.bookings.room_id).ToList();
+                    var alleGebuchtenRaumIDs = context.bookingdetails.Where(x => x.date >= startdate && x.date <= enddate).Select(x => x.bookings.room_id).ToList();
 
                     // alle Räume, aber nur die, deren ID NICHT bei den gebuchten Räume dabei ist!!
                     allRooms = allRooms.Where(x => !alleGebuchtenRaumIDs.Contains(x.id)).ToList();
-
-
                 }
             }
             catch (Exception ex)

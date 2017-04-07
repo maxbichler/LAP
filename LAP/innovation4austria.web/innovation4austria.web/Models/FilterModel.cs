@@ -8,9 +8,13 @@ namespace innovation4austria.web.Models
 {
     public class FilterModel
     {
+        [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
+        [DataType(DataType.Date)]
         [Display(Name = "Start Datum")]
         public DateTime StartDate { get; set; }
 
+        [Required(ErrorMessage = "Pflichtfeld", AllowEmptyStrings = false)]
+        [DataType(DataType.Date)]
         [Display(Name = "End Datum")]
         public DateTime EndDate { get; set; }
 
@@ -19,6 +23,7 @@ namespace innovation4austria.web.Models
 
         public List<FilterFurnishingModel> Furnishings { get; set; }
 
+        
         [Display(Name = "Preis")]
         public decimal Price { get; set; }
     }

@@ -50,5 +50,14 @@ namespace innovation4austria.web.Controllers
 
             return View(model);
         }
+        
+        public ActionResult RoomBooking(int id, DateTime startdate, DateTime enddate, int room_id)
+        {
+           
+
+            return View();
+        }
+   
+
     }
 }

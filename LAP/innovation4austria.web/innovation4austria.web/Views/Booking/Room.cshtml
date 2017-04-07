@@ -6,8 +6,8 @@
 <div class="container">
     <h2>Buchung</h2>
     <hr />
-
-
+@using (Html.BeginForm("RoomBooking", "Booking", FormMethod.Post))
+{
     <table class="table" id="result">
         <tr>
             <th>
@@ -37,9 +37,11 @@
             <td>@Html.DisplayFor(model => model.RoomPrice) &euro;</td>
             <td>@Html.DisplayFor(model => model.EndPrice) &euro;</td>
         </tr>
-        <tr>
-            <td>Jetzt buchen</td>
-            <td>Abbrechen</td>
-        </tr>
+
+            
+        
     </table>
+    <input type="submit" value="Jetzt Buchen" />
+    <input type="submit" value="Abbrechen" />
+}
 </div>

@@ -31,9 +31,9 @@ namespace innovation4austria.web.Controllers
             FilterModel fm = new FilterModel();
             fm.Furnishings = new List<FilterFurnishingModel>();
 
-            if (Session["FilterSession"] != null)
+            if (Session[User.Identity.Name] != null)
             {
-                fm = (FilterModel)Session["FilterSession"];
+                fm = (FilterModel)Session[User.Identity.Name];
             }
             else
             {
@@ -48,8 +48,11 @@ namespace innovation4austria.web.Controllers
 
             List<rooms> filteredRooms = new List<rooms>();
 
-            if (Session["FilterSession"] != null)
+            if (Session[User.Identity.Name] != null)
             {
+
+                List<rooms> allrooms = RoomAdministration.GetRooms(fm.StartDate, fm.EndDate);
+
                 // Filterlogik aufrufen
                 if (fm.Price > 0)
                 {
@@ -80,12 +83,22 @@ namespace innovation4austria.web.Controllers
                 {
                     allRooms = allRooms.Where(x => x.facilities.facilityname == fm.Facility).ToList();
                 }
-                if (fm.Furnishings != null /*|| fm.Furnishings.Count > 0*/)
+                if (fm.Furnishings != null && fm.Furnishings.Count > 0)
                 {
                     // Testen!!
                     //allRooms = allRooms.Where(x => x.roomfurnishings.Any(y => fm.Furnishings.Exists(z => z.Id == y.furnishing_id))).ToList();
-                    allRooms = allRooms.Where(x => fm.Furnishings.All(y => x.roomfurnishings.Any(z => z.furnishing_id == y.Id))).ToList();
+                     allRooms = allRooms.Where(x => fm.Furnishings.All(y => x.roomfurnishings.Any(z => z.furnishing_id == y.Id))).ToList();
                 }
+                //else if (fm.Furnishings  == null || fm.Furnishings.Count == 0)
+                //{
+                //    List<furnishings> dbFurnishings = new List<furnishings>();
+                //    dbFurnishings = RoomAdministration.GetFurnishings();
+
+                //    foreach (var f in dbFurnishings)
+                //    {
+                //        fm.Furnishings.Add(new FilterFurnishingModel() { Description = f.description, Id = f.id });
+                //    }
+                //}
             }
 
             if (User.IsInRole("admin"))
@@ -155,7 +168,7 @@ namespace innovation4austria.web.Controllers
 
         public ActionResult Reset()
         {
-            Session["FilterSession"] = null;
+            Session[User.Identity.Name] = null;
             return RedirectToAction("Index");
         }
 
@@ -186,22 +199,13 @@ namespace innovation4austria.web.Controllers
                     }
                 }
             }
-            if (furnishingId == null)
-            {
-                List<furnishings> dbFurnishings = new List<furnishings>();
-                dbFurnishings = RoomAdministration.GetFurnishings();
-
-                foreach (var f in dbFurnishings)
-                {
-                    fm.Furnishings.Add(new FilterFurnishingModel() { Description = f.description, Id = f.id });
-                }
-            }
+         
 
             fm.StartDate = startdate;
             fm.EndDate = enddate;
             fm.Price = price;
 
-            Session["FilterSession"] = fm;
+            Session[User.Identity.Name] = fm;
             return RedirectToAction("index");
         }
 
