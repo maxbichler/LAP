@@ -267,6 +267,7 @@
     <Content Include="Views\Room\RoomDetail.cshtml" />
     <Content Include="Views\Room\CreateFurnishing.cshtml" />
     <Content Include="Views\Booking\Room.cshtml" />
+    <Content Include="Views\Booking\RoomBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

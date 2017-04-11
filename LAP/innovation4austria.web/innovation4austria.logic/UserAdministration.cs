@@ -372,6 +372,26 @@ namespace innovation4austria.logic
             return created;
         }
 
+        public static int GetCompanyIdFromUser(string email)
+        {
+            portalusers p = null;
+            int companyId = 0;
+            var context = new ITIN20LAPEntities();
+
+            using (context)
+            {
+                try
+                {
+                    p = context.portalusers.FirstOrDefault(x => x.email == email);
+                    companyId = context.companies.FirstOrDefault(x => x.id == p.company_id).id;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            return companyId;
+        }
     }
 }
 

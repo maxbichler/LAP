@@ -45,19 +45,37 @@ namespace innovation4austria.web.Controllers
 
             model.RoomDescription = dbRoom.description;
             model.RoomPrice = (double)dbRoom.price;
+            model.Room_id = id;
 
             model.EndPrice = model.DateDif * model.RoomPrice;
 
             return View(model);
         }
         
-        public ActionResult RoomBooking(int id, DateTime startdate, DateTime enddate, int room_id)
+        public ActionResult RoomBooking(string startdate, string enddate, int room_id, int? company_id)
         {
-           
 
-            return View();
+            if (User.IsInRole("User"))
+            {
+                company_id = UserAdministration.GetCompanyIdFromUser(User.Identity.Name);
+            }
+            if (ModelState.IsValid)
+            {
+                if (BookingAdministration.CreateBooking(room_id, (int)company_id, startdate, enddate))
+                {
+                    
+                    if (User.IsInRole("Admin"))
+                    {
+                        return RedirectToAction("Index", "Company", new { id = company_id });
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Room");
+                }
+            }
+            string email = User.Identity.Name;
+            return RedirectToAction("RoomBooking", "Booking", new { id = email });
         }
-   
-
     }
 }

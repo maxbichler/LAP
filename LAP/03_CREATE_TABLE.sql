@@ -31,7 +31,7 @@ number VARCHAR(50) NOT NULL
 CREATE TABLE bookings(
 id INT IDENTITY(1,1) NOT NULL,
 room_id INT NOT NULL,
-portaluser_id INT NOT NULL,
+company_id INT NOT NULL,
 startdate DATETIME NOT NULL,
 enddate DATETIME NOT NULL,
 price decimal NOT NULL

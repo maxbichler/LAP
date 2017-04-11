@@ -43,9 +43,9 @@ GO
 
 ALTER TABLE bookings 
 ADD
-CONSTRAINT fk_bookings_portalusers
-FOREIGN KEY (portaluser_id)
-REFERENCES portalusers(id)
+CONSTRAINT fk_bookings_companies
+FOREIGN KEY (company_id)
+REFERENCES companies(id)
 GO
  
 
@@ -73,7 +73,7 @@ GO
 
 ALTER TABLE portalusers 
 ADD
-CONSTRAINT fk_portalusers_comüpanies
+CONSTRAINT fk_portalusers_companies
 FOREIGN KEY (company_id)
 REFERENCES companies(id)
 GO
