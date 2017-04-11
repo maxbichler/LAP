@@ -32,23 +32,23 @@ public partial class bookings
 
     public int room_id { get; set; }
 
-    public int portaluser_id { get; set; }
-
     public System.DateTime startdate { get; set; }
 
     public System.DateTime enddate { get; set; }
 
     public decimal price { get; set; }
 
+    public int company_id { get; set; }
+
 
 
     public virtual ICollection<bookingreversals> bookingreversals { get; set; }
 
-    public virtual portalusers portalusers { get; set; }
-
     public virtual rooms rooms { get; set; }
 
     public virtual ICollection<bookingdetails> bookingdetails { get; set; }
+
+    public virtual companies companies { get; set; }
 
 }
 

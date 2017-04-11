@@ -25,8 +25,6 @@ public partial class portalusers
 
         this.bookingreversals = new HashSet<bookingreversals>();
 
-        this.bookings = new HashSet<bookings>();
-
         this.contacts = new HashSet<contacts>();
 
     }
@@ -53,8 +51,6 @@ public partial class portalusers
     public virtual ICollection<bills> bills { get; set; }
 
     public virtual ICollection<bookingreversals> bookingreversals { get; set; }
-
-    public virtual ICollection<bookings> bookings { get; set; }
 
     public virtual ICollection<contacts> contacts { get; set; }
 
