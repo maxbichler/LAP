@@ -10,6 +10,13 @@
 {
     <table class="table" id="result">
         <tr>
+            @if (User.IsInRole("Admin"))
+            {
+                <th>
+                    <label>Firma</label>
+                    @Html.DropDownList("company_id", new SelectList(Model.Companies, "ID", "CompanyName"))
+                </th>
+            }
             <th>
                 <label>Raum</label>
                 <input type="hidden" value="@Model.Room_id" name="room_id" />

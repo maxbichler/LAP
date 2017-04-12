@@ -71,7 +71,7 @@ namespace innovation4austria.logic
             return bookingExists;
         }
 
-        public static bool CreateBooking(int room_id, int portaluser_id, string start, string end)
+        public static bool CreateBooking(int room_id, int company_id, string start, string end)
         {
             bool createSuccess = false;
             var context = new ITIN20LAPEntities();
@@ -87,14 +87,19 @@ namespace innovation4austria.logic
                     bookings newBooking = new bookings();
                     if (DateTime.Now <= startdate.AddDays(3))
                     {
-                        newBooking.portalusers.company_id = company_id;
+
+                        int days = (enddate - startdate).Days + 1;
+                        newBooking.company_id = company_id;
                         newBooking.room_id = room_id;
+                        newBooking.startdate = startdate;
+                        newBooking.enddate = enddate;
+                        newBooking.price = context.rooms.Where(x => x.id == room_id).Select(x => x.price).FirstOrDefault() * days;
                         context.bookings.Add(newBooking);
                         context.SaveChanges();
-
+                        
                         int id = newBooking.id;
                         decimal price = context.rooms.FirstOrDefault(x => x.id == room_id).price;
-                        int days = (enddate - startdate).Days + 1;
+
                         for (int i = 0; i < days; i++)
                         {
                             bookingdetails b = new bookingdetails();

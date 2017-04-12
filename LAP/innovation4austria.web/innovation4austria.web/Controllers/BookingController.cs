@@ -27,6 +27,16 @@ namespace innovation4austria.web.Controllers
             portalusers user = new portalusers();
             user = UserAdministration.GetUser(User.Identity.Name);
 
+            // Firmen für Dropdownliste
+            List<companies> dbCompanies = new List<companies>();
+            dbCompanies = CompanyAdministration.GetCompanies();
+
+            model.Companies = new List<CompanyModel>();
+            foreach (var c in dbCompanies)
+            {
+                model.Companies.Add(new CompanyModel() { ID = c.id, CompanyName = c.companyname });
+            }
+
             //Werte ummappen
             string startString = startdate.Substring(0, 10);
             string endString = enddate.Substring(0, 10);
@@ -51,7 +61,8 @@ namespace innovation4austria.web.Controllers
 
             return View(model);
         }
-        
+
+
         public ActionResult RoomBooking(string startdate, string enddate, int room_id, int? company_id)
         {
 
@@ -63,16 +74,18 @@ namespace innovation4austria.web.Controllers
             {
                 if (BookingAdministration.CreateBooking(room_id, (int)company_id, startdate, enddate))
                 {
-                    
+
                     if (User.IsInRole("Admin"))
                     {
                         return RedirectToAction("Index", "Company", new { id = company_id });
                     }
+                    else
+                    {
+                        return RedirectToAction("Index", "Room");
+                    }
+
                 }
-                else
-                {
-                    return RedirectToAction("Index", "Room");
-                }
+
             }
             string email = User.Identity.Name;
             return RedirectToAction("RoomBooking", "Booking", new { id = email });

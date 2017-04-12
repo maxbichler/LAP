@@ -22,6 +22,5 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\bin\Debug\EntityFramework.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\bin\Debug\EntityFramework.xml
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\bin\Debug\de\EntityFramework.resources.dll
-C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\obj\Debug\innovation4austria.dataAccess.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\obj\Debug\innovation4austria.dataAccess.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.dataAccess\obj\Debug\innovation4austria.dataAccess.pdb

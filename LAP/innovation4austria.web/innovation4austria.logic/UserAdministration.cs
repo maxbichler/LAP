@@ -70,7 +70,7 @@ namespace innovation4austria.logic
             {
                 try
                 {
-                    user = context.portalusers.Include("companies").Include("bookings").Include("bookingreversals").Include("portalroles").Include("bills").Where(x => x.email == email).FirstOrDefault();
+                    user = context.portalusers.Include("companies").Include("bookingreversals").Include("portalroles").Include("bills").Where(x => x.email == email).FirstOrDefault();
                 }
                 catch (Exception ex)
                 {

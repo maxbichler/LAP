@@ -15,7 +15,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="booking_id" Type="int" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
-    <Property Name="bill_id" Type="int" Nullable="false" />
+    <Property Name="bill_id" Type="int" />
     <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
     <Property Name="ispaid" Type="bit" Nullable="false" />
   </EntityType>
@@ -34,7 +34,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="room_id" Type="int" Nullable="false" />
-    <Property Name="portaluser_id" Type="int" Nullable="false" />
+    <Property Name="company_id" Type="int" Nullable="false" />
     <Property Name="startdate" Type="datetime" Nullable="false" />
     <Property Name="enddate" Type="datetime" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
@@ -55,6 +55,8 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.contacts' ist kein Primärschlü
   <EntityType Name="contacts">
     <Key>
       <PropertyRef Name="id" />
+      <PropertyRef Name="portaluser_id" />
+      <PropertyRef Name="company_id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="portaluser_id" Type="int" Nullable="false" />
@@ -148,7 +150,7 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     </ReferentialConstraint>
   </Association>
   <Association Name="fk_bookingdetails_bills">
-    <End Role="bills" Type="Self.bills" Multiplicity="1" />
+    <End Role="bills" Type="Self.bills" Multiplicity="0..1" />
     <End Role="bookingdetails" Type="Self.bookingdetails" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="bills">
@@ -195,15 +197,15 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="fk_bookings_portalusers">
-    <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+  <Association Name="fk_bookings_companies">
+    <End Role="companies" Type="Self.companies" Multiplicity="1" />
     <End Role="bookings" Type="Self.bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="portalusers">
+      <Principal Role="companies">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="bookings">
-        <PropertyRef Name="portaluser_id" />
+        <PropertyRef Name="company_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -240,6 +242,18 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
       </Principal>
       <Dependent Role="contacts">
         <PropertyRef Name="portaluser_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_portalusers_companies">
+    <End Role="companies" Type="Self.companies" Multiplicity="1" />
+    <End Role="portalusers" Type="Self.portalusers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="companies">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="portalusers">
+        <PropertyRef Name="company_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -341,8 +355,8 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
       <End Role="portalusers" EntitySet="portalusers" />
       <End Role="bookingreversals" EntitySet="bookingreversals" />
     </AssociationSet>
-    <AssociationSet Name="fk_bookings_portalusers" Association="Self.fk_bookings_portalusers">
-      <End Role="portalusers" EntitySet="portalusers" />
+    <AssociationSet Name="fk_bookings_companies" Association="Self.fk_bookings_companies">
+      <End Role="companies" EntitySet="companies" />
       <End Role="bookings" EntitySet="bookings" />
     </AssociationSet>
     <AssociationSet Name="fk_bookings_rooms" Association="Self.fk_bookings_rooms">
@@ -356,6 +370,10 @@ FROM [dbo].[Log] AS [Log]</DefiningQuery>
     <AssociationSet Name="fk_contacts_portalusers" Association="Self.fk_contacts_portalusers">
       <End Role="portalusers" EntitySet="portalusers" />
       <End Role="contacts" EntitySet="contacts" />
+    </AssociationSet>
+    <AssociationSet Name="fk_portalusers_companies" Association="Self.fk_portalusers_companies">
+      <End Role="companies" EntitySet="companies" />
+      <End Role="portalusers" EntitySet="portalusers" />
     </AssociationSet>
     <AssociationSet Name="fk_portalusers_portalroles" Association="Self.fk_portalusers_portalroles">
       <End Role="portalroles" EntitySet="portalroles" />

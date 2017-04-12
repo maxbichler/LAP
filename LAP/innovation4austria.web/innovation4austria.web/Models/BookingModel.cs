@@ -26,5 +26,7 @@ namespace innovation4austria.web.Models
         public double EndPrice { get; set; }
 
         public RoomModel Rooms { get; set; }
+
+        public List<CompanyModel> Companies { get; set; }
     }
 }

@@ -41,7 +41,7 @@ CREATE TABLE bookingdetails(
 id INT IDENTITY(1,1) NOT NULL,
 booking_id INT NOT NULL,
 date DATETIME NOT NULL,
-bill_id INT NOT NULL,
+bill_id INT NULL,
 price decimal NOT NULL,
 ispaid BIT NOT NULL
 )

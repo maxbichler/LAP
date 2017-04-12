@@ -9,47 +9,6 @@
 @if (User.IsInRole("admin"))
 {
     <div class="container">
-        <h2>Alle Räume</h2>
-        <table class="table">
-            <tr>
-                <th>
-                    <label>Geb&auml;ude</label>
-                </th>
-                <th>
-                    <label>Beschreibung</label>
-                </th>
-                <th>
-                    <label>Preis</label>
-                </th>
-                <th></th>
-            </tr>
-
-            @foreach (var item in Model.Rooms)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Facility_Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.ID })|
-                        @Html.ActionLink("Details", "roomdetail", new { id = item.ID })|
-                        @Html.ActionLink("Löschen", "Delete", new { id = item.ID })
-                    </td>
-                </tr>
-            }
-
-        </table>
-    </div>
-}
-else
-{
-    <div class="container">
 
         <div>
             Filter
@@ -109,37 +68,140 @@ else
                 </th>
             </tr>
 
-            @foreach (var item in Model.Rooms)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Facility_Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        @foreach (var f in item.Furnishings)
-                    {
-                            @Html.DisplayFor(modelItem => f.Description)
-                        }
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("Room", "Booking", FormMethod.Get))
+                        @foreach (var item in Model.Rooms)
                         {
-                            <input type="hidden" value="@item.ID" name="id" />
-                            <input type="hidden" value="@Model.Filter.StartDate" name="startdate" />
-                            <input type="hidden" value="@Model.Filter.EndDate" name="enddate" />
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Facility_Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Price)
+                                </td>
+                                <td>
+                                    @foreach (var f in item.Furnishings)
+                    {
+                                        @Html.DisplayFor(modelItem => f.Description)
+                                    }
+                                </td>
 
-                            <input type="submit" value="Buchen" />
-                        }
-                    </td>
-                </tr>
+                                <td>
+                                    @using (Html.BeginForm("Room", "Booking", FormMethod.Get))
+                                    {
+                                        <input type="hidden" value="@item.ID" name="id" />
+                                        <input type="hidden" value="@Model.Filter.StartDate" name="startdate" />
+                                        <input type="hidden" value="@Model.Filter.EndDate" name="enddate" />
+
+                                        <input type="submit" value="Buchen" />
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Neuen Raum erstellen", "createroom", new { id = item.ID })|
+                                    @Html.ActionLink("Details", "roomdetail", new { id = item.ID })|
+                                    @Html.ActionLink("Löschen", "Delete", new { id = item.ID })
+                                </td>
+                            </tr>
+           
             }
 
         </table>
     </div>
+}
+else
+{
+<div class="container">
+
+    <div>
+        Filter
+        <br />
+        @using (Html.BeginForm("Filter", "Room", new AjaxOptions() { HttpMethod = "Post", InsertionMode = InsertionMode.Replace, UpdateTargetId = "result" }))
+            {
+            @Html.Label("Start Datum")
+            @*@Html.TextBoxFor(x => x.Filter.StartDate)*@
+            <input type="text" name="startdate" value="@Model.Filter.StartDate.ToShortDateString()" />
+
+                @Html.Label("End Datum")
+                @*@Html.TextBoxFor(x => x.Filter.EndDate)*@
+                <input type="text" name="enddate" value="@Model.Filter.EndDate.ToShortDateString()" />
+
+                @Html.Label("Gebäude")
+                @*@Html.TextBoxFor(x => x.Filter.Facility)*@
+                <input type="text" name="facility" value="@Model.Filter.Facility" />
+
+                @*@Html.ListBoxFor(x => x.Filter.Furnishings, new SelectList(Model.Filter.Furnishings, "Id", "Description"), new { @name = "Furnishings" })*@
+
+        {
+            SelectList sl = new SelectList(Model.Filter.Furnishings, "Id", "Description");
+
+            @Html.ListBox("furnishingId", sl)
+        }
+
+        @Html.Label("Preis")
+            @*@Html.TextBoxFor(x => x.Filter.Price)*@
+            <input type="text" name="price" value="@Model.Filter.Price" />
+
+                <br />
+                @*<div class="row">
+                    <div class="col-xs-12 text-center">*@
+                <input type="submit" class="btn btn-primary btn-lg" value="Filtern" />
+                <a href="@Url.Action("Reset", "Room")" class="btn btn-primary btn-lg">Filter zurücksetzen</a>
+                @*</div>
+                    </div>*@
+        }
+
+
+    </div>
+
+    <h2>Alle Räume</h2>
+    <table class="table" id="result">
+        <tr>
+            <th>
+                <label>Geb&auml;ude</label>
+            </th>
+            <th>
+                <label>Beschreibung</label>
+            </th>
+            <th>
+                <label>Preis</label>
+            </th>
+            <th>
+                <label>Ausstattung</label>
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Rooms)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Facility_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @foreach (var f in item.Furnishings)
+                    {
+                        @Html.DisplayFor(modelItem => f.Description)
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("Room", "Booking", FormMethod.Get))
+                    {
+                        <input type="hidden" value="@item.ID" name="id" />
+                            <input type="hidden" value="@Model.Filter.StartDate" name="startdate" />
+                            <input type="hidden" value="@Model.Filter.EndDate" name="enddate" />
+
+                            <input type="submit" value="Buchen" />
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
 }
