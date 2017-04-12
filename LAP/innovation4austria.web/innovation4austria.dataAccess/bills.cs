@@ -21,9 +21,9 @@ namespace innovation4austria.dataAccess
     
         public int id { get; set; }
         public System.DateTime date { get; set; }
-        public int portaluser_id { get; set; }
+        public int company_id { get; set; }
     
-        public virtual portalusers portalusers { get; set; }
         public virtual ICollection<bookingdetails> bookingdetails { get; set; }
+        public virtual companies companies { get; set; }
     }
 }

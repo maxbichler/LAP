@@ -231,6 +231,7 @@ C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\
 C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.dll
 C:\Users\bichmaxi\Desktop\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.pdb
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\ApplicationInsights.config
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\roslyn\csc.exe
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -261,6 +262,7 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Newtonsoft.Json.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Rotativa.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.Helpers.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.Mvc.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\System.Web.Optimization.dll
@@ -288,6 +290,5 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Antlr3.Runtime.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\Newtonsoft.Json.xml
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\bin\de\EntityFramework.resources.dll
-C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.web\obj\Debug\innovation4austria.web.pdb

@@ -20,6 +20,8 @@ namespace innovation4austria.web.Controllers
 
         public ActionResult Bills(int bill_id)
         {
+            int company_id = UserAdministration.GetCompanyIdFromUser(User.Identity.Name);
+
             List<bills> allBills = BillAdministration.GetBills();
             List<BillModel> model = new List<BillModel>();
 
@@ -29,7 +31,7 @@ namespace innovation4austria.web.Controllers
                 {
                     ID = bill.id,
                     Date = bill.date,
-                    Portaluser_ID = bill.portaluser_id
+                    Company_ID = bill.company_id
                 });
             }
 

@@ -19,6 +19,7 @@ namespace innovation4austria.dataAccess
             this.bookings = new HashSet<bookings>();
             this.contacts = new HashSet<contacts>();
             this.portalusers = new HashSet<portalusers>();
+            this.bills = new HashSet<bills>();
         }
     
         public int id { get; set; }
@@ -31,5 +32,6 @@ namespace innovation4austria.dataAccess
         public virtual ICollection<bookings> bookings { get; set; }
         public virtual ICollection<contacts> contacts { get; set; }
         public virtual ICollection<portalusers> portalusers { get; set; }
+        public virtual ICollection<bills> bills { get; set; }
     }
 }

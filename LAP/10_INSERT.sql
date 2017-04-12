@@ -228,11 +228,11 @@ INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(4,4,'2
 INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(5,5,'2017-13-01', '2017-16-01', 500);
 GO
 
-INSERT INTO bills(date,portaluser_id) VALUES('2016-08-09',1);
-INSERT INTO bills(date,portaluser_id) VALUES('2016-20-06',1);
-INSERT INTO bills(date,portaluser_id) VALUES('2016-27-06',1);
-INSERT INTO bills(date,portaluser_id) VALUES('2017-08-01',1);
-INSERT INTO bills(date,portaluser_id) VALUES('2017-20-01',1);
+INSERT INTO bills(date,company_id) VALUES('2016-08-09',1);
+INSERT INTO bills(date,company_id) VALUES('2016-20-06',1);
+INSERT INTO bills(date,company_id) VALUES('2016-27-06',1);
+INSERT INTO bills(date,company_id) VALUES('2017-08-01',1);
+INSERT INTO bills(date,company_id) VALUES('2017-20-01',1);
 Go
 
 INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(1,'2016-08-01',1, 100, 'true');

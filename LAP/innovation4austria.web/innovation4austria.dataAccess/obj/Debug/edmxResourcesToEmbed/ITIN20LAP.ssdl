@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="date" Type="datetime" Nullable="false" />
-    <Property Name="portaluser_id" Type="int" Nullable="false" />
+    <Property Name="company_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="bookingdetails">
     <Key>
@@ -137,15 +137,15 @@ Warnung 6002: Für Tabelle/Sicht 'ITIN20LAP.dbo.Log' ist kein Primärschlüssel 
     <Property Name="description" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="price" Type="decimal" Precision="6" Scale="2" Nullable="false" />
   </EntityType>
-  <Association Name="fk_bills_portalusers">
-    <End Role="portalusers" Type="Self.portalusers" Multiplicity="1" />
+  <Association Name="fk_bills_companies">
+    <End Role="companies" Type="Self.companies" Multiplicity="1" />
     <End Role="bills" Type="Self.bills" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="portalusers">
+      <Principal Role="companies">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="bills">
-        <PropertyRef Name="portaluser_id" />
+        <PropertyRef Name="company_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -335,8 +335,8 @@ FROM [dbo].[contacts] AS [contacts]</DefiningQuery>
 [Log].[Exception] AS [Exception]
 FROM [dbo].[Log] AS [Log]</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="fk_bills_portalusers" Association="Self.fk_bills_portalusers">
-      <End Role="portalusers" EntitySet="portalusers" />
+    <AssociationSet Name="fk_bills_companies" Association="Self.fk_bills_companies">
+      <End Role="companies" EntitySet="companies" />
       <End Role="bills" EntitySet="bills" />
     </AssociationSet>
     <AssociationSet Name="fk_bookingdetails_bills" Association="Self.fk_bookingdetails_bills">

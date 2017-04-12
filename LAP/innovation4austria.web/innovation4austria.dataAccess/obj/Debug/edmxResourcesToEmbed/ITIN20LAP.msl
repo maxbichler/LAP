@@ -4,9 +4,9 @@
     <EntitySetMapping Name="bills">
       <EntityTypeMapping TypeName="ITIN20LAPModel.bills">
         <MappingFragment StoreEntitySet="bills">
+          <ScalarProperty Name="company_id" ColumnName="company_id" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="date" ColumnName="date" />
-          <ScalarProperty Name="portaluser_id" ColumnName="portaluser_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

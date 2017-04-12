@@ -109,6 +109,6 @@ GO
 
 ALTER TABLE bills 
 ADD
-CONSTRAINT fk_bills_portalusers
-FOREIGN KEY (portaluser_id)
-REFERENCES portalusers(id)
+CONSTRAINT fk_bills_companies
+FOREIGN KEY (company_id)
+REFERENCES companies(id)

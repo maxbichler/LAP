@@ -49,7 +49,7 @@ ispaid BIT NOT NULL
 CREATE TABLE bills(
 id INT IDENTITY(1,1) NOT NULL,
 date DATETIME NOT NULL,
-portaluser_id INT NOT NULL
+company_id INT NOT NULL
 )
 
 CREATE TABLE portalusers(

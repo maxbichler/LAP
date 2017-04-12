@@ -5,12 +5,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="00c6710c57954446a8fba8be716085b4" Name="Diagram1">
-        <EntityTypeShape EntityType="ITIN20LAPModel.bills" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.bills" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.bookingdetails" Width="1.5" PointX="10.5" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.bookingreversals" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.bookings" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.companies" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ITIN20LAPModel.facilities" Width="1.5" PointX="1.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ITIN20LAPModel.facilities" Width="1.5" PointX="2.5" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.furnishings" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalroles" Width="1.5" PointX="3.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.portalusers" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
@@ -18,7 +18,6 @@
         <EntityTypeShape EntityType="ITIN20LAPModel.rooms" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.contacts" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ITIN20LAPModel.Log" Width="1.5" PointX="10.75" PointY="1.75" IsExpanded="true" />
-        <AssociationConnector Association="ITIN20LAPModel.fk_bills_portalusers" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_bookingdetails_bills" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_bookingdetails_bookings" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_bookingreversals_bookings" ManuallyRouted="false" />
@@ -32,6 +31,7 @@
         <AssociationConnector Association="ITIN20LAPModel.fk_portalusers_portalroles" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_contacts_portalusers" ManuallyRouted="false" />
         <AssociationConnector Association="ITIN20LAPModel.fk_roomfurnishings_rooms" ManuallyRouted="false" />
+        <AssociationConnector Association="ITIN20LAPModel.fk_bills_companies" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

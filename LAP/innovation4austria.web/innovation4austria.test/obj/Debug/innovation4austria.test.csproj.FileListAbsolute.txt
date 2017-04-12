@@ -2,5 +2,6 @@ C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\bin\Debug\innovation4austria.test.pdb
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\obj\Debug\innovation4austria.test.csprojResolveAssemblyReference.cache
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\obj\Debug\innovation4austria.test.dll
 C:\Users\bichmaxi\Source\Repos\LAP\LAP\innovation4austria.web\innovation4austria.test\obj\Debug\innovation4austria.test.pdb

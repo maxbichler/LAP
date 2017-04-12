@@ -16,7 +16,6 @@ namespace innovation4austria.dataAccess
     {
         public portalusers()
         {
-            this.bills = new HashSet<bills>();
             this.bookingreversals = new HashSet<bookingreversals>();
             this.contacts = new HashSet<contacts>();
         }
@@ -30,7 +29,6 @@ namespace innovation4austria.dataAccess
         public string lastname { get; set; }
         public bool active { get; set; }
     
-        public virtual ICollection<bills> bills { get; set; }
         public virtual ICollection<bookingreversals> bookingreversals { get; set; }
         public virtual companies companies { get; set; }
         public virtual portalroles portalroles { get; set; }
