@@ -1,0 +1,56 @@
+﻿@model IEnumerable<innovation4austria.web.Models.CreateBillModel>
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<div class="container">
+    <table>
+        <tr>
+            <th>Jahr</th>
+            <th>Monat</th>
+            <th>Status</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Year
+                </td>
+                <td>
+                    @item.Month
+                </td>
+                <td>
+                    @if (item.IsPaid)
+                {
+                        <p><i>Bereits bezahlt</i></p>
+                    }
+                    else if (!item.BookingExist)
+                    {
+                        <span><i>Keine Buchungen vorhanden</i></span>
+                    }
+                    else if (item.SoonestBillDate > DateTime.Now)
+                    {
+                        <span>Kann erst nächstes Monat abgerechnet werden!</span>
+                    }
+                    else
+                    {
+                        using (Html.BeginForm("Create", "Bill"))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.Hidden("month", item.Month, new { name = "month" })
+                            @Html.Hidden("year", item.Year, new { name = "year" })
+                            @*<input type="submit" class="btn btn-default" value="Rechnungen erzeugen" />*@
+
+                        }
+
+                    }
+                </td>
+            </tr>
+
+        }
+    </table>
+        <input type="submit" class="btn btn-default" value="Rechnungen jetzt erzeugen" />
+
+</div>

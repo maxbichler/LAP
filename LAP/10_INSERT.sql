@@ -221,25 +221,27 @@ INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, ac
 INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,5,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(1,1,'2016-01-09', '2016-30-09', 100);
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(2,2,'2016-13-06', '2016-01-7', 200);
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(3,3,'2016-20-06', '2016-01-09', 300);
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(4,4,'2017-01-01', '2017-01-06', 400);
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(5,5,'2017-13-01', '2017-16-01', 500);
+INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(1,1,'2016-01-09', '2016-03-09', 100);
+--INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(2,2,'2016-13-06', '2016-01-7', 200);
+--INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(3,3,'2016-20-06', '2016-01-09', 300);
+--INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(4,4,'2017-01-01', '2017-01-06', 400);
+--INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(5,5,'2017-13-01', '2017-16-01', 500);
 GO
 
-INSERT INTO bills(date,company_id) VALUES('2016-08-09',1);
-INSERT INTO bills(date,company_id) VALUES('2016-20-06',1);
-INSERT INTO bills(date,company_id) VALUES('2016-27-06',1);
-INSERT INTO bills(date,company_id) VALUES('2017-08-01',1);
-INSERT INTO bills(date,company_id) VALUES('2017-20-01',1);
-Go
+--INSERT INTO bills(date,company_id) VALUES('2016-08-09',1);
+--INSERT INTO bills(date,company_id) VALUES('2016-20-06',1);
+--INSERT INTO bills(date,company_id) VALUES('2016-27-06',1);
+--INSERT INTO bills(date,company_id) VALUES('2017-08-01',1);
+--INSERT INTO bills(date,company_id) VALUES('2017-20-01',1);
+--Go
 
-INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(1,'2016-08-01',1, 100, 'true');
-INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(2,'2016-20-06',2, 200, 'true');
-INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(3,'2016-27-06',3, 300, 'true');
-INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(4,'2017-08-01',4, 400, 'false');
-INSERT INTO bookingdetails(bill_id,date,booking_id, price, ispaid) VALUES(5,'2017-20-01',5, 500, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-01-09',1, 100, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-02-09',1, 100, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-03-09',1, 100, 'true');
+--INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-20-06',2, 200, 'true');
+--INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-27-06',3, 300, 'true');
+--INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-08-01',4, 400, 'false');
+--INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-20-01',5, 500, 'true');
 GO
 
 INSERT INTO contacts(portaluser_id,company_id) VALUES(1,1);
@@ -249,9 +251,9 @@ INSERT INTO contacts(portaluser_id,company_id) VALUES(4,4);
 INSERT INTO contacts(portaluser_id,company_id) VALUES(5,5);
 GO
 
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(1,1,'Fehlbuchung');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(2,2,'Systemfehler');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(3,3,'User verschulden Fehlbuchung');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(4,4,'Mitarbeiter verschulden Fehlbuchung');
-INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(5,5,'Insert Reason');
-GO
+	--INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(1,1,'Fehlbuchung');
+	--INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(2,2,'Systemfehler');
+	--INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(3,3,'User verschulden Fehlbuchung');
+	--INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(4,4,'Mitarbeiter verschulden Fehlbuchung');
+	--INSERT INTO bookingreversals(booking_id,portaluser_id,reason) VALUES(5,5,'Insert Reason');
+	--GO

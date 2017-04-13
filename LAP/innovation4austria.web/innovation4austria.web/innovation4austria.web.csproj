@@ -151,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppCode\Constants.cs" />
+    <Compile Include="AppCode\Enum.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Models\BookingModel.cs" />
     <Compile Include="Models\CompanyDetailModel.cs" />
     <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CreateBillModel.cs" />
     <Compile Include="Models\CreateEmployeModel.cs" />
     <Compile Include="Models\CreateFurnishingModel.cs" />
     <Compile Include="Models\CreateRoomModel.cs" />
@@ -276,10 +278,11 @@
     <Content Include="Views\Room\CreateFurnishing.cshtml" />
     <Content Include="Views\Booking\Room.cshtml" />
     <Content Include="Views\Booking\RoomBooking.cshtml" />
+    <Content Include="Views\Bill\CompanyBills.cshtml" />
+    <Content Include="Views\Bill\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Bill\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
