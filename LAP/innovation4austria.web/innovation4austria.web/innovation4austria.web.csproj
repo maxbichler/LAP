@@ -181,6 +181,7 @@
     <Compile Include="Models\FilterModel.cs" />
     <Compile Include="Models\FurnishingModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\PdfModel.cs" />
     <Compile Include="Models\ProfileDataModel.cs" />
     <Compile Include="Models\ProfileModel.cs" />
     <Compile Include="Models\ProfilePasswordModel.cs" />
@@ -280,6 +281,7 @@
     <Content Include="Views\Booking\RoomBooking.cshtml" />
     <Content Include="Views\Bill\CompanyBills.cshtml" />
     <Content Include="Views\Bill\Create.cshtml" />
+    <Content Include="Views\Bill\GeneratePDF.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

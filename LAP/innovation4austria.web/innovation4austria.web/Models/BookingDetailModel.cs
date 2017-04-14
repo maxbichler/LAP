@@ -18,5 +18,7 @@ namespace innovation4austria.web.Models
         public decimal Price { get; set; }
 
         public bool IsPaid { get; set; }
+
+        public string Room { get; set; }
     }
 }

@@ -83,7 +83,7 @@ namespace innovation4austria.logic
             {
                 try
                 {
-                    List<bookings> booking = context.bookingdetails.Where(x => x.date >= startdate && x.date <= enddate).Select(y => y.bookings).ToList();
+                    List<bookings> booking = context.bookings.Where(x => x.startdate >= startdate && x.enddate <= enddate).ToList();
                     if (booking == null || booking.Count() <= 0)
                     {
                         exists = false;
@@ -102,37 +102,6 @@ namespace innovation4austria.logic
 
 
             return exists;
-        }
-
-        public static bool CreateBills(int month, int year)
-        {
-            bool created = false;
-            DateTime startdate = new DateTime(year, month, 1);
-            DateTime enddate = startdate.AddMonths(1).AddDays(-1);
-            using (var context = new ITIN20LAPEntities())
-            {
-                try
-                {
-                    int bills = context.bookings.Where(x => x.startdate == startdate && x.enddate == enddate).Count();
-                    if (bills > 0)
-                    {
-                        created = false;
-                    }
-                    else
-                    {
-                        foreach (var company in context.companies)
-                        {
-                            CreateCompanyBills(company.id, startdate, enddate);
-                        }
-                        created = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
-            return created;
         }
         public static bool CreateCompanyBills(int company_id, DateTime startdate, DateTime enddate)
         {
@@ -165,6 +134,96 @@ namespace innovation4austria.logic
                 }
             }
             return erstellenerfolgreich;
+        }
+        public static bool CreateBills()
+        {
+
+            DateTime end = DateTime.Now.Subtract(new TimeSpan(DateTime.Now.Day, 0, 0, 0));
+            DateTime start = new DateTime(end.Year, end.Month, 1);
+
+            DateTime billDate = new DateTime(start.Year, start.Month, start.Day);
+            billDate = billDate.AddMonths(1);
+
+            List<bookingdetails> bdList = new List<bookingdetails>();
+            bdList = BookingAdministration.GetAllBookingDetails(start, end);
+            bdList = bdList.Where(x => x.bill_id == null).ToList();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    if (bdList == null || bdList.Count == 0)
+                    {
+                        return false;
+                    }
+                    // prüfe ob schon einmal abrechnungen gemacht wurden
+                    if (context.bills.Any(x => x.date.Month == billDate.Month && x.date.Year == billDate.Year))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        foreach (var comp in context.companies.Include("bookings"))
+                        {
+                            if (bdList.Any(x => x.bookings.company_id == comp.id))
+                            {
+
+                                bills newBill = new bills();
+                                newBill.date = billDate;
+                                newBill.company_id = comp.id;
+                                context.bills.Add(newBill);
+
+                                //context.SaveChanges();
+
+
+                                List<bookingdetails> bookingdetails = context.bookingdetails.Where(x => x.bill_id == null && x.bookings.company_id == comp.id && x.date >= start && x.date <= end).ToList();
+
+
+                                foreach (var bd in bookingdetails)
+                                {
+                                    if (bd.bill_id == null)
+                                    {
+                                        bd.bills = newBill;
+                                        //bd.bill_id = newBill.id;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public static bills GetBillById(int id)
+        {
+            bills foundBill = new bills();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    foreach (var b in context.bills.Include("bookingdetails"))
+                    {
+                        if (b.id == id)
+                        {
+                            foundBill = b;
+                        }
+                    }
+                }
+
+                return foundBill;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

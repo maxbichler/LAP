@@ -18,6 +18,8 @@ namespace innovation4austria.web.AppCode
             public const string ProfilePassInvalid = "Ungültige Daten beim Ändern Ihres Passworts!";
             public const string CompanyDataInvalid = "Firmen Daten ungültig!";
             public const string CreateEmployeInvalid = "Ungültige Daten beim erstellen des Mitarbeiters";
+            public const string BillFail = "Keine Buchung vorhanden";
+            public const string BillSuccess = "Rechnung wurde erfolgreich erstellt";
         }
 
         public class Roles

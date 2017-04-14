@@ -1,0 +1,62 @@
+﻿@model innovation4austria.web.Models.PdfModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <link rel="stylesheet" href="~/Content/BillDetail.css" />
+</head>
+<body>
+    <header>
+        <address>
+            <p>innovations4austria GmbH</p>
+            <p>1030 Wien,<br />Simmeringer Hauptstra&szlig;e 47</p>
+            <p>(0043)1 321 456789</p>
+        </address>
+        <span><img alt="Signet" src="~/Content/img/favicon-96x96.png" /></span>
+    </header>
+    <article>
+        <table class="meta">
+            <tr>
+                <th>PostenNr.:</th>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <th>Datum:</th>
+                <td>@Model.Billdate.ToShortDateString()</td>
+            </tr>
+        </table>
+        <table class="inventory">
+            <thead>
+                <tr>
+                    <th>Raum</th>
+                    <th>Datum</th>
+                    <th>Preis</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Bookingdetails)
+                {
+                    <tr>
+                        <td>@item.Room</td>
+                        <td>@item.Date.ToShortDateString()</td>
+                        <td>&euro; @item.Price</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <table class="balance">
+            <tr>
+                <th>Gesamtpreis</th>
+                <td>&euro; @Model.Price</td>
+            </tr>
+        </table>
+    </article>
+</body>
+</html>

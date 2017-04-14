@@ -221,7 +221,7 @@ INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, ac
 INSERT INTO portalusers(role_id,company_id,email,password,firstname,lastname, active) VALUES(3,5,'bmarkovic@gmx.at',HASHBYTES('SHA2_512', '123user!'),'Bojan','Markovic', 'false');
 GO
 
-INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(1,1,'2016-01-09', '2016-03-09', 100);
+INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(1,1,'2017-01-03', '2017-03-03', 100);
 --INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(2,2,'2016-13-06', '2016-01-7', 200);
 --INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(3,3,'2016-20-06', '2016-01-09', 300);
 --INSERT INTO bookings(room_id,company_id,startdate, enddate, price) VALUES(4,4,'2017-01-01', '2017-01-06', 400);
@@ -235,9 +235,9 @@ GO
 --INSERT INTO bills(date,company_id) VALUES('2017-20-01',1);
 --Go
 
-INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-01-09',1, 100, 'true');
-INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-02-09',1, 100, 'true');
-INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-03-09',1, 100, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-01-03',1, 100, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-02-03',1, 100, 'true');
+INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-03-03',1, 100, 'true');
 --INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-20-06',2, 200, 'true');
 --INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2016-27-06',3, 300, 'true');
 --INSERT INTO bookingdetails(date,booking_id, price, ispaid) VALUES('2017-08-01',4, 400, 'false');

@@ -71,6 +71,28 @@ namespace innovation4austria.logic
             return bookingExists;
         }
 
+        public static List<bookingdetails> GetAllBookingDetails(DateTime start, DateTime end)
+        {
+            List<bookingdetails> allBookingdetails = new List<bookingdetails>();
+
+            try
+            {
+                using (var context = new ITIN20LAPEntities())
+                {
+                    foreach (var item in context.bookingdetails.Include("bookings").Where(x => x.date >= start && x.date <= end))
+                    {
+                        allBookingdetails.Add(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return allBookingdetails;
+        }
+
         public static bool CreateBooking(int room_id, int company_id, string start, string end)
         {
             bool createSuccess = false;
